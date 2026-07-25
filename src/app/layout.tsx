@@ -11,7 +11,6 @@ import Cursor from "@/components/Cursor/Cursor";
 // Handles global fonts, styles, and HTML shell.
 // ============================================================
 
-
 // ── GOOGLE FONTS ─────────────────────────────────────────────
 // Loaded via next/font for automatic optimization and zero layout shift.
 // Injected as CSS variables so SCSS can consume them via var(--font-poppins) etc.
