@@ -182,6 +182,16 @@ const projectsData = [
     liveDemo: "#",
     code: "#",
   },
+  {
+    id: 13,
+    image: "/assets/images/projects/indian-restro-html.png",
+    title: "Indian Restaurent",
+    description: "It is Fully static html page without CSS and JS",
+    tech: ["fab fa-html5"],
+    liveDemo: "https://indian-restro.staticdomains.app/",
+    code: "https://github.com/amolpawar24/HTML5/tree/main/PROJECTS/PROJECT%204"
+    
+  }
 ];
 
 export default projectsData;
