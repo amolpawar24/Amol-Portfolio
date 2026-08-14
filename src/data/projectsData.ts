@@ -188,7 +188,7 @@ const projectsData = [
     title: "Indian Restaurent",
     description: "It is Fully static html page without CSS and JS",
     tech: ["fab fa-html5"],
-    liveDemo: "https://indian-restro.staticdomains.app/",
+    liveDemo: "https://crimson-seal.staticdomains.app",
     code: "https://github.com/amolpawar24/HTML5/tree/main/PROJECTS/PROJECT%204"
     
   }
