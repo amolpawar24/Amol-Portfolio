@@ -8,7 +8,14 @@ type Props = {
   onViewAll: () => void;
 };
 
+const ITEMS_PER_PAGE = 6;
+
 export default function Projects({ onViewAll }: Props) {
+  // Show only first 6 projects
+  const currentProjects = projectsData.slice(
+    0,
+    ITEMS_PER_PAGE
+  );
 
   return (
     <div className="container">
@@ -29,28 +36,23 @@ export default function Projects({ onViewAll }: Props) {
 
       {/* ================= PROJECT ITEMS ================= */}
       <div className="row">
-
-        {projectsData.slice(0, 6).map((project, index) => (
-
+        {currentProjects.map((project) => (
           <ProjectCards
-            key={index}
+            key={project.id}
             project={project}
           />
-
         ))}
-
       </div>
 
       {/* ================= VIEW ALL BUTTON ================= */}
       <div className="projects-all">
-
         <button
+          type="button"
           className="view-all"
           onClick={onViewAll}
         >
           View All
         </button>
-
       </div>
 
     </div>

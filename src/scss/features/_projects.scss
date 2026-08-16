@@ -41,13 +41,23 @@
   .view-all {
     width: 180px;
     height: 45px;
+
     color: #ffffff;
     background-color: var(--skin-color);
+
     border: none;
     border-radius: 25px;
 
     font-size: 15px;
     font-weight: 600;
 
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(var(--skin-color-rgb), 0.5);
+    }
   }
 }

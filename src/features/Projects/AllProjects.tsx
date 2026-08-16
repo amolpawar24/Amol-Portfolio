@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
+
 import ProjectCards from "@/features/Projects/components/ProjectCards";
+import Pagination from "@/components/Pagination/Pagination";
 
 import projectsData from "@/data/projectsData";
 
@@ -8,7 +11,44 @@ type Props = {
   onBack: () => void;
 };
 
+const ITEMS_PER_PAGE = 6;
+
 export default function AllProjects({ onBack }: Props) {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // ================= TOTAL RECORDS =================
+
+  const totalRecords = projectsData.length;
+
+  // ================= TOTAL PAGES =================
+
+  const totalPages = Math.ceil(
+    totalRecords / ITEMS_PER_PAGE
+  );
+
+  // ================= START INDEX =================
+
+  const startIndex =
+    (currentPage - 1) * ITEMS_PER_PAGE;
+
+  // ================= CURRENT PROJECTS =================
+
+  const currentProjects = projectsData.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
+
+  // ================= PAGE CHANGE =================
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+
+    // Scroll back to projects section
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="container">
@@ -27,30 +67,33 @@ export default function AllProjects({ onBack }: Props) {
         </div>
       </div>
 
-      {/* ================= ALL PROJECTS ================= */}
+      {/* ================= PROJECT ITEMS ================= */}
       <div className="row">
-
-        {projectsData.map((project, index) => (
-
+        {currentProjects.map((project) => (
           <ProjectCards
-            key={index}
+            key={project.id}
             project={project}
           />
-
         ))}
-
       </div>
+
+      {/* ================= PAGINATION ================= */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        totalRecords={totalRecords}
+        onPageChange={handlePageChange}
+      />
 
       {/* ================= MAIN MENU BUTTON ================= */}
       <div className="projects-all">
-
         <button
+          type="button"
           className="view-all"
           onClick={onBack}
         >
           Main Menu
         </button>
-
       </div>
 
     </div>
