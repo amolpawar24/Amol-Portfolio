@@ -49,9 +49,26 @@ const projectsData = [
     liveDemo: "https://bpl-hub-2026.bpl-official-in.workers.dev/",
     code: "https://github.com/AMOL-DEV-24/BPL-HUB",
   },
-
   {
     id: 3,
+    image: "/assets/images/projects/Portfolio 5.png",
+    title: "Portfolio 5",
+    description:
+      "Portfolio 5 is a personal portfolio Next.js website with modern design and animations.",
+    tech: [
+      "fab fa-react",
+      "fas fa-wand-magic-sparkles",
+      "fas fa-mobile-screen",
+      "fas fa-bolt",
+      "fas fa-code",
+      "fas fa-palette",
+    ],
+    liveDemo: "https://amolpawar24.netlify.app/",
+    code: "#",
+  },
+
+  {
+    id: 4,
     image: "/assets/images/projects/Gym App.png",
     title: "GYM APP",
     description:
@@ -62,7 +79,7 @@ const projectsData = [
   },
 
   {
-    id: 4,
+    id: 5,
     image: "/assets/images/projects/Bike App.png",
     title: "BIKE APP",
     description:
@@ -79,7 +96,7 @@ const projectsData = [
   },
 
   {
-    id: 5,
+    id: 6,
     image: "/assets/images/projects/Pepsi.png",
     title: "PEPSI APP",
     description:
@@ -96,7 +113,7 @@ const projectsData = [
   },
 
   {
-    id: 6,
+    id: 7,
     image: "/assets/images/projects/HmBox2023.png",
     title: "HMBOX 2023",
     description:
@@ -113,13 +130,12 @@ const projectsData = [
     liveDemo: "https://hmbox2023.great-site.net/?i=1",
     code: "#",
   },
-
-  {
-    id: 7,
+   {
+    id: 8,
     image: "/assets/images/projects/portfolio 1.jpg",
-    title: "PORTFOLIO 1",
+    title: "Portfolio 1",
     description:
-      "Personal portfolio website with animations and responsive UI design.",
+      "Portfolio 1 is a personal portfolio React website with modern design and animations.",
     tech: [
       "fab fa-react",
       "fas fa-wand-magic-sparkles",
@@ -131,9 +147,60 @@ const projectsData = [
     liveDemo: "https://amol2404.netlify.app/",
     code: "#",
   },
+  {
+    id: 9,
+    image: "/assets/images/projects/Portfolio 2.png",
+    title: "Portfolio 2",
+    description:
+      "Portfolio 2 is a personal portfolio static website with modern  Neophormism design and animations.",
+    tech: [
+      "fab fa-react",
+      "fas fa-wand-magic-sparkles",
+      "fas fa-mobile-screen",
+      "fas fa-bolt",
+      "fas fa-code",
+      "fas fa-palette",
+    ],
+    liveDemo: "https://amol-portfolio2.netlify.app/",
+    code: "#",
+  },
+  {
+    id: 10,
+    image: "/assets/images/projects/Portfolio 3.png",
+    title: "Portfolio 3",
+    description:
+      "Portfolio 3 is a personal portfolio static website with modern design and animations.",
+    tech: [
+      "fab fa-react",
+      "fas fa-wand-magic-sparkles",
+      "fas fa-mobile-screen",
+      "fas fa-bolt",
+      "fas fa-code",
+      "fas fa-palette",
+    ],
+    liveDemo: "https://amol-portfolio3.netlify.app/",
+    code: "#",
+  },
+  {
+    id: 11,
+    image: "/assets/images/projects/Portfolio 4.png",
+    title: "Portfolio 4",
+    description:
+      "Portfolio 4 is a personal portfolio static website with modern design and animations.",
+    tech: [
+      "fab fa-react",
+      "fas fa-wand-magic-sparkles",
+      "fas fa-mobile-screen",
+      "fas fa-bolt",
+      "fas fa-code",
+      "fas fa-palette",
+    ],
+    liveDemo: "https://amol-portfolio4.netlify.app/",
+    code: "#",
+  },
 
   {
-    id: 8,
+    id: 12,
     image: "/assets/images/projects/Gymso-WebApp.png",
     title: "GYMSO WEBAPP",
     description:
@@ -144,7 +211,7 @@ const projectsData = [
   },
 
   {
-    id: 9,
+    id: 13,
     image: "/assets/images/projects/Cuda1.png",
     title: "CUDA 1",
     description: "Responsive business website hosted using GitHub Pages.",
@@ -154,7 +221,7 @@ const projectsData = [
   },
 
   {
-    id: 10,
+    id: 14,
     image: "/assets/images/projects/Restro.png",
     title: "RESTRO WEBAPP",
     description: "Restaurant landing page with elegant UI and animations.",
@@ -164,17 +231,7 @@ const projectsData = [
   },
 
   {
-    id: 11,
-    image: "/assets/images/projects/IplSchedule23.png",
-    title: "IPL SCHEDULE 2023",
-    description: "IPL Schedule web app displaying match tables and fixtures.",
-    tech: ["fab fa-html5", "fab fa-css3-alt", "fas fa-table"],
-    liveDemo: "https://iplschedule23.netlify.app/",
-    code: "https://github.com/2404AMOL/WEB-TECH/tree/main/PROJECTS/PROJECT%2014",
-  },
-
-  {
-    id: 12,
+    id: 15,
     image: "/assets/images/projects/Mobile Interface.png",
     title: "MOBILE INTERFACE",
     description: "Interactive mobile interface UI created using HTML and CSS.",
@@ -183,15 +240,15 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 13,
+    id: 16,
     image: "/assets/images/projects/indian-restro-html.png",
     title: "Indian Restaurent",
     description: "It is Fully static html page without CSS and JS",
     tech: ["fab fa-html5"],
     liveDemo: "https://crimson-seal.staticdomains.app",
-    code: "https://github.com/amolpawar24/HTML5/tree/main/PROJECTS/PROJECT%204"
-    
-  }
+    code: "https://github.com/amolpawar24/HTML5/tree/main/PROJECTS/PROJECT%204",
+  },
+ 
 ];
 
 export default projectsData;
