@@ -1,0 +1,403 @@
+/*! =====================================================
+   PAGINATION COMPONENT
+========================================================= */
+
+@use "../abstracts/breakpoints" as *;
+
+
+.pagination {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 25px 0;
+  padding: 15px 0;
+}
+
+
+/* =====================================================
+   PAGE INFORMATION
+========================================================= */
+
+.pagination-info {
+  color: var(--text-black-700);
+
+  font-size: 14px;
+  font-weight: 400;
+
+  white-space: nowrap;
+
+  strong {
+    color: var(--text-black-900);
+    font-weight: 600;
+  }
+}
+
+
+/* =====================================================
+   PAGINATION CONTROLS
+========================================================= */
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+/* =====================================================
+   PAGE NUMBERS
+========================================================= */
+
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+
+/* =====================================================
+   PREVIOUS / NEXT / NUMBER
+========================================================= */
+
+.pagination-button,
+.pagination-number {
+  min-width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10px;
+
+  border: 1px solid var(--bg-black-50);
+  border-radius: 5px;
+
+  background-color: var(--bg-black-100);
+  color: var(--text-black-700);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+
+/* =====================================================
+   PREV / NEXT
+========================================================= */
+
+.pagination-button {
+  padding: 0 14px;
+
+  &:hover:not(:disabled) {
+    color: #ffffff;
+
+    background-color: var(--skin-color);
+
+    border-color: var(--skin-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+
+/* =====================================================
+   PAGE NUMBER
+========================================================= */
+
+.pagination-number {
+
+  &:hover:not(.active) {
+    color: var(--skin-color);
+
+    border-color: var(--skin-color);
+  }
+}
+
+
+/* =====================================================
+   ACTIVE PAGE
+========================================================= */
+
+.pagination-number.active {
+  color: #ffffff;
+
+  background-color: var(--skin-color);
+
+  border-color: var(--skin-color);
+}
+
+
+/* =====================================================
+   TOTAL RECORDS
+========================================================= */
+
+.pagination-total {
+  color: var(--text-black-700);
+
+  font-size: 14px;
+  font-weight: 400;
+
+  white-space: nowrap;
+
+  strong {
+    color: var(--text-black-900);
+    font-weight: 600;
+  }
+}
+
+
+/*! =====================================================
+   PAGINATION RESPONSIVE
+========================================================= */
+
+
+/* =====================================================
+   XXL DEVICES — ≤ 1400px
+========================================================= */
+
+@include xxl {
+
+  .pagination {
+    margin: 25px 0;
+    padding: 15px 0;
+  }
+
+  .pagination-info,
+  .pagination-total {
+    font-size: 14px;
+  }
+
+  .pagination-button,
+  .pagination-number {
+    min-width: 38px;
+    height: 38px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =====================================================
+   XL DEVICES — ≤ 1200px
+========================================================= */
+
+@include xl {
+
+  .pagination {
+    margin: 25px 0;
+    padding: 15px 0;
+  }
+
+  .pagination-controls {
+    gap: 7px;
+  }
+
+  .pagination-numbers {
+    gap: 5px;
+  }
+
+  .pagination-button,
+  .pagination-number {
+    min-width: 37px;
+    height: 37px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =====================================================
+   LG DEVICES — ≤ 992px
+========================================================= */
+
+@include lg {
+
+  .pagination {
+    margin: 25px 0;
+    padding: 14px 0;
+  }
+
+  .pagination-controls {
+    gap: 6px;
+  }
+
+  .pagination-numbers {
+    gap: 4px;
+  }
+
+  .pagination-button,
+  .pagination-number {
+    min-width: 36px;
+    height: 36px;
+
+    padding: 0 9px;
+
+    font-size: 13px;
+  }
+
+  .pagination-button {
+    padding: 0 12px;
+  }
+
+  .pagination-info,
+  .pagination-total {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =====================================================
+   MD DEVICES — ≤ 768px
+========================================================= */
+
+@include md {
+
+  .pagination {
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+    padding: 15px 0;
+  }
+
+  .pagination-controls {
+    gap: 6px;
+  }
+
+  .pagination-numbers {
+    gap: 4px;
+  }
+
+  .pagination-button,
+  .pagination-number {
+    min-width: 36px;
+    height: 36px;
+
+    padding: 0 9px;
+
+    font-size: 13px;
+  }
+
+  .pagination-button {
+    padding: 0 12px;
+  }
+
+  .pagination-info,
+  .pagination-total {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =====================================================
+   SM DEVICES — ≤ 576px
+========================================================= */
+
+@include sm {
+
+  .pagination {
+    gap: 12px;
+
+    margin: 20px 0;
+
+    padding: 12px 0;
+  }
+
+  .pagination-controls {
+    gap: 5px;
+  }
+
+  .pagination-numbers {
+    gap: 4px;
+  }
+
+  .pagination-button,
+  .pagination-number {
+    min-width: 35px;
+    height: 35px;
+
+    padding: 0 8px;
+
+    font-size: 13px;
+  }
+
+  .pagination-button {
+    padding: 0 10px;
+  }
+
+  .pagination-info,
+  .pagination-total {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =====================================================
+   XS DEVICES — ≤ 480px
+========================================================= */
+
+@include xs {
+
+  .pagination {
+    width: 100%;
+
+    gap: 10px;
+
+    margin: 18px 0;
+
+    padding: 10px 0;
+  }
+
+  .pagination-controls {
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 4px;
+  }
+
+  .pagination-numbers {
+    gap: 3px;
+  }
+
+  .pagination-button,
+  .pagination-number {
+    min-width: 34px;
+    height: 34px;
+
+    padding: 0 7px;
+
+    font-size: 12px;
+  }
+
+  .pagination-button {
+    padding: 0 9px;
+  }
+
+  .pagination-info,
+  .pagination-total {
+    font-size: 12px;
+  }
+
+}
