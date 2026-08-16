@@ -75,7 +75,7 @@ const projectsData = [
       "Modern fitness web app with workout categories, exercise details, and responsive UI.",
     tech: ["fab fa-css3-alt", "fab fa-react", "fas fa-bolt"],
     liveDemo: "https://gym-app-three-rho.vercel.app/",
-    code: "https://github.com/2404AMOL/GYM-APP",
+    code: "https://gym24-webapp.netlify.app/",
   },
 
   {
@@ -91,7 +91,7 @@ const projectsData = [
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
     ],
-    liveDemo: "https://bike24.netlify.app/",
+    liveDemo: "https://bike24-website.netlify.app/",
     code: "https://github.com/24Amol/BIKE-WEBAPP24",
   },
 
@@ -108,7 +108,7 @@ const projectsData = [
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
     ],
-    liveDemo: "https://2404amol.github.io/PEPSI-WEBAPP/",
+    liveDemo: "https://pespsi24-website.netlify.app/",
     code: "https://github.com/2404AMOL/PEPSI-WEBAPP",
   },
 
@@ -144,7 +144,7 @@ const projectsData = [
       "fas fa-code",
       "fas fa-palette",
     ],
-    liveDemo: "https://amol2404.netlify.app/",
+    liveDemo: "https://amol-portfolio1.netlify.app/",
     code: "#",
   },
   {
@@ -206,7 +206,7 @@ const projectsData = [
     description:
       "Responsive gym landing page with flexbox layouts and animations.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fas fa-mobile-screen"],
-    liveDemo: "https://2404amol.github.io/GYMSO-WEBAPP/",
+    liveDemo: "https://gymso-website.netlify.app/",
     code: "https://github.com/2404AMOL/GYMSO-WEBAPP",
   },
 
@@ -216,7 +216,7 @@ const projectsData = [
     title: "CUDA 1",
     description: "Responsive business website hosted using GitHub Pages.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
-    liveDemo: "https://2404amol.github.io/CUDA/",
+    liveDemo: "https://cuda-website.netlify.app/",
     code: "https://github.com/2404AMOL/CUDA",
   },
 
