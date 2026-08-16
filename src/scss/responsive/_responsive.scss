@@ -42,7 +42,6 @@
 
   // ── Certifications ─────────────────────────────
   .certifications {
-
     .container {
       max-width: 1200px;
       padding-bottom: 70px;
@@ -53,7 +52,6 @@
     }
 
     .Certifications-item-inner {
-
       gap: 24px;
 
       padding: 26px;
@@ -62,7 +60,6 @@
     }
 
     .certificate-image {
-
       width: 220px;
       height: 145px;
 
@@ -70,14 +67,12 @@
     }
 
     .certificate-content h4 {
-
       font-size: 22px;
 
       margin-bottom: 14px;
     }
 
     .certificate-content span {
-
       font-size: 13px;
 
       padding: 9px 16px;
@@ -86,7 +81,6 @@
     }
 
     .certificate-content p {
-
       font-size: 15px;
 
       line-height: 27px;
@@ -137,30 +131,37 @@
   }
 
   // ── Projects ─────────────────────────────────────────
-  .projects .projects-heading h2 {
-    font-size: 30px;
-    margin-left: 15px;
-    margin-top: 15px;
-  }
-  .projects .projects-item-inner {
-    border-width: 6px;
-  }
-  .projects .projects-img {
-    height: 260px;
-  }
-  .projects .overlay h1 {
-    font-size: 22px;
-  }
-  .projects .overlay p {
-    font-size: 15px;
-    line-height: 25px;
-  }
-  .projects .button-1,
-  .projects .button-2,
-  .projects .view-all {
-    font-size: 15px;
-  }
 
+  .projects {
+    .projects-heading h2 {
+      font-size: 30px;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+
+    .projects-item-inner {
+      border-width: 6px;
+    }
+
+    .projects-img {
+      height: 260px;
+    }
+
+    .overlay h1 {
+      font-size: 22px;
+    }
+
+    .overlay p {
+      font-size: 15px;
+      line-height: 25px;
+    }
+
+    .button-1,
+    .button-2,
+    .view-all {
+      font-size: 15px;
+    }
+  }
   // ── Connect ──────────────────────────────────────────
   .connect .connect-title {
     font-size: 24px;
@@ -217,8 +218,7 @@
   }
 
   // ── Certifications ─────────────────────────────
-    .certifications {
-
+  .certifications {
     .Certifications-item {
       flex: 0 0 50%;
       max-width: 50%;
@@ -344,8 +344,7 @@
   }
 
   // ── Certifications ─────────────────────────────
-   .certifications {
-
+  .certifications {
     .Certifications-item {
       flex: 0 0 100%;
       max-width: 100%;
@@ -542,10 +541,8 @@
   }
 
   // ── Certifications ─────────────────────────────
-   .certifications {
-
+  .certifications {
     .Certifications-item-inner {
-
       flex-direction: column;
       align-items: flex-start;
 
@@ -555,7 +552,6 @@
     }
 
     .certificate-image {
-
       width: 100%;
       height: 230px;
     }
@@ -758,7 +754,6 @@
 
   // ── Certifications ─────────────────────────────
   .certifications {
-
     .container {
       padding-bottom: 40px;
     }
@@ -768,7 +763,6 @@
     }
 
     .Certifications-item-inner {
-
       gap: 16px;
 
       padding: 16px;
@@ -787,14 +781,12 @@
     }
 
     .certificate-content span {
-
       font-size: 10px;
 
       padding: 6px 12px;
     }
 
     .certificate-content p {
-
       font-size: 12px;
 
       line-height: 21px;
@@ -997,13 +989,11 @@
 
   // ── Certifications ─────────────────────────────
   .certifications {
-
     .Certifications-item {
       padding: 8px;
     }
 
     .Certifications-item-inner {
-
       padding: 14px;
 
       gap: 14px;
@@ -1020,20 +1010,17 @@
     }
 
     .certificate-content span {
-
       font-size: 9px;
 
       padding: 5px 10px;
     }
 
     .certificate-content p {
-
       font-size: 11px;
 
       line-height: 20px;
     }
   }
-
 
   // ── Tech Stack ───────────────────────────────────────
   .techstack .techstack-item {
