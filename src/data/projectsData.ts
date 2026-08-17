@@ -231,6 +231,33 @@ const projectsData = [
   },
   {
     id: 15,
+    image: "/assets/images/projects/Spotify Clone.png",
+    title: "SPOTIFY CLONE",
+    description: "Spotify clone with elegant UI and animations.",
+    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+    liveDemo: "https://full-turquoise-2hwvvsqo.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 16,
+    image: "/assets/images/projects/Neophormism  Profile Card.png",
+    title: "Neophormism Profile Card",
+    description: "Neophormism profile card with elegant UI and animations.",
+    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+    liveDemo: "https://main-yellow-fp4h8vov.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 17,
+    image: "/assets/images/projects/Transparent Profile Card.png",
+    title: "TRANSPARENT PROFILE CARD",
+    description: "Transparent profile card with elegant UI and animations.",
+    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+    liveDemo: "https://minimum-rose-zs4hparz.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 18,
     image: "/assets/images/projects/Incredible India.png",
     title: "INDIAN HISTORICAL PLACES",
     description: "Incredible India landing page with elegant UI and animations.",
@@ -239,8 +266,8 @@ const projectsData = [
     code: "#"
   },
   {
-    id: 16,
-    image: "public/assets/images/projects/Indian Beautiful Places.png",
+    id: 19,
+    image: "/assets/images/projects/Indian Beautiful Places.png",
     title: "INDIAN BEAUTIFUL PLACES",
     description: "Indian Beautiful Places landing page with elegant UI and animations.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
@@ -248,8 +275,8 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 17,
-    image: "public/assets/images/projects/Indian Cuisine.png",
+    id: 20,
+    image: "/assets/images/projects/Indian Cuisine.png",
     title: "INDIAN CUISINE",
     description: "Indian Cuisine landing page with elegant UI and animations.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
@@ -257,7 +284,7 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 18,
+    id: 21,
     image: "/assets/images/projects/IPL 2023 Schedule.png",
     title: "IPL 2023 SCHEDULE",
     description: "IPL 2023 Schedule landing page with elegant UI and animations.",
@@ -266,7 +293,7 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 19,
+    id: 22,
     image: "/assets/images/projects/Bulb Css.png",
     title: "BULB CSS",
     description: "Interactive bulb UI created using HTML and CSS.",
@@ -275,7 +302,7 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 20,
+    id: 23,
     image: "/assets/images/projects/indian-restro-html.png",
     title: "Indian Restaurent",
     description: "It is Fully static html page without CSS and JS",
