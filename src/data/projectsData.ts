@@ -130,7 +130,7 @@ const projectsData = [
     liveDemo: "https://hmbox2023.great-site.net/?i=1",
     code: "#",
   },
-   {
+  {
     id: 8,
     image: "/assets/images/projects/portfolio 1.jpg",
     title: "Portfolio 1",
@@ -219,18 +219,73 @@ const projectsData = [
     liveDemo: "https://cuda-website.netlify.app/",
     code: "https://github.com/2404AMOL/CUDA",
   },
-
   {
     id: 14,
+    image: "/assets/images/projects/Calculator.png",
+    title: "Calculator",
+    description: "It is javascript project made with Neophormism design",
+    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+    liveDemo: "https://victorious-red-hhkheze5.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 15,
+    image: "/assets/images/projects/Digital Clock.png",
+    title: "Digital Clock",
+    description: "Digital Clokc unique css design",
+    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+    liveDemo: "https://eastern-black-o1cojojk.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 16,
+    image: "/assets/images/projects/Generate QR.png",
+    title: "Generate QR Code",
+    description: "Genarate QR made by with JS",
+    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+    liveDemo: "https://satisfactory-blue-brwi1wxj.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 17,
+    image: "/assets/images/projects/Bulb Javascript.png",
+    title: "Bulb Using Javscript",
+    description: "Bulb using Javascript Action turing On and Off",
+    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+    liveDemo: "https://usual-sapphire-4r5szl9f.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 18,
+    image: "/assets/images/projects/Glowing Cube.png",
+    title: "Glowing Cube",
+    description: "It is Glowing sqaure Cube with attractive CSS design",
+    tech: ["fab fa-html5", "fab fa-css3-alt"],
+    liveDemo: "https://supporting-teal-bpqyz7mr.edgeone.dev/",
+    code: "#",
+  },
+  {
+    id: 19,
+    image: "/assets/images/projects/Wheels Landing Page.png",
+    title: "Wheels Landing Page",
+    description: "It Landing Page made with css without responsive",
+    tech: ["fab fa-html5", "fab fa-css3-alt"],
+    liveDemo: "https://consistent-salmon-bhn00ext.edgeone.dev/",
+    code: "#",
+  },
+
+  {
+    id: 20,
     image: "/assets/images/projects/APJ Tribute Page.png",
     title: "APJ TRIBUTE PAGE",
-    description: "Tribute page for Dr. APJ Abdul Kalam with elegant UI and animations.",
+    description:
+      "Tribute page for Dr. APJ Abdul Kalam with elegant UI and animations.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
     liveDemo: "https://great-scarlet-wnxksgtw.edgeone.dev/",
     code: "#",
   },
   {
-    id: 15,
+    id: 21,
     image: "/assets/images/projects/Spotify Clone.png",
     title: "SPOTIFY CLONE",
     description: "Spotify clone with elegant UI and animations.",
@@ -239,7 +294,7 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 16,
+    id: 22,
     image: "/assets/images/projects/Neophormism  Profile Card.png",
     title: "Neophormism Profile Card",
     description: "Neophormism profile card with elegant UI and animations.",
@@ -248,7 +303,7 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 17,
+    id: 23,
     image: "/assets/images/projects/Transparent Profile Card.png",
     title: "TRANSPARENT PROFILE CARD",
     description: "Transparent profile card with elegant UI and animations.",
@@ -257,25 +312,27 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 18,
+    id: 24,
     image: "/assets/images/projects/Incredible India.png",
     title: "INDIAN HISTORICAL PLACES",
-    description: "Incredible India landing page with elegant UI and animations.",
+    description:
+      "Incredible India landing page with elegant UI and animations.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
     liveDemo: "https://xenogeneic-amber-rtbwgspe.edgeone.dev/",
-    code: "#"
+    code: "#",
   },
   {
-    id: 19,
+    id: 25,
     image: "/assets/images/projects/Indian Beautiful Places.png",
     title: "INDIAN BEAUTIFUL PLACES",
-    description: "Indian Beautiful Places landing page with elegant UI and animations.",
+    description:
+      "Indian Beautiful Places landing page with elegant UI and animations.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
     liveDemo: "https://vocal-amaranth-kwklx009.edgeone.dev/",
     code: "#",
   },
   {
-    id: 20,
+    id: 26,
     image: "/assets/images/projects/Indian Cuisine.png",
     title: "INDIAN CUISINE",
     description: "Indian Cuisine landing page with elegant UI and animations.",
@@ -284,16 +341,17 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 21,
+    id: 27,
     image: "/assets/images/projects/IPL 2023 Schedule.png",
     title: "IPL 2023 SCHEDULE",
-    description: "IPL 2023 Schedule landing page with elegant UI and animations.",
+    description:
+      "IPL 2023 Schedule landing page with elegant UI and animations.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
     liveDemo: "https://tight-tan-reobzydc.edgeone.dev/",
     code: "#",
   },
   {
-    id: 22,
+    id: 28,
     image: "/assets/images/projects/Bulb Css.png",
     title: "BULB CSS",
     description: "Interactive bulb UI created using HTML and CSS.",
@@ -302,7 +360,7 @@ const projectsData = [
     code: "#",
   },
   {
-    id: 23,
+    id: 29,
     image: "/assets/images/projects/indian-restro-html.png",
     title: "Indian Restaurent",
     description: "It is Fully static html page without CSS and JS",
@@ -310,7 +368,6 @@ const projectsData = [
     liveDemo: "https://crimson-seal.staticdomains.app",
     code: "https://github.com/amolpawar24/HTML5/tree/main/PROJECTS/PROJECT%204",
   },
- 
 ];
 
 export default projectsData;
