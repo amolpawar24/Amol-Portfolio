@@ -212,7 +212,7 @@ const projectsData = [
 
   {
     id: 13,
-    image: "/assets/images/projects/Cuda1.png",
+    image: "/assets/images/projects/Cuda.png",
     title: "CUDA 1",
     description: "Responsive business website hosted using GitHub Pages.",
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
