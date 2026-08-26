@@ -1,0 +1,33 @@
+
+/* SINGLE NEON CURSOR */
+.neon-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  background: var(--skin-color);
+  box-shadow: 0 0 18px var(--skin-color);
+
+  pointer-events: none;
+  z-index: 99999;
+
+  transform: translate(-50%, -50%);
+  will-change: transform;
+
+  transition: transform 0.02s linear;
+}
+
+//* Hide the custom cursor on touch devices */ 
+@media (pointer: coarse) {
+  .neon-cursor {
+    display: none !important;
+  }
+
+  html, body {
+    cursor: auto !important;
+  }
+}
