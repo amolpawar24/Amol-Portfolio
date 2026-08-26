@@ -1,0 +1,291 @@
+/* ================= ITEM ================= */
+
+  .Certifications-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 15px;
+  }
+
+  /* ================= CARD ================= */
+
+  .Certifications-item-inner {
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 22px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(22px);
+
+    border:
+      1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 28%,
+        transparent
+      );
+
+    transition:
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s ease,
+      border-color 0.45s ease;
+
+    animation: floating 5s ease-in-out infinite;
+  }
+
+  .Certifications-item-inner::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    padding: 1px;
+
+    opacity: 0;
+
+    border-radius: inherit;
+
+    transition: opacity 0.4s ease;
+
+    background:
+      linear-gradient(
+        135deg,
+        transparent,
+        color-mix(
+          in srgb,
+          var(--skin-color) 65%,
+          white
+        ),
+        transparent
+      );
+
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+  }
+
+  .Certifications-item-inner::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+    right: -80px;
+
+    width: 180px;
+    height: 180px;
+
+    opacity: 0.12;
+
+    filter: blur(45px);
+
+    transition: transform 0.5s ease;
+
+    background:
+      radial-gradient(
+        var(--skin-color),
+        transparent 70%
+      );
+  }
+
+  .Certifications-item-inner:hover {
+
+    transform: translateY(-10px);
+
+    border-color: var(--skin-color);
+
+    box-shadow:
+      0 10px 40px
+      color-mix(
+        in srgb,
+        var(--skin-color) 18%,
+        transparent
+      );
+  }
+
+  .Certifications-item-inner:hover::before {
+    opacity: 1;
+  }
+
+  .Certifications-item-inner:hover::after {
+    transform: scale(1.2);
+  }
+
+  /* ================= IMAGE ================= */
+
+  .certificate-image {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 200px;
+    height: 130px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+      0 8px 30px rgba(0,0,0,0.18);
+  }
+
+  .certificate-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    z-index: 2;
+
+    width: 80%;
+    height: 100%;
+
+    transform: skewX(-25deg);
+
+    transition: all 0.8s ease;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+      );
+  }
+
+  .Certifications-item-inner:hover .certificate-image::before {
+    left: 140%;
+  }
+
+  .certificate-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+      transform 0.6s cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+  }
+
+  .Certifications-item-inner:hover img {
+    transform: scale(1.06);
+  }
+
+  /* ================= CONTENT ================= */
+
+  .certificate-content {
+    flex: 1;
+  }
+
+  .certificate-content h4 {
+
+    margin-bottom: 12px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    color: var(--text-black-900);
+  }
+
+  .certificate-content span {
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 15px;
+
+    margin-bottom: 15px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: var(--skin-color);
+
+    background:
+      color-mix(
+        in srgb,
+        var(--skin-color) 12%,
+        transparent
+      );
+
+    border:
+      1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 25%,
+        transparent
+      );
+  }
+
+  .certificate-content span i {
+    font-size: 12px;
+  }
+
+  .certificate-content p {
+
+    font-size: 14px;
+
+    line-height: 25px;
+
+    color: var(--text-black-700);
+  }
+
+/* =========================================================
+   FLOATING ANIMATION
+========================================================= */
+
+@keyframes floating {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
