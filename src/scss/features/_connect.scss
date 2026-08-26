@@ -1,0 +1,266 @@
+/*! =====================================================
+    CONNECT SECTION STARTS
+========================================================= */
+
+.connect {
+
+  /* ================= CONNECT TITLE ================= */
+
+  .connect-title {
+    color: var(--skin-color);
+
+    text-align: center;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+  }
+
+  /* ================= CONNECT SUB TITLE ================= */
+
+  .connect-sub-title {
+    color: var(--text-black-900);
+
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    margin-bottom: 60px;
+  }
+
+  /* ================= CONNECT INFO ITEM ================= */
+
+  .connect-info-item {
+    flex: 0 0 25%;
+    max-width: 25%;
+
+    text-align: center;
+
+    margin-bottom: 60px;
+  }
+
+  /* ================= CONNECT ICON ================= */
+
+  .icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: var(--bg-black-100);
+
+    margin-bottom: 15px;
+
+    transition: all 0.3s ease;
+
+    svg {
+      font-size: 28px;
+      color: var(--skin-color);
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+
+      box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+    }
+  }
+
+  /* ================= CONNECT INFO TEXT ================= */
+
+  .connect-info-item {
+
+    h4 {
+      font-size: 18px;
+      font-weight: 700;
+
+      color: var(--text-black-900);
+
+      text-transform: capitalize;
+
+      margin: 15px 0 8px;
+    }
+
+    p,
+    a {
+      font-size: 16px;
+      line-height: 25px;
+
+      color: var(--text-black-700);
+
+      font-weight: 400;
+
+      word-break: break-word;
+
+      text-decoration: none;
+
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--skin-color);
+      }
+    }
+  }
+
+  /* ================= CONNECT FORM ================= */
+
+  .connect-form {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* ================= FORM ITEM ================= */
+
+  .form-item {
+    margin-top: 30px;
+  }
+
+  /* ================= FORM CONTROL ================= */
+
+  .form-control {
+    width: 100%;
+    height: 50px;
+
+    border: 1px solid var(--bg-black-50);
+    border-radius: 25px;
+
+    background: var(--bg-black-100);
+
+    padding: 10px 25px;
+
+    font-size: 16px;
+
+    color: var(--text-black-700);
+
+    transition: all 0.3s ease;
+
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+
+      border-color: var(--skin-color);
+    }
+  }
+
+    /* ================= FORM VALIDATION ERROR ================= */
+
+  .form-error {
+
+    display: block;
+
+    margin-top: 10px;
+
+    padding-left: 8px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+
+    color: #ff4d6d;
+
+    animation: fadeError 0.25s ease;
+
+    text-shadow: 0 0 8px rgba(255, 77, 109, 0.2);
+  }
+
+  /* ================= ERROR INPUT ================= */
+
+  .form-control.error {
+
+    border-color: #ff4d6d;
+
+    box-shadow:
+      0 0 0 4px rgba(255, 77, 109, 0.08),
+      0 0 18px rgba(255, 77, 109, 0.15);
+  }
+
+  /* ================= SUCCESS INPUT ================= */
+
+  .form-control.success {
+
+    border-color: #00ffb3;
+
+    box-shadow:
+      0 0 0 4px rgba(0, 255, 179, 0.08),
+      0 0 18px rgba(0, 255, 179, 0.15);
+  }
+
+  /* ================= ERROR ANIMATION ================= */
+
+  @keyframes fadeError {
+
+    from {
+
+      opacity: 0;
+
+      transform: translateY(-4px);
+    }
+
+    to {
+
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+  }
+
+  /* ================= TEXTAREA ================= */
+
+  textarea.form-control {
+    height: 140px;
+
+    resize: none;
+
+    padding-top: 15px;
+  }
+
+  /* ================= BUTTON ================= */
+
+  .btn {
+    height: 50px;
+
+    padding: 0 50px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: var(--skin-color);
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+
+      box-shadow: 0 5px 20px rgba(48, 46, 77, 0.2);
+    }
+  }
+}
+
+/*! =====================================================
+    CONNECT SECTION ENDS
+========================================================= */
