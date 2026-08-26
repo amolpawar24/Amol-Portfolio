@@ -1,0 +1,64 @@
+// ============================================================
+// MAIN STYLESHEET — Entry point for all SCSS partials
+// Import order matters: abstracts → base → layout → components → pages → themes
+// ============================================================
+
+
+// ── ABSTRACTS ──────────────────────────────────────────────
+// Variables, mixins, functions, and breakpoints
+// No CSS output — just tools used by other partials
+@use "./abstracts/breakpoints";  // Responsive breakpoint definitions
+@use "./abstracts/functions";    // SCSS helper functions
+@use "./abstracts/mixins";       // Reusable mixin definitions
+@use "./abstracts/variables";    // CSS custom properties & SCSS variables
+
+
+// ── BASE ───────────────────────────────────────────────────
+// Global resets and foundational styles
+@use "./base/animations";        // Keyframe animations
+@use "./base//fonts";             // Font-face declarations
+@use "./base/global";            // Body, root variables, dark mode vars
+@use "./base/reset";             // Box-sizing, margin/padding reset
+@use "./base/typography";        // Font family, sizes, line-heights
+@use "./base/utilities";          // Reusable helper classes (spacing, flex, text)
+
+// ── COMPONENTS ─────────────────────────────────────────────
+// Reusable UI components
+@use "./components/button";       // .btn styles and variants
+@use "./components/cards";        // Card layouts (skills, services, portfolio)
+@use "./components/loader";       // Page loader animation
+@use "./components/cursor";
+@use "./components/toasts";       // Toast notification styles
+@use "./components/alert";        // Alert popup styles
+@use "./components/paginations";  // Pagination controls and styles
+@use "./components/theme-switcher"; // Style switcher panel and color dots
+
+// ── LAYOUT ─────────────────────────────────────────────────
+// Structural layout — page skeleton
+@use "./layout/container";       // Max-width wrapper and padding
+@use "./layout/navigation";      // Nav links and active states
+@use "./layout/section";         // Section visibility, titles, and spacing
+@use "./layout/sidebar";         // Aside / sidebar positioning
+
+// ── PAGES ──────────────────────────────────────────────────
+// Page-specific styles scoped to each section
+@use "./features/home";             // Hero / home section
+@use "./features/profile";          // About, education, experience
+@use "./features/certifications";   // Certifications grid and card styles
+@use "./features/certificationCards"; // Individual certification card styles
+@use "./features/techstack";        // Skills grid and progress bars
+@use "./features/techStackCards"; // Individual skill card styles
+@use "./features/services";         // Services grid and hover effects
+@use "./features/servicesCard"; // Individual service card styles
+@use "./features/projects";         // Portfolio grid and overlays
+@use "./features/projectCards"; // Individual project card styles
+@use "./features/connect";          // Contact form and info items
+
+// ── RESPONSIVE ──────────────────────────────────────────────────
+@use "./responsive/responsive";   // Media queries for tablet and mobile breakpoints
+
+
+// ── THEMES ─────────────────────────────────────────────────
+// Color theming — must come last so it can override base styles
+@use "./themes/colors";          // .color-1 to .color-5 skin color overrides
+@use "./themes/dark";            // body.dark variable overrides
