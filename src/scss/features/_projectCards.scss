@@ -1,0 +1,176 @@
+.projects-item-inner {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  border: 7px solid var(--skin-color);
+  border-radius: 12px;
+  background: var(--bg-black-100);
+
+  transition: 0.35s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(var(--skin-color-rgb), 0.35);
+
+    .projects-img img {
+      transform: scale(1.08);
+    }
+
+    .overlay {
+      bottom: 0;
+    }
+
+    .tech-icons span {
+      background: var(--skin-color);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(var(--skin-color-rgb), 0.6);
+    }
+  }
+}
+
+/* ================= IMAGE ================= */
+
+.projects-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: 0.4s ease;
+  }
+}
+
+/* ================= OVERLAY ================= */
+
+.overlay {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.6),
+    transparent
+  );
+
+  color: #fff;
+
+  transition: 0.4s ease;
+
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #ddd;
+    margin-bottom: 18px;
+  }
+}
+
+/* ================= TECH ICONS ================= */
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-icons span {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(var(--skin-color-rgb), 0.15);
+  border: 1px solid var(--skin-color);
+
+  color: var(--skin-color);
+
+  backdrop-filter: blur(5px);
+
+  transition: 0.3s ease;
+}
+
+.tech-icons span i {
+  font-size: 18px;
+}
+
+/* ================= BUTTONS ================= */
+
+.projects-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 10px;
+  margin-top: 12px;
+
+  a {
+    width: 100%;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+.button-1,
+.button-2 {
+  width: 100%;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  text-decoration: none;
+
+  border: none;
+  border-radius: 25px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #fff;
+  background: var(--skin-color);
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+      0 0 15px
+      rgba(var(--skin-color-rgb), 0.5);
+  }
+}
