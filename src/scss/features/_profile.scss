@@ -1,0 +1,177 @@
+/* =========================================================
+   PROFILE SECTION
+========================================================= */
+
+.profile .profile-content {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* ===================== PROFILE TEXT ===================== */
+
+.profile .profile-text {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.profile .profile-text h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--text-black-900);
+}
+
+.profile .profile-text h3 span {
+  color: var(--skin-color);
+}
+
+.profile .profile-text p {
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--text-black-700);
+}
+
+/* ===================== PERSONAL INFO ===================== */
+
+.profile .personal-info {
+  flex: 0 0 60%;
+  max-width: 60%;
+  margin-top: 40px;
+}
+
+.profile .personal-info .info-item {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.profile .personal-info .info-item p {
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 16px;
+  color: var(--text-black-900);
+  border-bottom: 1px solid var(--bg-black-50);
+}
+
+.profile .personal-info .info-item p span {
+  font-weight: 400;
+  color: var(--text-black-700);
+  margin-left: 4px;
+  display: inline-block;
+}
+
+/* ===================== BUTTONS ===================== */
+
+.profile .personal-info .buttons {
+  margin-top: 30px;
+}
+
+.profile .personal-info .buttons .btn {
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+/* ===================== EDUCATION + EXPERIENCE ROW FIX ===================== */
+/* IMPORTANT: THIS is what fixes your layout */
+
+.profile .education,
+.profile .experience {
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-top: 30px;
+}
+
+/* ===================== TITLES ===================== */
+
+.profile h3.title {
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: var(--text-black-900);
+}
+
+/* ===================== TIMELINE BOX ===================== */
+
+.profile .timeline-box {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.profile .timeline {
+  background-color: var(--bg-black-100);
+  padding: 30px 15px;
+  border: 1px solid var(--bg-black-50);
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+}
+
+/* ===================== TIMELINE ITEM ===================== */
+
+.profile .timeline .timeline-item {
+  position: relative;
+  padding: 37px;
+  padding-bottom: 50px;
+}
+
+.profile .timeline .timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* vertical line */
+.profile .timeline .timeline-item::before {
+  content: "";
+  width: 1px;
+  position: absolute;
+  height: 100%;
+  left: 7px;
+  top: 0;
+  background-color: var(--skin-color);
+}
+
+/* dot */
+.profile .timeline .circle-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: var(--skin-color);
+}
+
+/* date */
+.profile .timeline .timeline-date {
+  margin-top: -38px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: var(--text-black-700);
+}
+
+.profile .timeline .timeline-date .fa {
+  margin-right: 5px;
+}
+
+/* title */
+.profile .timeline .timeline-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: var(--text-black-900);
+}
+
+/* text */
+.profile .timeline .timeline-text {
+  line-height: 25px;
+  font-size: 16px;
+  text-align: justify;
+  color: var(--text-black-700);
+}
+
+/* ===================== FLEX ROW FIX (IMPORTANT) ===================== */
+
+.profile .row {
+  display: flex;
+  flex-wrap: wrap;
+}
