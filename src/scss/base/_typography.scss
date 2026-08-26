@@ -1,0 +1,17 @@
+/* =========================================================
+   TYPOGRAPHY STYLES
+   - Headings
+   - Special text effects
+   - Fonts & text colors
+========================================================= */
+
+/* Hello heading special font */
+h3.hello span {
+  font-family: "Clicker Script", cursive;
+  color: var(--skin-color);
+}
+
+/* Typing animation / highlighted text */
+.typing {
+  color: var(--skin-color);
+}
