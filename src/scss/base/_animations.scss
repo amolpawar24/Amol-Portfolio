@@ -1,0 +1,19 @@
+@keyframes imgAnim {
+  0%, 100% {
+    filter: drop-shadow(1px 3px 7px var(--skin-color));
+  }
+  50% {
+    filter: drop-shadow(1px 18px 24px var(--skin-color));
+  }
+}
+@keyframes slideSection {
+  0% {
+    transform: translateX(100%);
+    transform-style: preserve-3d;
+  }
+
+  100% {
+    transform: translateX(0%);
+    transform-style: preserve-3d;
+  }
+}
