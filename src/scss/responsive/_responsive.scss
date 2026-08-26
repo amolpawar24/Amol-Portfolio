@@ -1,0 +1,1156 @@
+// =========================================================
+//  RESPONSIVE SYSTEM
+//  Centralized responsive styles for entire portfolio
+//  Breakpoints: xxl ≤1400 | xl ≤1200 | lg ≤992
+//               md ≤768   | sm ≤576  | xs ≤480
+// =========================================================
+
+@use "../abstracts/breakpoints" as *;
+
+// =========================================================
+//  XXL DEVICES (≤1400px)
+//  Large monitors
+// =========================================================
+
+@include xxl {
+  // ── Section ──────────────────────────────────────────
+  .section .container {
+    max-width: 1200px;
+  }
+
+  // ── Home ─────────────────────────────────────────────
+  .home .home-img img {
+    height: 420px;
+  }
+
+  // ── Profile ──────────────────────────────────────────
+  .profile,
+  .profile .profile-text h3 {
+    margin-left: 15px;
+  }
+  .profile .profile-text p {
+    font-size: 17px;
+    line-height: 28px;
+    padding: 15px;
+  }
+  .profile .timeline {
+    padding: 35px 25px;
+  }
+  .profile .timeline .timeline-text {
+    font-size: 17px;
+  }
+
+  // ── Certifications ─────────────────────────────
+  .certifications {
+    .container {
+      max-width: 1200px;
+      padding-bottom: 70px;
+    }
+
+    .Certifications-item {
+      padding: 18px;
+    }
+
+    .Certifications-item-inner {
+      gap: 24px;
+
+      padding: 26px;
+
+      border-radius: 30px;
+    }
+
+    .certificate-image {
+      width: 220px;
+      height: 145px;
+
+      border-radius: 20px;
+    }
+
+    .certificate-content h4 {
+      font-size: 22px;
+
+      margin-bottom: 14px;
+    }
+
+    .certificate-content span {
+      font-size: 13px;
+
+      padding: 9px 16px;
+
+      margin-bottom: 16px;
+    }
+
+    .certificate-content p {
+      font-size: 15px;
+
+      line-height: 27px;
+    }
+  }
+
+  // ── Tech Stack ───────────────────────────────────────
+  .techstack .container .row .section-title h2 {
+    top: 10px;
+    left: 20px;
+  }
+  .techstack .techstack-item-inner {
+    padding: 30px 20px;
+  }
+  .techstack .techstack-item h4 {
+    font-size: 20px;
+  }
+  .techstack .techstack-item p {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  .techstack .techstack-item .icon {
+    width: 65px;
+    height: 65px;
+  }
+  .techstack .techstack-item .icon i {
+    font-size: 32px;
+  }
+
+  // ── Services ─────────────────────────────────────────
+  .services .services-item-inner {
+    padding: 35px 20px;
+  }
+  .services .services-item .icon {
+    width: 65px;
+    height: 65px;
+  }
+  .services .services-item .icon .fa {
+    font-size: 42px;
+    line-height: 65px;
+  }
+  .services .services-item h4 {
+    font-size: 20px;
+  }
+  .services .services-item p {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  // ── Projects ─────────────────────────────────────────
+
+  .projects {
+    .projects-heading h2 {
+      font-size: 30px;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+
+    .projects-item-inner {
+      border-width: 6px;
+    }
+
+    .projects-img {
+      height: 260px;
+    }
+
+    .overlay h1 {
+      font-size: 22px;
+    }
+
+    .overlay p {
+      font-size: 15px;
+      line-height: 25px;
+    }
+
+    .button-1,
+    .button-2,
+    .view-all {
+      font-size: 15px;
+    }
+  }
+  // ── Connect ──────────────────────────────────────────
+  .connect .connect-title {
+    font-size: 24px;
+  }
+  .connect .connect-sub-title {
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+  .connect .connect-info-item .icon svg {
+    font-size: 26px;
+  }
+  .connect .connect-info-item h4 {
+    font-size: 18px;
+  }
+  .connect .connect-info-item p {
+    font-size: 15px;
+  }
+  .connect .connect-form .form-item .form-control {
+    font-size: 15px;
+  }
+  .connect .connect-form textarea.form-control {
+    height: 140px;
+  }
+}
+
+// =========================================================
+//  XL DEVICES (≤1200px)
+//  Desktop / Small desktop
+// =========================================================
+
+@include xl {
+  // ── Section ──────────────────────────────────────────
+  .section {
+    left: 0;
+    width: 100%;
+  }
+
+  // ── Sidebar — hidden off-screen, slides in when .open
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  // ── Nav Toggler — visible when sidebar is hidden ─────
+  .nav-toggler {
+    display: flex;
+  }
+
+  // ── Profile ──────────────────────────────────────────
+  .profile .profile-text h3 {
+    margin-left: 15px;
+  }
+
+  // ── Certifications ─────────────────────────────
+  .certifications {
+    .Certifications-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .Certifications-item-inner {
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .certificate-image {
+      width: 190px;
+      height: 125px;
+    }
+
+    .certificate-content h4 {
+      font-size: 20px;
+    }
+
+    .certificate-content p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  // ── Tech Stack ───────────────────────────────────────
+  .techstack .techstack-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+  .techstack .techstack-item-inner {
+    padding: 25px 18px;
+  }
+
+  // ── Services ─────────────────────────────────────────
+  .services .services-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+  .services .services-item-inner {
+    padding: 30px 18px;
+  }
+  .services .services-item h4 {
+    font-size: 18px;
+  }
+  .services .services-item p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  // ── Projects ─────────────────────────────────────────
+  .projects .projects-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .projects .projects-img {
+    height: 240px;
+  }
+  .projects .overlay h1 {
+    font-size: 21px;
+  }
+  .projects .overlay p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  // ── Connect ──────────────────────────────────────────
+  .connect .connect-info-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 40px;
+  }
+  .connect .connect-form .form-item {
+    margin-top: 25px;
+  }
+  .connect .connect-form .form-control {
+    font-size: 15px;
+  }
+}
+
+// =========================================================
+//  LG DEVICES (≤992px)
+//  Laptop / Tablet landscape
+// =========================================================
+
+@include lg {
+  // ── Section ──────────────────────────────────────────
+  .section {
+    padding: 0 20px;
+  }
+
+  // ── Sidebar ──────────────────────────────────────────
+  .sidebar .logo {
+    top: 40px;
+  }
+  .sidebar .nav li a {
+    font-size: 15px;
+  }
+
+  // ── Home — stack columns, center text ────────────────
+  .home .row {
+    flex-direction: column;
+    text-align: center;
+  }
+  .home .home-info,
+  .home .home-img {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .home .home-img {
+    margin-top: 40px;
+  }
+  .home .home-img img {
+    height: 350px;
+  }
+
+  // ── Profile — stack all columns ──────────────────────
+  .profile .personal-info,
+  .profile .education,
+  .profile .experience {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  // ── Certifications ─────────────────────────────
+  .certifications {
+    .Certifications-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .Certifications-item-inner {
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .certificate-image {
+      width: 180px;
+      height: 120px;
+    }
+
+    .certificate-content h4 {
+      font-size: 19px;
+    }
+
+    .certificate-content span {
+      font-size: 11px;
+      padding: 7px 14px;
+    }
+
+    .certificate-content p {
+      font-size: 13px;
+      line-height: 23px;
+    }
+  }
+
+  // ── Tech Stack ───────────────────────────────────────
+  .techstack .techstack-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .techstack .techstack-item-inner {
+    padding: 25px 15px;
+  }
+  .techstack .techstack-item h4 {
+    font-size: 17px;
+  }
+  .techstack .techstack-item p {
+    font-size: 14px;
+  }
+
+  // ── Services ─────────────────────────────────────────
+  .services .services-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .services .services-item-inner {
+    padding: 28px 16px;
+  }
+  .services .services-item .icon {
+    width: 58px;
+    height: 58px;
+  }
+  .services .services-item .icon .fa {
+    font-size: 34px;
+    line-height: 58px;
+  }
+  .services .services-item h4 {
+    font-size: 17px;
+  }
+  .services .services-item p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  // ── Projects ─────────────────────────────────────────
+  .projects .projects-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .projects .projects-img {
+    height: 220px;
+  }
+  .projects .projects-buttons {
+    gap: 10px;
+  }
+  .projects .button-1,
+  .projects .button-2 {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .projects .overlay {
+    padding: 15px;
+  }
+  .projects .overlay h1 {
+    font-size: 20px;
+  }
+  .projects .overlay p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  // ── Connect ──────────────────────────────────────────
+  .connect .connect-title {
+    font-size: 22px;
+  }
+  .connect .connect-sub-title {
+    font-size: 14px;
+    margin-bottom: 45px;
+  }
+  .connect .connect-info-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .connect .connect-info-item h4 {
+    font-size: 17px;
+  }
+  .connect .connect-info-item p {
+    font-size: 14px;
+  }
+  .connect .connect-info-item .icon svg {
+    font-size: 24px;
+  }
+  .connect .connect-form .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .connect .connect-form .form-item .form-control {
+    height: 48px;
+    font-size: 14px;
+  }
+  .connect .connect-form textarea.form-control {
+    height: 130px;
+  }
+  .connect .connect-form .btn {
+    height: 48px;
+    padding: 0 40px;
+  }
+}
+
+// =========================================================
+//  MD DEVICES (≤768px)
+//  Tablets / Mobile landscape
+// =========================================================
+
+@include md {
+  // ── Section ──────────────────────────────────────────
+  .section {
+    padding: 0 15px;
+  }
+  .section-title h2 {
+    font-size: 32px;
+  }
+
+  // ── Nav Toggler ──────────────────────────────────────
+  .nav-toggler {
+    top: 15px;
+    left: 15px;
+  }
+
+  // ── Sidebar ──────────────────────────────────────────
+  .sidebar {
+    width: 240px;
+    padding: 20px;
+  }
+  .sidebar .logo a {
+    font-size: 26px;
+  }
+  .sidebar .logo a span {
+    font-size: 34px;
+  }
+
+  // ── Home ─────────────────────────────────────────────
+  .home h3.hello {
+    font-size: 22px;
+  }
+  .home h3.hello span {
+    font-size: 36px;
+  }
+  .home h3.my-profession {
+    font-size: 22px;
+  }
+  .home p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  // ── Profile ──────────────────────────────────────────
+  .profile .profile-text h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .profile .personal-info .info-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .profile .timeline .timeline-item {
+    padding-left: 25px;
+  }
+
+  // ── Certifications ─────────────────────────────
+  .certifications {
+    .Certifications-item-inner {
+      flex-direction: column;
+      align-items: flex-start;
+
+      padding: 20px;
+
+      border-radius: 24px;
+    }
+
+    .certificate-image {
+      width: 100%;
+      height: 230px;
+    }
+
+    .certificate-content {
+      width: 100%;
+    }
+
+    .certificate-content h4 {
+      font-size: 18px;
+    }
+
+    .certificate-content span {
+      margin-bottom: 12px;
+    }
+
+    .certificate-content p {
+      font-size: 13px;
+      line-height: 22px;
+    }
+  }
+
+  // ── Tech Stack ───────────────────────────────────────
+  .techstack .techstack-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .techstack .techstack-item-inner {
+    padding: 22px 14px;
+  }
+  .techstack .techstack-item .icon {
+    width: 55px;
+    height: 55px;
+  }
+  .techstack .techstack-item .icon i {
+    font-size: 26px;
+  }
+  .techstack .techstack-item h4 {
+    font-size: 16px;
+  }
+  .techstack .techstack-item p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  // ── Services ─────────────────────────────────────────
+  .services .services-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .services .services-item-inner {
+    padding: 25px 15px;
+  }
+  .services .services-item .icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 22px;
+  }
+  .services .services-item .icon .fa {
+    font-size: 30px;
+    line-height: 55px;
+  }
+  .services .services-item h4 {
+    font-size: 16px;
+  }
+  .services .services-item p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  // ── Projects — single column on tablet ───────────────
+  .projects .projects-heading {
+    margin-bottom: 30px;
+  }
+  .projects .projects-heading h2 {
+    font-size: 26px;
+  }
+  .projects .projects-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .projects .projects-img {
+    height: 250px;
+  }
+  .projects .projects-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .projects .projects-buttons a,
+  .projects .button-1,
+  .projects .button-2,
+  .projects .view-all {
+    width: 100%;
+    text-align: center;
+  }
+  .projects .overlay h1 {
+    font-size: 18px;
+  }
+  .projects .overlay p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+
+  // ── Connect ──────────────────────────────────────────
+  .connect .connect-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .connect .connect-sub-title {
+    font-size: 13px;
+    margin-bottom: 40px;
+  }
+  .connect .connect-info-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 35px;
+  }
+  .connect .connect-info-item h4 {
+    font-size: 16px;
+  }
+  .connect .connect-info-item p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .connect .connect-info-item .icon svg {
+    font-size: 22px;
+  }
+  .connect .connect-form .form-item {
+    margin-top: 20px;
+  }
+  .connect .connect-form .form-item .form-control {
+    height: 46px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .connect .connect-form textarea.form-control {
+    height: 120px;
+  }
+  .connect .connect-form .btn {
+    width: 100%;
+  }
+}
+
+// =========================================================
+//  SM DEVICES (≤576px)
+//  Mobile devices
+// =========================================================
+
+@include sm {
+  // ── Sidebar ──────────────────────────────────────────
+  .sidebar {
+    width: 220px;
+    padding: 15px;
+  }
+  .sidebar .logo {
+    top: 35px;
+  }
+
+  // ── Home ─────────────────────────────────────────────
+  .home h3.hello {
+    font-size: 20px;
+  }
+  .home h3.hello span {
+    font-size: 30px;
+  }
+  .home h3.my-profession {
+    font-size: 18px;
+  }
+  .home p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .home .home-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  // ── Profile ──────────────────────────────────────────
+  .profile .profile-text h3 {
+    font-size: 20px;
+    margin-left: 0;
+  }
+  .profile .profile-text p {
+    font-size: 14px;
+  }
+  .profile h3.title {
+    font-size: 20px;
+  }
+  .profile .timeline {
+    padding: 20px 15px;
+  }
+  .profile .timeline .timeline-title {
+    font-size: 16px;
+  }
+  .profile .timeline .timeline-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  // ── Certifications ─────────────────────────────
+  .certifications {
+    .container {
+      padding-bottom: 40px;
+    }
+
+    .Certifications-item {
+      padding: 10px;
+    }
+
+    .Certifications-item-inner {
+      gap: 16px;
+
+      padding: 16px;
+
+      border-radius: 22px;
+    }
+
+    .certificate-image {
+      height: 200px;
+      border-radius: 16px;
+    }
+
+    .certificate-content h4 {
+      font-size: 17px;
+      line-height: 26px;
+    }
+
+    .certificate-content span {
+      font-size: 10px;
+
+      padding: 6px 12px;
+    }
+
+    .certificate-content p {
+      font-size: 12px;
+
+      line-height: 21px;
+    }
+  }
+
+  // ── Tech Stack — single column on mobile ─────────────
+  .techstack .techstack-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .techstack .techstack-item-inner {
+    padding: 20px 15px;
+  }
+  .techstack .techstack-item .icon {
+    width: 50px;
+    height: 50px;
+  }
+  .techstack .techstack-item .icon i {
+    font-size: 24px;
+  }
+  .techstack .techstack-item h4 {
+    font-size: 16px;
+  }
+  .techstack .techstack-item p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+
+  // ── Services — single column on mobile ───────────────
+  .services .services-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .services .services-item-inner {
+    padding: 22px 15px;
+  }
+  .services .services-item .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  .services .services-item .icon .fa {
+    font-size: 26px;
+    line-height: 50px;
+  }
+  .services .services-item h4 {
+    font-size: 16px;
+  }
+  .services .services-item p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+
+  // ── Projects ─────────────────────────────────────────
+  .projects .projects-heading h2 {
+    font-size: 24px;
+  }
+  .projects .projects-item {
+    margin-bottom: 30px;
+  }
+  .projects .projects-item-inner {
+    border-width: 5px;
+  }
+  .projects .projects-img {
+    height: 220px;
+  }
+  .projects .overlay {
+    padding: 14px;
+  }
+  .projects .overlay h1 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .projects .overlay p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .projects .button-1,
+  .projects .button-2,
+  .projects .view-all {
+    height: 42px;
+    font-size: 13px;
+  }
+
+  // ── Connect ──────────────────────────────────────────
+  .connect .connect-title {
+    font-size: 18px;
+  }
+  .connect .connect-sub-title {
+    font-size: 12px;
+    margin-bottom: 35px;
+  }
+  .connect .connect-info-item .icon svg {
+    font-size: 20px;
+  }
+  .connect .connect-info-item h4 {
+    font-size: 15px;
+  }
+  .connect .connect-info-item p {
+    font-size: 12px;
+  }
+  .connect .connect-form .form-item .form-control {
+    height: 44px;
+    border-radius: 22px;
+    font-size: 13px;
+  }
+  .connect .connect-form textarea.form-control {
+    height: 110px;
+  }
+  .connect .connect-form .btn {
+    height: 44px;
+    font-size: 13px;
+  }
+}
+
+// =========================================================
+//  XS DEVICES (≤480px)
+//  Small mobile devices
+// =========================================================
+
+@include xs {
+  // ── Section ──────────────────────────────────────────
+  .section {
+    padding: 0 10px;
+  }
+  .section-title h2 {
+    font-size: 26px;
+  }
+
+  // ── Nav Toggler ──────────────────────────────────────
+  .nav-toggler {
+    width: 40px;
+    height: 38px;
+  }
+
+  // ── Sidebar ──────────────────────────────────────────
+  .sidebar {
+    width: 200px;
+    padding: 12px;
+  }
+  .sidebar .logo a {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+  .sidebar .logo a span {
+    font-size: 28px;
+  }
+  .sidebar .nav li a {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  // ── Home ─────────────────────────────────────────────
+  .home h3.hello {
+    font-size: 18px;
+  }
+  .home h3.hello span {
+    font-size: 26px;
+  }
+  .home h3.my-profession {
+    font-size: 16px;
+  }
+  .home p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .home .btn {
+    text-align: center;
+  }
+
+  // ── Profile ──────────────────────────────────────────
+  .profile .profile-text h3 {
+    font-size: 18px;
+    margin-left: 15px;
+    text-align: justify;
+  }
+  .profile .profile-text p {
+    font-size: 13px;
+    line-height: 22px;
+    padding: 20px;
+  }
+  .profile .personal-info .info-item p {
+    font-size: 14px;
+  }
+  .profile .timeline {
+    padding: 15px 10px;
+  }
+  .profile .timeline .timeline-title {
+    font-size: 15px;
+  }
+  .profile .timeline .timeline-text {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .profile .personal-info .buttons .btn {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  // ── Certifications ─────────────────────────────
+  .certifications {
+    .Certifications-item {
+      padding: 8px;
+    }
+
+    .Certifications-item-inner {
+      padding: 14px;
+
+      gap: 14px;
+
+      border-radius: 20px;
+    }
+
+    .certificate-image {
+      height: 180px;
+    }
+
+    .certificate-content h4 {
+      font-size: 16px;
+    }
+
+    .certificate-content span {
+      font-size: 9px;
+
+      padding: 5px 10px;
+    }
+
+    .certificate-content p {
+      font-size: 11px;
+
+      line-height: 20px;
+    }
+  }
+
+  // ── Tech Stack ───────────────────────────────────────
+  .techstack .techstack-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .techstack .techstack-item-inner {
+    padding: 18px 12px;
+  }
+  .techstack .techstack-item .icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 15px;
+  }
+  .techstack .techstack-item .icon i {
+    font-size: 22px;
+  }
+  .techstack .techstack-item h4 {
+    font-size: 15px;
+  }
+  .techstack .techstack-item p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  // ── Services ─────────────────────────────────────────
+  .services .container .row .section-title h2 {
+    top: 5px;
+    left: 15px;
+  }
+
+  .services .services-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .services .services-item-inner {
+    padding: 20px 12px;
+  }
+  .services .services-item .icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 18px;
+  }
+  .services .services-item .icon .fa {
+    font-size: 22px;
+    line-height: 45px;
+  }
+  .services .services-item h4 {
+    font-size: 15px;
+  }
+  .services .services-item p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  // ── Projects ─────────────────────────────────────────
+
+  .projects .container .row .section-title h2 {
+    top: 5px;
+    left: 15px;
+  }
+
+  .projects .projects-heading h2 {
+    font-size: 22px;
+  }
+  .projects .projects-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .projects .projects-img {
+    height: 200px;
+  }
+  .projects .projects-item-inner {
+    border-width: 4px;
+    border-radius: 8px;
+  }
+  .projects .overlay {
+    padding: 12px;
+  }
+  .projects .overlay h1 {
+    font-size: 16px;
+  }
+  .projects .overlay p {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .projects .button-1,
+  .projects .button-2,
+  .projects .view-all {
+    height: 40px;
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+
+  // ── Connect ──────────────────────────────────────────
+  .connect .connect-title {
+    font-size: 17px;
+  }
+  .connect .connect-sub-title {
+    font-size: 11px;
+    margin-bottom: 30px;
+  }
+  .connect .connect-info-item {
+    margin-bottom: 30px;
+  }
+  .connect .connect-info-item .icon svg {
+    font-size: 18px;
+  }
+  .connect .connect-info-item h4 {
+    font-size: 14px;
+    margin: 12px 0 5px;
+  }
+  .connect .connect-info-item p {
+    font-size: 11px;
+    line-height: 20px;
+  }
+  .connect .connect-form .form-item {
+    margin-top: 18px;
+  }
+  .connect .connect-form .form-item .form-control {
+    height: 42px;
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+  .connect .connect-form textarea.form-control {
+    height: 100px;
+  }
+  .connect .connect-form .btn {
+    height: 42px;
+    font-size: 12px;
+    padding: 0 25px;
+  }
+}
