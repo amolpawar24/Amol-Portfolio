@@ -1,0 +1,114 @@
+/* =========================================================
+   SECTION LAYOUT
+========================================================= */
+
+.section {
+  position: fixed;
+
+  top: 0;
+  left: 270px;
+  right: 0;
+  bottom: 0;
+
+  width: calc(100% - 270px);
+  min-height: 100vh;
+
+  padding: 0 30px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: none;
+
+  background: var(--bg-black-900);
+
+  transition: all 0.3s ease;
+}
+
+/* ACTIVE SECTION */
+
+.section.active {
+  display: block;
+  z-index: 2;
+
+  animation: slideSection 0.5s ease;
+}
+
+/* PREVIOUS SECTION */
+
+.section.back-section {
+  z-index: 1;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.section .container {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+  flex: 0 0 100%;
+  max-width: 100%;
+
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  position: relative;
+
+  font-size: 40px;
+  font-weight: 700;
+
+  color: var(--text-black-900);
+}
+
+/* UNDERLINE */
+
+.section-title h2::before,
+.section-title h2::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+
+  height: 4px;
+
+  background: var(--skin-color);
+}
+
+.section-title h2::before {
+  top: 100%;
+  width: 50px;
+}
+
+.section-title h2::after {
+  top: 100%;
+  width: 25px;
+  margin-top: 8px;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes slideSection {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
