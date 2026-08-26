@@ -1,0 +1,70 @@
+.style-switcher {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  width: 200px;
+  padding: 15px;
+  background: var(--bg-black-100);
+  border: 1px solid var(--bg-black-50);
+  border-radius: 5px;
+  z-index: 101;
+  transform: translateX(100%);
+  transition: 0.3s ease;
+
+  &.open {
+    transform: translateX(-25px);
+  }
+
+  .s-icon {
+    position: absolute;
+    right: 100%;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    i {
+      font-size: 18px;
+    }
+  }
+
+  // Settings Icon Position
+  .style-switcher-toggler {
+    top: 0;
+  }
+
+  // Dark Mode Icon Position
+  .day-night {
+    top: 60px;
+  }
+
+  h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-black-700);
+  }
+
+  .colors {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+
+  .color-1 { background: #ec1839; }
+  .color-2 { background: #fa5b0f; }
+  .color-3 { background: #37b182; }
+  .color-4 { background: #1854b4; }
+  .color-5 { background: #f021b2; }
+}
