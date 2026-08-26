@@ -1,0 +1,30 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  background: var(--bg-black-900);
+}
+
+/* HARD DISABLE DEFAULT CURSOR (GLOBAL FIX) */
+/* HARD DISABLE DEFAULT CURSOR (GLOBAL FIX) */
+html, body,
+a, button, input, textarea,
+.Certifications-item-inner,
+.techstack-item-inner,
+.services-item-inner,
+.projects-item-inner,
+.sidebar,
+.card,
+[role="button"],
+.day-night.s-icon,
+.style-switcher .colors span,
+.style-switcher-toggler.s-icon,
+.style-switcher.s-icon {
+  cursor: none !important;
+}
+
+:root{
+  --skin-color-rgb: 236,72,153;
+}
