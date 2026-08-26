@@ -1,0 +1,82 @@
+/* =========================================================
+   BREAKPOINT SYSTEM (PRODUCTION READY)
+========================================================= */
+
+/* ===================== BREAKPOINT VALUES ===================== */
+$xs: 480px;   // small phones
+$sm: 576px;   // large phones
+$md: 768px;   // tablets
+$lg: 992px;   // small laptops
+$xl: 1200px;  // desktops
+$xxl: 1400px; // large screens
+
+/* =========================================================
+   CORE MIXINS (MAX-WIDTH FIRST APPROACH)
+========================================================= */
+
+/* Extra small devices */
+@mixin xs {
+  @media (max-width: $xs) {
+    @content;
+  }
+}
+
+/* Small devices */
+@mixin sm {
+  @media (max-width: $sm) {
+    @content;
+  }
+}
+
+/* Medium devices (tablets) */
+@mixin md {
+  @media (max-width: $md) {
+    @content;
+  }
+}
+
+/* Large devices (laptops) */
+@mixin lg {
+  @media (max-width: $lg) {
+    @content;
+  }
+}
+
+/* Extra large devices (desktops) */
+@mixin xl {
+  @media (max-width: $xl) {
+    @content;
+  }
+}
+
+/* XXL screens */
+@mixin xxl {
+  @media (max-width: $xxl) {
+    @content;
+  }
+}
+
+/* =========================================================
+   OPTIONAL (ONLY IF YOU REALLY NEED THEM)
+========================================================= */
+
+/* Mobile shortcut (same as md) */
+@mixin mobile {
+  @media (max-width: $md) {
+    @content;
+  }
+}
+
+/* Tablet shortcut (same as lg boundary) */
+@mixin tablet {
+  @media (max-width: $lg) {
+    @content;
+  }
+}
+
+/* Desktop (min-width approach) */
+@mixin desktop {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
