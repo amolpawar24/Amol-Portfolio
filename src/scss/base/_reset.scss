@@ -1,0 +1,64 @@
+/* =========================================================
+   RESET SCSS
+   - Removes default browser styles
+   - Makes UI consistent across browsers
+========================================================= */
+
+/* Remove default spacing + box model fix */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Remove link underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better button reset */
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Input consistency */
+input,
+textarea {
+  font-family: inherit;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: 'Poppins' sans-serif;
+}
+
+::before,::after{
+    box-sizing: border-box;
+}
