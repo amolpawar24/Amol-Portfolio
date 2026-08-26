@@ -1,0 +1,217 @@
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  width: 270px;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 30px;
+
+  background: var(--bg-black-100);
+  border-right: 1px solid var(--bg-black-50);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.sidebar .logo {
+  position: absolute;
+  top: 50px;
+
+  font-size: 30px;
+  text-transform: capitalize;
+}
+
+.sidebar .logo a {
+  position: relative;
+
+  padding: 15px 20px;
+
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 5px;
+
+  color: var(--text-black-900);
+}
+
+/* LOGO LETTER */
+
+.sidebar .logo a span {
+  font-size: 40px;
+  font-family: "Clicker Script", cursive;
+}
+
+/* LEFT BOTTOM BORDER */
+
+.sidebar .logo a::before {
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  left: -10px;
+  bottom: -5px;
+
+  border-left: 5px solid var(--skin-color);
+  border-bottom: 5px solid var(--skin-color);
+}
+
+/* RIGHT TOP BORDER */
+
+.sidebar .logo a::after {
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  top: 0;
+  right: -10px;
+
+  border-top: 5px solid var(--skin-color);
+  border-right: 5px solid var(--skin-color);
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.sidebar .nav {
+  margin-top: 50px;
+}
+
+.sidebar .nav li {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.sidebar .nav li a {
+  display: block;
+
+  padding: 5px 15px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  color: var(--text-black-900);
+
+  border-bottom: 1px solid var(--bg-black-50);
+}
+
+/* ACTIVE LINK */
+
+.sidebar .nav li a.active {
+  color: var(--skin-color);
+}
+
+/* ICON SPACING */
+
+.sidebar .nav li a i {
+  margin-right: 15px;
+}
+
+/* =========================================================
+   NAV TOGGLER
+========================================================= */
+
+.nav-toggler {
+  position: fixed;
+
+  top: 20px;
+  left: 20px;
+
+  width: 45px;
+  height: 40px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 2000;
+
+  border: 1px solid var(--bg-black-50);
+  background: var(--bg-black-100);
+}
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.nav-toggler span {
+  position: relative;
+
+  display: inline-block;
+
+  width: 18px;
+  height: 2px;
+
+  background: var(--skin-color);
+}
+
+.nav-toggler span::before,
+.nav-toggler span::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+
+  width: 18px;
+  height: 2px;
+
+  background: var(--skin-color);
+}
+
+.nav-toggler span::before {
+  top: -6px;
+}
+
+.nav-toggler span::after {
+  top: 6px;
+}
+
+/* =========================================================
+   ACTIVE TOGGLER
+========================================================= */
+
+.nav-toggler.open span {
+  background: transparent;
+}
+
+.nav-toggler.open span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggler.open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
