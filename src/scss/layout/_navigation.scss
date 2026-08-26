@@ -1,0 +1,15 @@
+.section {
+  position: fixed;
+  left: 270px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: var(--bg-black-900);
+  transition: 0.3s ease;
+}
+
+.section.active {
+  animation: slideSection 1s ease;
+  z-index: 2;
+}
