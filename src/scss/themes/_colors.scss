@@ -1,0 +1,26 @@
+// ============================================================
+// THEME COLORS — _colors.scss
+// Defines --skin-color for each selectable theme.
+// Classes are applied dynamically to <body> by ThemeSwitcher.tsx
+// Each span swatch also carries this class to show its own color.
+// Must match the `colors` array in ThemeSwitcher.tsx
+// ============================================================
+
+
+// ── DEFAULT ──────────────────────────────────────────────────
+// Fallback skin color used when no theme class is present on <body>
+:root {
+  --skin-color: #ec1839;
+}
+
+
+// ── THEME OVERRIDES ──────────────────────────────────────────
+// Each class overrides --skin-color when applied to <body> or a child element.
+// Also used by color swatches in the switcher panel —
+// the span carries this class, so --skin-color resolves locally on that element.
+
+.color-1 { --skin-color: #ec1839; } // Red    (default)
+.color-2 { --skin-color: #fa5b0f; } // Orange
+.color-3 { --skin-color: #37b182; } // Green
+.color-4 { --skin-color: #1854b4; } // Blue
+.color-5 { --skin-color: #f021b2; } // Pink
