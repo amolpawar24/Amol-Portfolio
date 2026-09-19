@@ -1,17 +1,19 @@
-.modern-alert {
+/* =========================================================
+   MODERN ALERT (SweetAlert2 theming)
+========================================================= */
 
+.modern-alert {
   border-radius: 24px !important;
 
   padding: 28px !important;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(17, 24, 39, 0.96),
-      rgba(31, 41, 55, 0.96)
-    ) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(17, 24, 39, 0.96),
+    rgba(31, 41, 55, 0.96)
+  ) !important;
 
   backdrop-filter: blur(18px);
 
@@ -23,18 +25,13 @@
 }
 
 @keyframes alertAnimation {
-
   from {
-
     opacity: 0;
-
     transform: scale(0.9) translateY(10px);
   }
 
   to {
-
     opacity: 1;
-
     transform: scale(1) translateY(0);
   }
 }
@@ -42,9 +39,7 @@
 /* ================= TITLE ================= */
 
 .modern-alert-title {
-
   font-size: 24px !important;
-
   font-weight: 700 !important;
 
   letter-spacing: 0.5px;
@@ -57,9 +52,7 @@
 /* ================= TEXT ================= */
 
 .modern-alert-text {
-
   font-size: 15px !important;
-
   line-height: 1.7;
 
   color: rgba(255, 255, 255, 0.78) !important;
@@ -68,9 +61,7 @@
 /* ================= BUTTON ================= */
 
 .modern-alert-button {
-
   border: none !important;
-
   outline: none !important;
 
   border-radius: 14px !important;
@@ -78,56 +69,35 @@
   padding: 12px 28px !important;
 
   font-size: 14px !important;
-
   font-weight: 600 !important;
-
   letter-spacing: 0.5px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #7c3aed,
-      #9333ea
-    ) !important;
+  background: linear-gradient(135deg, #7c3aed, #9333ea) !important;
 
-  box-shadow:
-    0 10px 25px rgba(124, 58, 237, 0.35);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.35);
 
   transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.45);
+  }
 }
 
-.modern-alert-button:hover {
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 15px 35px rgba(124, 58, 237, 0.45);
-}
-
-/* ================= SUCCESS ================= */
+/* ================= STATUS COLORS ================= */
 
 .swal2-success {
-
   color: #00ffb3 !important;
 }
 
-/* ================= ERROR ================= */
-
 .swal2-error {
-
   color: #ff4d6d !important;
 }
 
-/* ================= WARNING ================= */
-
 .swal2-warning {
-
   color: #ffc107 !important;
 }
 
-/* ================= INFO ================= */
-
 .swal2-info {
-
   color: #3b82f6 !important;
 }
