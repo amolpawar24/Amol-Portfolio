@@ -1,0 +1,348 @@
+@use "../../abstracts/breakpoints" as *;
+
+/* =========================================================
+   PROFILE SECTION
+   Base + Responsive Styles
+========================================================= */
+
+.profile {
+  /* ===================== ROW ===================== */
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* ===================== PROFILE CONTENT ===================== */
+
+  .profile-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* ===================== PROFILE TEXT ===================== */
+
+  .profile-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: var(--text-black-900);
+
+      span {
+        color: var(--skin-color);
+      }
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 25px;
+      color: var(--text-black-700);
+    }
+  }
+
+  /* ===================== PERSONAL INFO ===================== */
+
+  .personal-info {
+    flex: 0 0 60%;
+    max-width: 60%;
+    margin-top: 40px;
+
+    .info-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+
+      p {
+        font-weight: 600;
+        padding: 10px 0;
+        font-size: 16px;
+        color: var(--text-black-900);
+        border-bottom: 1px solid var(--bg-black-50);
+
+        span {
+          font-weight: 400;
+          color: var(--text-black-700);
+          margin-left: 4px;
+          display: inline-block;
+        }
+      }
+    }
+
+    /* ===================== BUTTONS ===================== */
+
+    .buttons {
+      margin-top: 30px;
+
+      .btn {
+        margin-right: 15px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  /* ===================== EDUCATION + EXPERIENCE ===================== */
+
+  .education,
+  .experience {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 30px;
+  }
+
+  /* ===================== TITLES ===================== */
+
+  h3.title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: var(--text-black-900);
+  }
+
+  /* ===================== TIMELINE BOX ===================== */
+
+  .timeline-box {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .timeline {
+    background-color: var(--bg-black-100);
+    padding: 30px 15px;
+    border: 1px solid var(--bg-black-50);
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+
+    /* ===================== TIMELINE ITEM ===================== */
+
+    .timeline-item {
+      position: relative;
+      padding: 37px;
+      padding-bottom: 50px;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      /* vertical line */
+      &::before {
+        content: "";
+        width: 1px;
+        position: absolute;
+        height: 100%;
+        left: 7px;
+        top: 0;
+        background-color: var(--skin-color);
+      }
+    }
+
+    /* dot */
+    .circle-dot {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      background-color: var(--skin-color);
+    }
+
+    /* date */
+    .timeline-date {
+      margin-top: -38px;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: var(--text-black-700);
+
+      .fa {
+        margin-right: 5px;
+      }
+    }
+
+    /* title */
+    .timeline-title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 15px;
+      text-transform: capitalize;
+      color: var(--text-black-900);
+    }
+
+    /* text */
+    .timeline-text {
+      line-height: 25px;
+      font-size: 16px;
+      text-align: justify;
+      color: var(--text-black-700);
+    }
+  }
+}
+
+/* =========================================================
+   XXL DEVICES
+   ≤ 1400px
+========================================================= */
+
+@include xxl {
+  .profile {
+    margin-left: 15px;
+
+    .profile-text h3 {
+      margin-left: 15px;
+    }
+
+    .profile-text p {
+      font-size: 17px;
+      line-height: 28px;
+      padding: 15px;
+    }
+
+    .timeline {
+      padding: 35px 25px;
+
+      .timeline-text {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   XL DEVICES
+   ≤ 1200px
+========================================================= */
+
+@include xl {
+  .profile {
+    .profile-text h3 {
+      margin-left: 15px;
+    }
+  }
+}
+
+/* =========================================================
+   LG DEVICES
+   ≤ 992px
+========================================================= */
+
+@include lg {
+  .profile {
+    .personal-info,
+    .education,
+    .experience {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+/* =========================================================
+   MD DEVICES
+   ≤ 768px
+========================================================= */
+
+@include md {
+  .profile {
+    .profile-text h3 {
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .personal-info .info-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .timeline .timeline-item {
+      padding-left: 25px;
+    }
+  }
+}
+
+/* =========================================================
+   SM DEVICES
+   ≤ 576px
+========================================================= */
+
+@include sm {
+  .profile {
+    .profile-text {
+      h3 {
+        font-size: 20px;
+        margin-left: 0;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    h3.title {
+      font-size: 20px;
+    }
+
+    .timeline {
+      padding: 20px 15px;
+
+      .timeline-title {
+        font-size: 16px;
+      }
+
+      .timeline-text {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   XS DEVICES
+   ≤ 480px
+========================================================= */
+
+@include xs {
+  .profile {
+    .profile-text {
+      h3 {
+        font-size: 18px;
+        margin-left: 15px;
+        text-align: justify;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 22px;
+        padding: 20px;
+      }
+    }
+
+    .personal-info {
+      .info-item p {
+        font-size: 14px;
+      }
+
+      .buttons .btn {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+
+    .timeline {
+      padding: 15px 10px;
+
+      .timeline-title {
+        font-size: 15px;
+      }
+
+      .timeline-text {
+        font-size: 13px;
+        line-height: 20px;
+      }
+    }
+  }
+}
