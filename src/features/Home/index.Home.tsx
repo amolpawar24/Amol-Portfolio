@@ -4,10 +4,18 @@ import Image from "next/image";
 
 import { useTyped } from "@/hooks/useTyped";
 
-export default function Home() {
+interface Props {
+  onNavigate: (section: string) => void;
+}
 
-  //* ================= TYPED.JS HOOK ================= 
+export default function Home({ onNavigate }: Props) {
+  //* ================= TYPED.JS HOOK =================
   useTyped(".typing");
+
+  const handleViewWork = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onNavigate("Projects");
+  };
 
   return (
     <div className="container">
@@ -28,13 +36,10 @@ export default function Home() {
             Next.js, Node.js and Java.
           </p>
 
-          <a
-              href="https://amolpawar24.carrd.co/"
-            className="btn"
-              target="_blank"
-            >
-            Connect
-            </a>
+          <div className="home-btns">
+            <a href="#Projects" className="btn" onClick={handleViewWork}>View My Work</a>
+            <a href="https://amolpawar24.carrd.co/" className="btn" target="_blank">Connect</a>
+          </div>
         </div>
 
         {/* IMAGE */}
