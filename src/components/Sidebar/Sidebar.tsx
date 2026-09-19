@@ -82,7 +82,7 @@ export default function Sidebar({
           </li>
 
           {/* EXPERIENCE */}
-          <li>
+          {/* <li>
             <a
               href="#Experience"
               className={activeSection === "Experience" ? "active" : ""}
@@ -91,7 +91,7 @@ export default function Sidebar({
               <i className="fa fa-briefcase"></i>
               Experience
             </a>
-          </li>
+          </li> */}
 
           {/* CERTIFICATIONS */}
           <li>

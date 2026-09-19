@@ -80,12 +80,12 @@ export default function Main() {
       </section>
 
       {/* ================= EXPERIENCE ================= */}
-      <section
+      {/* <section
         className={sectionClass("Experience", "experience")}
         id="Experience"
       >
         <Experience />
-      </section>
+      </section> */}
 
       {/* ================= CERTIFICATIONS ================== */}
       <section
