@@ -13,9 +13,9 @@ import Projects from "@/features/Projects/index.Projects";
 import AllProjects from "@/features/Projects/AllProjects";
 import Connect from "@/features/Connect/index.Connect";
 import Certifications from "@/features/Certifications/index.Certifications";
+import Footer from "@/components/Footer/Footer";
 
 export default function Main() {
-
   /* ================= STATE ================= */
   const [activeSection, setActiveSection] = useState("Home");
   const [prevSection, setPrevSection] = useState<string | null>(null);
@@ -23,7 +23,6 @@ export default function Main() {
 
   /* ================= NAVIGATION ================= */
   const handleNavigate = (section: string) => {
-
     // Prevent re-render on same page click
     if (section === activeSection) {
       setSidebarOpen(false);
@@ -42,7 +41,6 @@ export default function Main() {
 
   /* ================= SECTION CLASSES ================= */
   const sectionClass = (name: string, extra: string) => {
-
     // Current active page
     if (name === activeSection) {
       return `${extra} section active`;
@@ -59,7 +57,6 @@ export default function Main() {
 
   return (
     <main className="main-container">
-
       {/* ================= SIDEBAR ================= */}
       <Sidebar
         activeSection={activeSection}
@@ -72,19 +69,13 @@ export default function Main() {
       <ThemeSwitcher />
 
       {/* ================= HOME ================= */}
-      <section
-        className={sectionClass("Home", "home")}
-        id="Home"
-      >
-        <Home onNavigate={handleNavigate}/>
+      <section className={sectionClass("Home", "home")} id="Home">
+        <Home onNavigate={handleNavigate} />
       </section>
 
       {/* ================= PROFILE ================= */}
-      <section
-        className={sectionClass("Profile", "profile")}
-        id="Profile"
-      >
-        <Profile />
+      <section className={sectionClass("Profile", "profile")} id="Profile">
+        <Profile onNavigate={handleNavigate} />
       </section>
 
       {/* ================= CERTIFICATIONS ================== */}
@@ -104,21 +95,13 @@ export default function Main() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section
-        className={sectionClass("Services", "services")}
-        id="Services"
-      >
+      <section className={sectionClass("Services", "services")} id="Services">
         <Services />
       </section>
 
       {/* ================= PROJECTS ================= */}
-      <section
-        className={sectionClass("Projects", "projects")}
-        id="Projects"
-      >
-        <Projects
-          onViewAll={() => handleNavigate("AllProjects")}
-        />
+      <section className={sectionClass("Projects", "projects")} id="Projects">
+        <Projects onViewAll={() => handleNavigate("AllProjects")} />
       </section>
 
       {/* ================= ALL PROJECTS ================= */}
@@ -126,19 +109,16 @@ export default function Main() {
         className={sectionClass("AllProjects", "projects")}
         id="AllProjects"
       >
-        <AllProjects
-          onBack={() => handleNavigate("Projects")}
-        />
+        <AllProjects onBack={() => handleNavigate("Projects")} />
       </section>
 
       {/* ================= CONNECT ================= */}
-      <section
-        className={sectionClass("Connect", "connect")}
-        id="Connect"
-      >
+      <section className={sectionClass("Connect", "connect")} id="Connect">
         <Connect />
-      </section>
 
+        {/* ================= FOOTER ================= */}
+        <Footer onNavigate={handleNavigate} />
+      </section>
     </main>
   );
 }
