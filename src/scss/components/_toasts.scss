@@ -1,5 +1,6 @@
 /* =====================================================
-    MODERN THEME ADAPTIVE TOAST
+   PREMIUM FLOATING THEME ADAPTIVE TOAST
+   SweetAlert2 — Glass + Accent + Depth
 ===================================================== */
 
 .modern-toast {
@@ -10,103 +11,263 @@
 
   min-width: 340px;
 
-  padding: 16px 20px !important;
+  padding: 17px 20px 17px 22px !important;
 
-  border-radius: 18px !important;
+  border-radius: 20px !important;
 
-  backdrop-filter: blur(18px);
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--skin-color) 18%,
+      rgba(255, 255, 255, 0.08)
+    ) !important;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  background: var(--bg-black-100) !important;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--bg-black-100) 96%,
+        var(--skin-color)
+      ),
+      var(--bg-black-100)
+    ) !important;
 
   color: var(--text-black-900) !important;
 
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.15),
-    0 0 25px rgba(0, 0, 0, 0.08);
-
-  transition: all 0.3s ease;
-}
-
-/* ================= HOVER EFFECT ================= */
-
-.modern-toast:hover {
-
-  transform: translateY(-3px) scale(1.01);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 
   box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.2),
-    0 0 30px color-mix(
-      in srgb,
-      var(--skin-color) 25%,
-      transparent
-    );
-}
+    0 18px 45px rgba(0, 0, 0, 0.18),
+    0 5px 18px rgba(0, 0, 0, 0.08),
+    0 0 30px
+      color-mix(
+        in srgb,
+        var(--skin-color) 10%,
+        transparent
+      );
 
-/* ================= SHINE EFFECT ================= */
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 
-.modern-toast::before {
+  animation:
+    toastEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 
-  content: "";
+  /* =================================================
+     ACCENT LIGHT RAIL
+  ================================================= */
 
-  position: absolute;
+  &::after {
 
-  top: 0;
-  left: -120%;
+    content: "";
 
-  width: 100%;
-  height: 100%;
+    position: absolute;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
+    top: 12px;
+    bottom: 12px;
+    left: 0;
 
-  animation: toastShine 3s infinite;
-}
+    width: 3px;
 
-@keyframes toastShine {
+    border-radius: 0 999px 999px 0;
 
-  100% {
-    left: 120%;
+    background:
+      linear-gradient(
+        180deg,
+        var(--skin-color),
+        color-mix(
+          in srgb,
+          var(--skin-color) 45%,
+          white
+        )
+      );
+
+    box-shadow:
+      0 0 12px
+        color-mix(
+          in srgb,
+          var(--skin-color) 55%,
+          transparent
+        );
+
+    pointer-events: none;
+  }
+
+  /* =================================================
+     TOP GLASS REFLECTION
+  ================================================= */
+
+  &::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+      linear-gradient(
+        105deg,
+        transparent,
+        rgba(255, 255, 255, 0.12),
+        transparent
+      );
+
+    transform: skewX(-18deg);
+
+    animation: toastGlassShine 4s infinite;
+
+    pointer-events: none;
   }
 }
 
-/* ================= TITLE ================= */
+
+/* =====================================================
+   ENTRANCE ANIMATION
+===================================================== */
+
+@keyframes toastEnter {
+
+  from {
+    opacity: 0;
+    transform: translateX(30px) translateY(8px) scale(0.94);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+
+/* =====================================================
+   GLASS SHINE
+===================================================== */
+
+@keyframes toastGlassShine {
+
+  0% {
+    left: -120%;
+  }
+
+  35%,
+  100% {
+    left: 140%;
+  }
+}
+
+
+/* =====================================================
+   HOVER EFFECT
+===================================================== */
+
+.modern-toast:hover {
+
+  transform: translateY(-4px) scale(1.015);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--skin-color) 35%,
+      transparent
+    ) !important;
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.22),
+    0 8px 25px rgba(0, 0, 0, 0.10),
+    0 0 35px
+      color-mix(
+        in srgb,
+        var(--skin-color) 18%,
+        transparent
+      );
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
 
 .modern-toast-title {
+
+  position: relative;
+
+  margin: 0 !important;
+
+  font-family:
+    var(--font-space-grotesk),
+    sans-serif !important;
 
   font-size: 15px !important;
 
   font-weight: 700 !important;
+
+  line-height: 1.4;
 
   letter-spacing: 0.4px;
 
   color: var(--skin-color) !important;
 
   text-shadow:
-    0 0 12px color-mix(
-      in srgb,
-      var(--skin-color) 35%,
-      transparent
-    );
+    0 0 12px
+      color-mix(
+        in srgb,
+        var(--skin-color) 28%,
+        transparent
+      );
+
+  z-index: 2;
 }
 
-/* ================= ICON BASE ================= */
+
+/* =====================================================
+   ICON BASE
+===================================================== */
 
 .swal2-icon {
 
+  position: relative;
+
   border: none !important;
 
-  transform: scale(0.9);
+  transform: scale(0.88);
 
   margin-right: 12px !important;
+
+  filter:
+    drop-shadow(
+      0 5px 12px rgba(0, 0, 0, 0.16)
+    );
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
-/* ================= SUCCESS ================= */
+
+.modern-toast:hover .swal2-icon {
+
+  transform: scale(0.94);
+
+  filter:
+    drop-shadow(
+      0 7px 16px rgba(0, 0, 0, 0.22)
+    );
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
 
 .swal2-success {
 
@@ -114,15 +275,19 @@
 
   filter:
     drop-shadow(
-      0 0 10px color-mix(
-        in srgb,
-        var(--skin-color) 45%,
-        transparent
-      )
+      0 0 12px
+        color-mix(
+          in srgb,
+          var(--skin-color) 48%,
+          transparent
+        )
     );
 }
 
-/* ================= ERROR ================= */
+
+/* =====================================================
+   ERROR
+===================================================== */
 
 .swal2-error {
 
@@ -130,11 +295,14 @@
 
   filter:
     drop-shadow(
-      0 0 10px rgba(255, 77, 109, 0.45)
+      0 0 12px rgba(255, 77, 109, 0.48)
     );
 }
 
-/* ================= WARNING ================= */
+
+/* =====================================================
+   WARNING
+===================================================== */
 
 .swal2-warning {
 
@@ -142,11 +310,14 @@
 
   filter:
     drop-shadow(
-      0 0 10px rgba(255, 176, 32, 0.45)
+      0 0 12px rgba(255, 176, 32, 0.48)
     );
 }
 
-/* ================= INFO ================= */
+
+/* =====================================================
+   INFO
+===================================================== */
 
 .swal2-info {
 
@@ -154,29 +325,62 @@
 
   filter:
     drop-shadow(
-      0 0 10px rgba(59, 130, 246, 0.45)
+      0 0 12px rgba(59, 130, 246, 0.48)
     );
 }
 
-/* ================= CLOSE BUTTON ================= */
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
 
 .swal2-close {
 
+  position: relative;
+
+  width: 30px !important;
+  height: 30px !important;
+
+  border-radius: 9px !important;
+
   color: var(--text-black-700) !important;
 
-  transition: all 0.3s ease;
+  font-size: 20px !important;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+
+  z-index: 5;
 
   &:hover {
 
     color: var(--skin-color) !important;
 
-    transform: rotate(90deg);
+    background:
+      color-mix(
+        in srgb,
+        var(--skin-color) 10%,
+        transparent
+      ) !important;
+
+    transform: rotate(90deg) scale(1.05);
   }
 }
 
-/* ================= TIMER PROGRESS BAR ================= */
+
+/* =====================================================
+   TIMER PROGRESS BAR
+===================================================== */
 
 .modern-progress-bar {
+
+  position: relative;
+
+  height: 4px !important;
+
+  border-radius: 999px;
 
   background:
     linear-gradient(
@@ -184,24 +388,73 @@
       var(--skin-color),
       color-mix(
         in srgb,
-        var(--skin-color) 60%,
+        var(--skin-color) 55%,
         white
       )
     ) !important;
 
-  height: 4px !important;
+  box-shadow:
+    0 0 10px
+      color-mix(
+        in srgb,
+        var(--skin-color) 40%,
+        transparent
+      );
 
-  border-radius: 999px;
+  overflow: hidden;
+
+  &::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -30%;
+
+    width: 30%;
+    height: 100%;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+      );
+
+    animation: progressShine 1.8s linear infinite;
+  }
 }
 
-/* ================= SWEET ALERT CONTAINER ================= */
+
+@keyframes progressShine {
+
+  from {
+    left: -30%;
+  }
+
+  to {
+    left: 110%;
+  }
+}
+
+
+/* =====================================================
+   SWEETALERT CONTAINER
+===================================================== */
 
 .swal2-container {
 
   z-index: 999999 !important;
+
+  padding: 20px !important;
 }
 
-/* ================= MOBILE ================= */
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 576px) {
 
@@ -211,11 +464,69 @@
 
     min-width: unset;
 
-    padding: 14px 16px !important;
+    padding: 15px 17px 15px 19px !important;
+
+    border-radius: 18px !important;
   }
 
   .modern-toast-title {
 
     font-size: 14px !important;
+  }
+
+  .swal2-icon {
+
+    margin-right: 8px !important;
+
+    transform: scale(0.82);
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+  .modern-toast {
+
+    width: calc(100vw - 24px);
+
+    padding: 14px 15px 14px 18px !important;
+  }
+
+  .modern-toast-title {
+
+    font-size: 13px !important;
+
+    letter-spacing: 0.3px;
+  }
+
+  .swal2-close {
+
+    width: 27px !important;
+    height: 27px !important;
+
+    font-size: 18px !important;
+  }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .modern-toast,
+  .modern-toast::before,
+  .modern-toast::after,
+  .modern-toast .swal2-icon,
+  .modern-progress-bar::after {
+
+    animation: none !important;
+
+    transition: none !important;
   }
 }
