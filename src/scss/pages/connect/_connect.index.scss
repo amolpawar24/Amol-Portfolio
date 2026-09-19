@@ -2,20 +2,80 @@
 
 /*! =====================================================
     CONNECT SECTION
-    Base + Responsive Styles
+    3D GLASS DEPTH EFFECT
 ========================================================= */
 
 .connect {
+  position: relative;
+  isolation: isolate;
+
+  /* ================= AMBIENT BACKGROUND ================= */
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: 15%;
+    left: 5%;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--skin-color) 18%, transparent),
+      transparent 70%
+    );
+    filter: blur(45px);
+    opacity: 0.7;
+    animation: connectFloatOne 8s ease-in-out infinite;
+  }
+
+  &::after {
+    right: 5%;
+    bottom: 10%;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--skin-color) 14%, transparent),
+      transparent 70%
+    );
+    filter: blur(50px);
+    opacity: 0.6;
+    animation: connectFloatTwo 10s ease-in-out infinite;
+  }
+
   /* ================= CONNECT TITLE ================= */
 
   .connect-title {
+    position: relative;
     color: var(--skin-color);
     text-align: center;
-
     font-size: 25px;
     font-weight: 700;
-
     margin-bottom: 20px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 45px;
+      height: 3px;
+      border-radius: 10px;
+      background: var(--skin-color);
+      transform: translateX(-50%);
+      box-shadow:
+        0 0 10px
+          color-mix(in srgb, var(--skin-color) 70%, transparent),
+        0 0 25px
+          color-mix(in srgb, var(--skin-color) 35%, transparent);
+    }
   }
 
   /* ================= CONNECT SUB TITLE ================= */
@@ -23,11 +83,10 @@
   .connect-sub-title {
     color: var(--text-black-900);
     text-align: center;
-
     font-size: 15px;
     font-weight: 500;
-
     margin-bottom: 60px;
+    letter-spacing: 1px;
   }
 
   /* ================= CONNECT INFO ITEM ================= */
@@ -35,17 +94,14 @@
   .connect-info-item {
     flex: 0 0 25%;
     max-width: 25%;
-
     text-align: center;
     margin-bottom: 60px;
 
     h4 {
       font-size: 18px;
       font-weight: 700;
-
       color: var(--text-black-900);
       text-transform: capitalize;
-
       margin: 15px 0 8px;
     }
 
@@ -53,13 +109,10 @@
     a {
       font-size: 16px;
       line-height: 25px;
-
       color: var(--text-black-700);
       font-weight: 400;
-
       word-break: break-word;
       text-decoration: none;
-
       transition: all 0.3s ease;
 
       &:hover {
@@ -71,37 +124,175 @@
   /* ================= CONNECT ICON ================= */
 
   .icon {
+    position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-
     width: 65px;
     height: 65px;
-
     border-radius: 50%;
-    background: var(--bg-black-100);
+
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in srgb, var(--skin-color) 12%, transparent),
+        var(--bg-black-100)
+      );
+
+    border: 1px solid
+      color-mix(in srgb, var(--skin-color) 25%, transparent);
 
     margin-bottom: 15px;
 
-    transition: all 0.3s ease;
+    box-shadow:
+      inset 3px 3px 8px
+        rgba(255, 255, 255, 0.08),
+      inset -4px -4px 10px
+        rgba(0, 0, 0, 0.08),
+      0 8px 20px
+        rgba(0, 0, 0, 0.08);
+
+    transition:
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s ease,
+      border-color 0.45s ease;
 
     svg {
+      position: relative;
+      z-index: 2;
       font-size: 28px;
       color: var(--skin-color);
+
+      transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+    }
+
+    /* Inner glass highlight */
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: inherit;
+      border-top: 1px solid
+        rgba(255, 255, 255, 0.25);
+      opacity: 0.7;
     }
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+      transform:
+        translateY(-8px)
+        rotateX(8deg)
+        rotateY(-8deg);
+
+      border-color: var(--skin-color);
+
+      box-shadow:
+        inset 3px 3px 8px
+          rgba(255, 255, 255, 0.12),
+        0 15px 35px
+          rgba(0, 0, 0, 0.12),
+        0 0 30px
+          color-mix(in srgb, var(--skin-color) 25%, transparent);
+
+      svg {
+        transform: scale(1.12) translateZ(10px);
+
+        filter:
+          drop-shadow(
+            0 0 8px
+              color-mix(
+                in srgb,
+                var(--skin-color) 60%,
+                transparent
+              )
+          );
+      }
     }
   }
 
-  /* ================= CONNECT FORM ================= */
+  /* ================= FORM ================= */
 
   .connect-form {
+    position: relative;
     flex: 0 0 100%;
     max-width: 100%;
+    padding: 20px;
+    border-radius: 28px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0.035)
+      );
+
+    border: 1px solid
+      color-mix(in srgb, var(--skin-color) 20%, transparent);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+      12px 12px 35px rgba(0, 0, 0, 0.08),
+      -8px -8px 25px rgba(255, 255, 255, 0.05),
+      inset 1px 1px 0
+        rgba(255, 255, 255, 0.15);
+
+    overflow: hidden;
+
+    /* Moving glass reflection */
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -30%;
+      width: 35%;
+      height: 300%;
+      transform: rotate(25deg);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.08),
+          transparent
+        );
+
+      animation: glassReflection 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Accent depth glow */
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          color-mix(
+            in srgb,
+            var(--skin-color) 12%,
+            transparent
+          ),
+          transparent 70%
+        );
+
+      filter: blur(25px);
+      pointer-events: none;
+    }
   }
+
+  /* ================= COLUMNS ================= */
 
   .col-6 {
     flex: 0 0 50%;
@@ -122,103 +313,370 @@
   /* ================= FORM CONTROL ================= */
 
   .form-control {
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 50px;
 
-    border: 1px solid var(--bg-black-50);
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 16%,
+        var(--bg-black-50)
+      );
+
     border-radius: 25px;
 
-    background: var(--bg-black-100);
+    background:
+      color-mix(
+        in srgb,
+        var(--bg-black-100) 88%,
+        transparent
+      );
 
     padding: 10px 25px;
     font-size: 16px;
-
     color: var(--text-black-700);
 
-    transition: all 0.3s ease;
-    outline: none;
+    transition:
+      transform 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease,
+      background 0.35s ease;
 
-    &:focus {
-      box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
-      border-color: var(--skin-color);
+    outline: none;
+    font-family: inherit;
+
+    box-shadow:
+      inset 2px 2px 5px
+        rgba(0, 0, 0, 0.04),
+      inset -2px -2px 5px
+        rgba(255, 255, 255, 0.04);
+
+    &::placeholder {
+      color: var(--text-black-700);
+      opacity: 0.7;
     }
 
-    /* ================= ERROR INPUT ================= */
+    &:hover {
+      border-color:
+        color-mix(
+          in srgb,
+          var(--skin-color) 45%,
+          transparent
+        );
+
+      transform: translateY(-1px);
+    }
+
+    &:focus {
+      border-color: var(--skin-color);
+
+      background:
+        color-mix(
+          in srgb,
+          var(--skin-color) 4%,
+          var(--bg-black-100)
+        );
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        inset 2px 2px 5px
+          rgba(0, 0, 0, 0.04),
+        0 8px 25px
+          color-mix(
+            in srgb,
+            var(--skin-color) 12%,
+            transparent
+          ),
+        0 0 0 3px
+          color-mix(
+            in srgb,
+            var(--skin-color) 7%,
+            transparent
+          );
+    }
+
+    /* ================= ERROR ================= */
 
     &.error {
       border-color: #ff4d6d;
 
       box-shadow:
-        0 0 0 4px rgba(255, 77, 109, 0.08),
-        0 0 18px rgba(255, 77, 109, 0.15);
+        0 0 0 4px
+          rgba(255, 77, 109, 0.08),
+        0 0 18px
+          rgba(255, 77, 109, 0.15);
     }
 
-    /* ================= SUCCESS INPUT ================= */
+    /* ================= SUCCESS ================= */
 
     &.success {
       border-color: #00ffb3;
 
       box-shadow:
-        0 0 0 4px rgba(0, 255, 179, 0.08),
-        0 0 18px rgba(0, 255, 179, 0.15);
+        0 0 0 4px
+          rgba(0, 255, 179, 0.08),
+        0 0 18px
+          rgba(0, 255, 179, 0.15);
     }
   }
 
-  /* ================= FORM VALIDATION ERROR ================= */
+  /* ================= FORM ERROR ================= */
 
   .form-error {
     display: block;
-
     margin-top: 10px;
     padding-left: 8px;
-
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.3px;
-
     color: #ff4d6d;
 
     animation: fadeError 0.25s ease;
 
-    text-shadow: 0 0 8px rgba(255, 77, 109, 0.2);
+    text-shadow:
+      0 0 8px
+        rgba(255, 77, 109, 0.2);
   }
 
   /* ================= TEXTAREA ================= */
 
   textarea.form-control {
     height: 140px;
-
     resize: none;
     padding-top: 15px;
   }
 
-  /* ================= BUTTON ================= */
+  /* =====================================================
+     BUTTON
+     SQUARE / PREMIUM / GLOW
+  ===================================================== */
 
   .btn {
-    height: 50px;
-    padding: 0 50px;
+    position: relative;
+    z-index: 2;
 
-    border: none;
-    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    background: var(--skin-color);
+    min-width: 180px;
+    height: 52px;
+
+    padding: 0 42px;
+
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 75%,
+        transparent
+      );
+
+    /* Square-style button */
+    border-radius: 8px;
+
+    background:
+      linear-gradient(
+        135deg,
+        var(--skin-color),
+        color-mix(
+          in srgb,
+          var(--skin-color) 65%,
+          #ffffff
+        )
+      );
+
     color: #ffffff;
 
+    font-family: inherit;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 
     cursor: pointer;
+    overflow: hidden;
 
-    transition: all 0.3s ease;
+    box-shadow:
+      0 8px 20px
+        color-mix(
+          in srgb,
+          var(--skin-color) 22%,
+          transparent
+        ),
+      inset 0 1px 0
+        rgba(255, 255, 255, 0.3);
 
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 20px rgba(48, 46, 77, 0.2);
+    transition:
+      transform 0.35s
+        cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s ease,
+      border-color 0.35s ease,
+      filter 0.35s ease;
+
+    /* Animated shine */
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -80%;
+
+      width: 45%;
+      height: 200%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.45),
+          transparent
+        );
+
+      transform: rotate(25deg);
+
+      pointer-events: none;
+
+      animation:
+        buttonShine 4s
+        ease-in-out infinite;
+    }
+
+    /* Inner border */
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+
+      border-radius: 7px;
+
+      border: 1px solid
+        rgba(255, 255, 255, 0.18);
+
+      pointer-events: none;
+    }
+
+    &:hover:not(:disabled) {
+      transform:
+        translateY(-5px)
+        scale(1.03);
+
+      border-color: var(--skin-color);
+
+      filter: brightness(1.08);
+
+      box-shadow:
+        0 14px 30px
+          color-mix(
+            in srgb,
+            var(--skin-color) 32%,
+            transparent
+          ),
+        0 0 35px
+          color-mix(
+            in srgb,
+            var(--skin-color) 22%,
+            transparent
+          ),
+        inset 0 1px 0
+          rgba(255, 255, 255, 0.35);
+    }
+
+    &:active:not(:disabled) {
+      transform:
+        translateY(-1px)
+        scale(0.98);
+
+      box-shadow:
+        0 5px 12px
+          color-mix(
+            in srgb,
+            var(--skin-color) 22%,
+            transparent
+          );
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      box-shadow:
+        0 0 0 4px
+          color-mix(
+            in srgb,
+            var(--skin-color) 15%,
+            transparent
+          ),
+        0 10px 25px
+          color-mix(
+            in srgb,
+            var(--skin-color) 25%,
+            transparent
+          );
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+
+      &::before {
+        animation: none;
+      }
     }
   }
 }
 
-/* ================= ERROR ANIMATION ================= */
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes connectFloatOne {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(45px, 25px) scale(1.15);
+  }
+}
+
+@keyframes connectFloatTwo {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-35px, -30px) scale(1.12);
+  }
+}
+
+@keyframes glassReflection {
+  0% {
+    left: -40%;
+  }
+
+  45%,
+  100% {
+    left: 130%;
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    left: -80%;
+  }
+
+  45%,
+  100% {
+    left: 140%;
+  }
+}
 
 @keyframes fadeError {
   from {
@@ -515,6 +973,31 @@
         height: 42px;
         font-size: 12px;
         padding: 0 25px;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .connect {
+    &::before,
+    &::after {
+      animation: none;
+    }
+
+    .connect-form {
+      &::before {
+        animation: none;
+      }
+    }
+
+    .btn {
+      &::before {
+        animation: none;
       }
     }
   }
