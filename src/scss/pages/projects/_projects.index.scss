@@ -1,0 +1,191 @@
+@use "../../abstracts/breakpoints" as *;
+@use "components/projects-cards";
+
+/* =========================================================
+   PROJECTS SECTION
+   Base + Responsive Styles
+========================================================= */
+
+.projects {
+  .container {
+    padding-bottom: 40px;
+  }
+
+  .section-title {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .projects-heading {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+
+    h2 {
+      color: var(--text-black-900);
+      font-weight: 700;
+      font-size: 28px;
+    }
+  }
+
+  .projects-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 35px;
+  }
+
+  .projects-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .view-all {
+    width: 180px;
+    height: 45px;
+
+    color: #ffffff;
+    background-color: var(--skin-color);
+
+    border: none;
+    border-radius: 25px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(var(--skin-color-rgb), 0.5);
+    }
+  }
+}
+
+/* =========================================================
+   XXL DEVICES
+   ≤ 1400px
+========================================================= */
+
+@include xxl {
+  .projects {
+    .projects-heading h2 {
+      font-size: 30px;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+
+    .view-all {
+      font-size: 15px;
+    }
+  }
+}
+
+/* =========================================================
+   XL DEVICES
+   ≤ 1200px
+========================================================= */
+
+@include xl {
+  .projects {
+    .projects-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
+
+/* =========================================================
+   LG DEVICES
+   ≤ 992px
+========================================================= */
+
+@include lg {
+  .projects {
+    .projects-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
+
+/* =========================================================
+   MD DEVICES
+   ≤ 768px
+========================================================= */
+
+@include md {
+  .projects {
+    .projects-heading {
+      margin-bottom: 30px;
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+
+    .projects-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .view-all {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+/* =========================================================
+   SM DEVICES
+   ≤ 576px
+========================================================= */
+
+@include sm {
+  .projects {
+    .projects-heading h2 {
+      font-size: 24px;
+    }
+
+    .projects-item {
+      margin-bottom: 30px;
+    }
+
+    .view-all {
+      height: 42px;
+      font-size: 13px;
+    }
+  }
+}
+
+/* =========================================================
+   XS DEVICES
+   ≤ 480px
+========================================================= */
+
+@include xs {
+  .projects {
+    .container .row .section-title h2 {
+      top: 5px;
+      left: 15px;
+    }
+
+    .projects-heading h2 {
+      font-size: 22px;
+    }
+
+    .projects-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .view-all {
+      height: 40px;
+      font-size: 12px;
+      padding: 10px 15px;
+    }
+  }
+}
