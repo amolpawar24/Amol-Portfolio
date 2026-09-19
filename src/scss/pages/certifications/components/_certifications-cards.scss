@@ -2,10 +2,13 @@
 
 /* =========================================================
    PREMIUM MODERN CERTIFICATION CARDS
-   Base + Responsive Styles
+   3D Glass Depth
+   Modern Developer Typography
 ========================================================= */
 
-/* ================= ITEM ================= */
+/* =========================================================
+   ITEM
+========================================================= */
 
 .Certifications-item {
   flex: 0 0 50%;
@@ -13,7 +16,9 @@
   padding: 15px;
 }
 
-/* ================= CARD ================= */
+/* =========================================================
+   CARD
+========================================================= */
 
 .Certifications-item-inner {
   position: relative;
@@ -29,50 +34,79 @@
 
   border-radius: 28px;
 
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(22px);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.025)
+    );
 
-  border: 1px solid color-mix(in srgb, var(--skin-color) 28%, transparent);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--skin-color) 28%,
+      transparent
+    );
+
+  box-shadow:
+    10px 10px 30px rgba(0, 0, 0, 0.06),
+    -6px -6px 20px rgba(255, 255, 255, 0.04),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.12);
 
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.45s ease,
     border-color 0.45s ease;
 
-  animation: floating 5s ease-in-out infinite;
+  /* =======================================================
+     GLASS REFLECTION
+  ======================================================= */
 
   &::before {
     content: "";
+
     position: absolute;
-    inset: 0;
-    padding: 1px;
+    z-index: 1;
 
-    opacity: 0;
-    border-radius: inherit;
+    top: -110%;
+    left: -35%;
 
-    transition: opacity 0.4s ease;
+    width: 32%;
+    height: 320%;
 
-    background: linear-gradient(
-      135deg,
-      transparent,
-      color-mix(in srgb, var(--skin-color) 65%, white),
-      transparent
-    );
+    transform: rotate(25deg);
 
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.14),
+        rgba(255, 255, 255, 0.05),
+        transparent
+      );
 
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    pointer-events: none;
+
+    animation:
+      certificationReflection
+      9s
+      ease-in-out
+      infinite;
   }
+
+  /* =======================================================
+     AMBIENT GLOW
+  ======================================================= */
 
   &::after {
     content: "";
+
     position: absolute;
+    z-index: 0;
 
     top: -80px;
     right: -80px;
@@ -81,75 +115,127 @@
     height: 180px;
 
     opacity: 0.12;
+
     filter: blur(45px);
 
-    transition: transform 0.5s ease;
+    background:
+      radial-gradient(
+        circle,
+        var(--skin-color),
+        transparent 70%
+      );
 
-    background: radial-gradient(var(--skin-color), transparent 70%);
+    pointer-events: none;
+
+    transition:
+      transform 0.5s ease,
+      opacity 0.5s ease;
   }
+
+  /* =======================================================
+     HOVER
+  ======================================================= */
 
   &:hover {
     transform: translateY(-10px);
+
     border-color: var(--skin-color);
 
-    box-shadow: 0 10px 40px color-mix(in srgb, var(--skin-color) 18%, transparent);
-
-    &::before {
-      opacity: 1;
-    }
+    box-shadow:
+      12px 18px 40px rgba(0, 0, 0, 0.09),
+      -6px -6px 25px rgba(255, 255, 255, 0.05),
+      0 0 30px
+        color-mix(
+          in srgb,
+          var(--skin-color) 15%,
+          transparent
+        ),
+      inset 1px 1px 0
+        rgba(255, 255, 255, 0.16);
 
     &::after {
       transform: scale(1.2);
+      opacity: 0.18;
     }
   }
 }
 
-/* ================= IMAGE ================= */
+/* =========================================================
+   IMAGE
+========================================================= */
 
 .certificate-image {
   position: relative;
+  z-index: 2;
+
   flex-shrink: 0;
 
   width: 200px;
   height: 130px;
 
   overflow: hidden;
+
   border-radius: 18px;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.025)
+    );
 
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    8px 10px 25px rgba(0, 0, 0, 0.14),
+    inset 1px 1px 0
+      rgba(255, 255, 255, 0.12);
+
+  /* =======================================================
+     IMAGE REFLECTION
+  ======================================================= */
 
   &::before {
     content: "";
+
     position: absolute;
 
     top: 0;
     left: -120%;
-    z-index: 2;
+    z-index: 3;
 
     width: 80%;
     height: 100%;
 
     transform: skewX(-25deg);
-    transition: all 0.8s ease;
 
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.25),
-      transparent
-    );
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+      );
+
+    transition:
+      left 0.8s ease;
+
+    pointer-events: none;
   }
 
   img {
+    position: relative;
+    z-index: 1;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition:
+      transform 0.6s
+        cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .Certifications-item-inner:hover & {
@@ -163,65 +249,222 @@
   }
 }
 
-/* ================= CONTENT ================= */
+/* =========================================================
+   CONTENT
+   Modern Developer Typography
+========================================================= */
 
 .certificate-content {
+  position: relative;
+  z-index: 2;
+
   flex: 1;
 
+  min-width: 0;
+
+  /* =======================================================
+     CERTIFICATE TITLE
+  ======================================================= */
+
   h4 {
-    margin-bottom: 12px;
+    margin: 0 0 13px;
+
+    font-family:
+      var(--font-space-grotesk),
+      sans-serif;
 
     font-size: 21px;
-    font-weight: 700;
+
+    line-height: 1.3;
+
+    font-weight: 650;
+
+    letter-spacing: -0.55px;
 
     color: var(--text-black-900);
+
+    text-wrap: balance;
+
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease,
+      letter-spacing 0.3s ease;
   }
+
+  /* =======================================================
+     CERTIFICATE META
+  ======================================================= */
 
   span {
     display: inline-flex;
+
     align-items: center;
 
     gap: 8px;
 
-    padding: 8px 15px;
-    margin-bottom: 15px;
+    width: fit-content;
+
+    padding: 7px 13px;
+
+    margin-bottom: 14px;
 
     border-radius: 999px;
 
-    font-size: 12px;
-    font-weight: 600;
+    font-family:
+      var(--font-ibm-plex-mono),
+      monospace;
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: 0.4px;
+
+    text-transform: uppercase;
 
     color: var(--skin-color);
 
-    background: color-mix(in srgb, var(--skin-color) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--skin-color) 25%, transparent);
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(
+          in srgb,
+          var(--skin-color) 13%,
+          transparent
+        ),
+        color-mix(
+          in srgb,
+          var(--skin-color) 5%,
+          transparent
+        )
+      );
+
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 25%,
+        transparent
+      );
+
+    box-shadow:
+      inset 1px 1px 3px
+        rgba(255, 255, 255, 0.08);
+
+    transition:
+      color 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.3s ease;
 
     i {
-      font-size: 12px;
+      font-size: 10px;
+
+      color: var(--skin-color);
     }
   }
 
+  /* =======================================================
+     DESCRIPTION
+  ======================================================= */
+
   p {
+    max-width: 580px;
+
+    margin: 0;
+
+    font-family:
+      var(--font-inter),
+      sans-serif;
+
     font-size: 14px;
-    line-height: 25px;
+
+    line-height: 1.8;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
 
     color: var(--text-black-700);
+
+    text-align: left;
+
+    transition:
+      color 0.3s ease,
+      opacity 0.3s ease;
   }
 }
 
 /* =========================================================
-   FLOATING ANIMATION
+   CONTENT HOVER
 ========================================================= */
 
-@keyframes floating {
+.Certifications-item-inner:hover {
+  .certificate-content {
+    h4 {
+      color: var(--skin-color);
+
+      transform: translateX(2px);
+
+      letter-spacing: -0.35px;
+    }
+
+    span {
+      background:
+        linear-gradient(
+          145deg,
+          color-mix(
+            in srgb,
+            var(--skin-color) 16%,
+            transparent
+          ),
+          color-mix(
+            in srgb,
+            var(--skin-color) 7%,
+            transparent
+          )
+        );
+
+      border-color:
+        color-mix(
+          in srgb,
+          var(--skin-color) 38%,
+          transparent
+        );
+
+      transform: translateY(-1px);
+    }
+
+    p {
+      color: var(--text-black-900);
+    }
+  }
+}
+
+/* =========================================================
+   GLASS REFLECTION ANIMATION
+========================================================= */
+
+@keyframes certificationReflection {
   0% {
-    transform: translateY(0);
+    left: -40%;
+    opacity: 0;
   }
-  50% {
-    transform: translateY(-4px);
+
+  10% {
+    opacity: 0.8;
   }
+
+  45%,
+  55% {
+    opacity: 0.7;
+  }
+
+  75%,
   100% {
-    transform: translateY(0);
+    left: 140%;
+    opacity: 0;
   }
 }
 
@@ -237,31 +480,44 @@
 
   .Certifications-item-inner {
     gap: 24px;
+
     padding: 26px;
+
     border-radius: 30px;
   }
 
   .certificate-image {
     width: 220px;
     height: 145px;
+
     border-radius: 20px;
   }
 
   .certificate-content {
     h4 {
       font-size: 22px;
+
+      line-height: 1.3;
+
       margin-bottom: 14px;
+
+      letter-spacing: -0.65px;
     }
 
     span {
-      font-size: 13px;
-      padding: 9px 16px;
-      margin-bottom: 16px;
+      font-size: 11px;
+
+      padding: 8px 14px;
+
+      margin-bottom: 15px;
+
+      letter-spacing: 0.5px;
     }
 
     p {
       font-size: 15px;
-      line-height: 27px;
+
+      line-height: 1.8;
     }
   }
 }
@@ -274,27 +530,41 @@
 @include xl {
   .Certifications-item {
     flex: 0 0 50%;
+
     max-width: 50%;
   }
 
   .Certifications-item-inner {
     gap: 20px;
+
     padding: 20px;
   }
 
   .certificate-image {
     width: 190px;
+
     height: 125px;
   }
 
   .certificate-content {
     h4 {
       font-size: 20px;
+
+      line-height: 1.35;
+
+      letter-spacing: -0.5px;
+    }
+
+    span {
+      font-size: 10px;
+
+      padding: 7px 13px;
     }
 
     p {
       font-size: 14px;
-      line-height: 24px;
+
+      line-height: 1.75;
     }
   }
 }
@@ -307,32 +577,39 @@
 @include lg {
   .Certifications-item {
     flex: 0 0 100%;
+
     max-width: 100%;
   }
 
   .Certifications-item-inner {
     gap: 18px;
+
     padding: 20px;
   }
 
   .certificate-image {
     width: 180px;
+
     height: 120px;
   }
 
   .certificate-content {
     h4 {
       font-size: 19px;
+
+      line-height: 1.35;
     }
 
     span {
-      font-size: 11px;
-      padding: 7px 14px;
+      font-size: 10px;
+
+      padding: 7px 12px;
     }
 
     p {
       font-size: 13px;
-      line-height: 23px;
+
+      line-height: 1.75;
     }
   }
 }
@@ -345,14 +622,17 @@
 @include md {
   .Certifications-item-inner {
     flex-direction: column;
+
     align-items: flex-start;
 
     padding: 20px;
+
     border-radius: 24px;
   }
 
   .certificate-image {
     width: 100%;
+
     height: 230px;
   }
 
@@ -360,16 +640,27 @@
     width: 100%;
 
     h4 {
-      font-size: 18px;
+      font-size: 19px;
+
+      line-height: 1.35;
+
+      letter-spacing: -0.45px;
     }
 
     span {
-      margin-bottom: 12px;
+      font-size: 10px;
+
+      padding: 7px 13px;
+
+      margin-bottom: 13px;
     }
 
     p {
-      font-size: 13px;
-      line-height: 22px;
+      max-width: 100%;
+
+      font-size: 14px;
+
+      line-height: 1.75;
     }
   }
 }
@@ -386,29 +677,41 @@
 
   .Certifications-item-inner {
     gap: 16px;
+
     padding: 16px;
+
     border-radius: 22px;
   }
 
   .certificate-image {
     height: 200px;
+
     border-radius: 16px;
   }
 
   .certificate-content {
     h4 {
-      font-size: 17px;
-      line-height: 26px;
+      font-size: 18px;
+
+      line-height: 1.4;
+
+      letter-spacing: -0.35px;
     }
 
     span {
-      font-size: 10px;
-      padding: 6px 12px;
+      font-size: 9px;
+
+      padding: 6px 11px;
+
+      margin-bottom: 11px;
+
+      letter-spacing: 0.35px;
     }
 
     p {
-      font-size: 12px;
-      line-height: 21px;
+      font-size: 13px;
+
+      line-height: 1.7;
     }
   }
 }
@@ -425,7 +728,9 @@
 
   .Certifications-item-inner {
     padding: 14px;
+
     gap: 14px;
+
     border-radius: 20px;
   }
 
@@ -435,17 +740,47 @@
 
   .certificate-content {
     h4 {
-      font-size: 16px;
+      font-size: 17px;
+
+      line-height: 1.4;
+
+      letter-spacing: -0.3px;
     }
 
     span {
-      font-size: 9px;
-      padding: 5px 10px;
+      font-size: 8px;
+
+      padding: 6px 10px;
+
+      letter-spacing: 0.3px;
     }
 
     p {
-      font-size: 11px;
-      line-height: 20px;
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .Certifications-item-inner {
+    transition: none;
+
+    &::before {
+      animation: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
+
+    .certificate-image img {
+      transition: none;
     }
   }
 }
