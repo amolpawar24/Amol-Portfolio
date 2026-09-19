@@ -1,0 +1,41 @@
+@use "../../abstracts/breakpoints" as *;
+@use "components/certifications-cards";
+
+/* =========================================================
+   CERTIFICATIONS SECTION
+   Base + Responsive Styles
+========================================================= */
+
+.certifications {
+  .container {
+    max-width: 1200px;
+    padding-bottom: 60px;
+  }
+}
+
+/* =========================================================
+   XXL DEVICES
+   ≤ 1400px
+========================================================= */
+
+@include xxl {
+  .certifications {
+    .container {
+      max-width: 1200px;
+      padding-bottom: 70px;
+    }
+  }
+}
+
+/* =========================================================
+   SM DEVICES
+   ≤ 576px
+========================================================= */
+
+@include sm {
+  .certifications {
+    .container {
+      padding-bottom: 40px;
+    }
+  }
+}
