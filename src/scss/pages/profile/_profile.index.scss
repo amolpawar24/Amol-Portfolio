@@ -2,188 +2,795 @@
 
 /* =========================================================
    PROFILE SECTION
-   Base + Responsive Styles
+   Premium Developer Profile
+   Matches Home Design Language
 ========================================================= */
 
 .profile {
-  /* ===================== ROW ===================== */
+  position: relative;
+
+  color: var(--text-black-900);
+
+  overflow: hidden;
+
+  /* =======================================================
+     ROW
+  ======================================================= */
 
   .row {
     display: flex;
+
     flex-wrap: wrap;
   }
 
-  /* ===================== PROFILE CONTENT ===================== */
+  /* =======================================================
+     PROFILE CONTENT
+  ======================================================= */
 
   .profile-content {
     flex: 0 0 100%;
+
     max-width: 100%;
   }
 
-  /* ===================== PROFILE TEXT ===================== */
+  /* =======================================================
+     ABOUT TEXT
+  ======================================================= */
 
   .profile-text {
+    position: relative;
+
     flex: 0 0 100%;
+
     max-width: 100%;
 
+    padding-top: 5px;
+
     h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 18px;
+
+      font-size: 26px;
+
+      line-height: 1.3;
+
       font-weight: 700;
+
+      letter-spacing: -0.4px;
+
       color: var(--text-black-900);
+
+      &::before {
+        content: "";
+
+        width: 34px;
+
+        height: 2px;
+
+        flex-shrink: 0;
+
+        background: var(--skin-color);
+
+        border-radius: 10px;
+      }
 
       span {
         color: var(--skin-color);
+
+        transition: color 0.3s ease;
       }
     }
 
     p {
-      font-size: 16px;
-      line-height: 25px;
+      max-width: 900px;
+
+      margin: 0;
+
+      font-size: 17px;
+
+      line-height: 29px;
+
       color: var(--text-black-700);
     }
   }
 
-  /* ===================== PERSONAL INFO ===================== */
+  /* =======================================================
+     PERSONAL INFORMATION
+  ======================================================= */
 
   .personal-info {
     flex: 0 0 60%;
+
     max-width: 60%;
-    margin-top: 40px;
+
+    margin-top: 42px;
 
     .info-item {
       flex: 0 0 50%;
+
       max-width: 50%;
 
       p {
+        position: relative;
+
+        margin: 0;
+
+        padding: 12px 0;
+
+        font-size: 15px;
+
+        line-height: 24px;
+
         font-weight: 600;
-        padding: 10px 0;
-        font-size: 16px;
+
         color: var(--text-black-900);
-        border-bottom: 1px solid var(--bg-black-50);
+
+        border-bottom: 1px solid
+          color-mix(
+            in srgb,
+            var(--skin-color) 14%,
+            var(--bg-black-50)
+          );
+
+        transition:
+          color 0.3s ease,
+          border-color 0.3s ease,
+          transform 0.3s ease;
 
         span {
-          font-weight: 400;
-          color: var(--text-black-700);
-          margin-left: 4px;
           display: inline-block;
+
+          margin-left: 5px;
+
+          font-weight: 400;
+
+          color: var(--text-black-700);
+
+          transition: color 0.3s ease;
+        }
+
+        &:hover {
+          transform: translateX(4px);
+
+          color: var(--skin-color);
+
+          border-color:
+            color-mix(
+              in srgb,
+              var(--skin-color) 40%,
+              transparent
+            );
+
+          span {
+            color: var(--text-black-900);
+          }
         }
       }
     }
 
-    /* ===================== BUTTONS ===================== */
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
 
     .buttons {
-      margin-top: 30px;
+      display: flex;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 28px;
 
       .btn {
-        margin-right: 15px;
-        margin-top: 10px;
+        position: relative;
+
+        min-width: 145px;
+
+        min-height: 48px;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 12px 24px;
+
+        overflow: hidden;
+
+        border: 1px solid
+          color-mix(
+            in srgb,
+            var(--skin-color) 70%,
+            transparent
+          );
+
+        border-radius: 8px;
+
+        background: linear-gradient(
+          135deg,
+          var(--skin-color),
+          color-mix(
+            in srgb,
+            var(--skin-color) 75%,
+            #ffffff
+          )
+        );
+
+        color: #ffffff;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        letter-spacing: 0.3px;
+
+        line-height: 1.4;
+
+        text-align: center;
+
+        text-decoration: none;
+
+        box-shadow:
+          0 8px 20px
+            color-mix(
+              in srgb,
+              var(--skin-color) 25%,
+              transparent
+            ),
+          inset 0 1px 0
+            rgba(255, 255, 255, 0.25);
+
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+
+        /* =================================================
+           MOVING SHINE
+        ================================================= */
+
+        &::before {
+          content: "";
+
+          position: absolute;
+
+          top: 0;
+
+          left: -120%;
+
+          width: 70%;
+
+          height: 100%;
+
+          background: linear-gradient(
+            100deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+          );
+
+          transform: skewX(-20deg);
+
+          animation:
+            profileButtonShine
+            3.5s
+            ease-in-out
+            infinite;
+
+          pointer-events: none;
+        }
+
+        /* =================================================
+           INNER BORDER
+        ================================================= */
+
+        &::after {
+          content: "";
+
+          position: absolute;
+
+          inset: 2px;
+
+          border: 1px solid
+            rgba(255, 255, 255, 0.18);
+
+          border-radius: 6px;
+
+          pointer-events: none;
+        }
+
+        /* =================================================
+           HOVER
+        ================================================= */
+
+        &:hover {
+          transform: translateY(-4px) scale(1.02);
+
+          border-color: var(--skin-color);
+
+          box-shadow:
+            0 14px 30px
+              color-mix(
+                in srgb,
+                var(--skin-color) 35%,
+                transparent
+              ),
+            0 0 18px
+              color-mix(
+                in srgb,
+                var(--skin-color) 25%,
+                transparent
+              ),
+            inset 0 1px 0
+              rgba(255, 255, 255, 0.35);
+        }
+
+        /* =================================================
+           ACTIVE
+        ================================================= */
+
+        &:active {
+          transform: translateY(-1px) scale(0.99);
+        }
+
+        /* =================================================
+           KEYBOARD FOCUS
+        ================================================= */
+
+        &:focus-visible {
+          outline: 2px solid var(--skin-color);
+
+          outline-offset: 4px;
+        }
       }
     }
   }
 
-  /* ===================== EDUCATION + EXPERIENCE ===================== */
+  /* =======================================================
+     EDUCATION + COURSE
+  ======================================================= */
 
   .education,
-  .experience {
+  .course {
     flex: 0 0 50%;
+
     max-width: 50%;
-    margin-top: 30px;
+
+    margin-top: 42px;
   }
 
-  /* ===================== TITLES ===================== */
+  /* =======================================================
+     EDUCATION / COURSE TITLE
+  ======================================================= */
 
   h3.title {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
     font-size: 24px;
-    margin-bottom: 30px;
+
+    line-height: 1.3;
+
     font-weight: 700;
+
+    letter-spacing: -0.3px;
+
     color: var(--text-black-900);
+
+    &::before {
+      content: "";
+
+      width: 30px;
+
+      height: 2px;
+
+      flex-shrink: 0;
+
+      background: var(--skin-color);
+
+      border-radius: 10px;
+    }
   }
 
-  /* ===================== TIMELINE BOX ===================== */
+  /* =======================================================
+     TIMELINE BOX
+  ======================================================= */
 
   .timeline-box {
     flex: 0 0 100%;
+
     max-width: 100%;
   }
 
+  /* =======================================================
+     TIMELINE CARD
+  ======================================================= */
+
   .timeline {
-    background-color: var(--bg-black-100);
-    padding: 30px 15px;
-    border: 1px solid var(--bg-black-50);
-    border-radius: 10px;
-    width: 100%;
     position: relative;
 
-    /* ===================== TIMELINE ITEM ===================== */
+    width: 100%;
+
+    padding: 28px 18px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0.025)
+      );
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 20%,
+        transparent
+      );
+
+    box-shadow:
+      10px 12px 30px rgba(0, 0, 0, 0.055),
+      -6px -6px 20px rgba(255, 255, 255, 0.035),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.12);
+
+    transition:
+      transform 0.4s ease,
+      border-color 0.4s ease,
+      box-shadow 0.4s ease;
+
+    /* =====================================================
+       GLASS REFLECTION
+    ===================================================== */
+
+    &::before {
+      content: "";
+
+      position: absolute;
+
+      z-index: 0;
+
+      top: -120%;
+
+      left: -40%;
+
+      width: 28%;
+
+      height: 320%;
+
+      transform: rotate(25deg);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.025),
+          rgba(255, 255, 255, 0.11),
+          rgba(255, 255, 255, 0.025),
+          transparent
+        );
+
+      pointer-events: none;
+
+      animation:
+        profileReflection
+        10s
+        ease-in-out
+        infinite;
+    }
+
+    /* =====================================================
+       AMBIENT ACCENT
+    ===================================================== */
+
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      top: -90px;
+
+      right: -90px;
+
+      width: 200px;
+
+      height: 200px;
+
+      opacity: 0.07;
+
+      filter: blur(50px);
+
+      background:
+        radial-gradient(
+          circle,
+          var(--skin-color),
+          transparent 70%
+        );
+
+      pointer-events: none;
+
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    /* =====================================================
+       TIMELINE HOVER
+    ===================================================== */
+
+    &:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        color-mix(
+          in srgb,
+          var(--skin-color) 40%,
+          transparent
+        );
+
+      box-shadow:
+        12px 18px 38px rgba(0, 0, 0, 0.075),
+        -6px -6px 25px rgba(255, 255, 255, 0.045),
+        0 0 28px
+          color-mix(
+            in srgb,
+            var(--skin-color) 9%,
+            transparent
+          ),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.15);
+
+      &::after {
+        opacity: 0.11;
+
+        transform: scale(1.12);
+      }
+    }
+
+    /* =====================================================
+       TIMELINE ITEM
+    ===================================================== */
 
     .timeline-item {
       position: relative;
-      padding: 37px;
-      padding-bottom: 50px;
+
+      z-index: 2;
+
+      padding: 34px 30px 45px;
 
       &:last-child {
         padding-bottom: 0;
       }
 
-      /* vertical line */
+      /* =================================================
+         TIMELINE LINE
+      ================================================= */
+
       &::before {
         content: "";
-        width: 1px;
+
         position: absolute;
-        height: 100%;
-        left: 7px;
+
         top: 0;
-        background-color: var(--skin-color);
+
+        left: 7px;
+
+        width: 1px;
+
+        height: 100%;
+
+        background:
+          linear-gradient(
+            to bottom,
+            var(--skin-color),
+            color-mix(
+              in srgb,
+              var(--skin-color) 20%,
+              transparent
+            )
+          );
       }
     }
 
-    /* dot */
+    /* =====================================================
+       TIMELINE DOT
+    ===================================================== */
+
     .circle-dot {
       position: absolute;
-      left: 0;
+
+      z-index: 3;
+
       top: 0;
-      height: 15px;
+
+      left: 0;
+
       width: 15px;
+
+      height: 15px;
+
       border-radius: 50%;
-      background-color: var(--skin-color);
+
+      background: var(--skin-color);
+
+      box-shadow:
+        0 0 0 4px
+          color-mix(
+            in srgb,
+            var(--skin-color) 10%,
+            transparent
+          ),
+        0 0 16px
+          color-mix(
+            in srgb,
+            var(--skin-color) 20%,
+            transparent
+          );
+
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
     }
 
-    /* date */
+    .timeline-item:hover {
+      .circle-dot {
+        transform: scale(1.18);
+
+        box-shadow:
+          0 0 0 5px
+            color-mix(
+              in srgb,
+              var(--skin-color) 12%,
+              transparent
+            ),
+          0 0 22px
+            color-mix(
+              in srgb,
+              var(--skin-color) 30%,
+              transparent
+            );
+      }
+    }
+
+    /* =====================================================
+       DATE
+    ===================================================== */
+
     .timeline-date {
-      margin-top: -38px;
-      font-size: 14px;
-      font-weight: 400;
-      margin-bottom: 12px;
+      margin-top: -35px;
+
+      margin-bottom: 10px;
+
+      font-size: 13px;
+
+      line-height: 22px;
+
+      font-weight: 500;
+
+      letter-spacing: 0.2px;
+
       color: var(--text-black-700);
 
       .fa {
-        margin-right: 5px;
+        margin-right: 6px;
+
+        color: var(--skin-color);
       }
     }
 
-    /* title */
+    /* =====================================================
+       TIMELINE TITLE
+    ===================================================== */
+
     .timeline-title {
-      font-weight: 700;
+      margin-bottom: 11px;
+
       font-size: 18px;
-      margin-bottom: 15px;
-      text-transform: capitalize;
+
+      line-height: 27px;
+
+      font-weight: 700;
+
       color: var(--text-black-900);
+
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
     }
 
-    /* text */
+    .timeline-item:hover {
+      .timeline-title {
+        color: var(--skin-color);
+
+        transform: translateX(2px);
+      }
+    }
+
+    /* =====================================================
+       TIMELINE DESCRIPTION
+    ===================================================== */
+
     .timeline-text {
-      line-height: 25px;
-      font-size: 16px;
+      margin: 0;
+
+      font-size: 15px;
+
+      line-height: 26px;
+
       text-align: justify;
+
       color: var(--text-black-700);
     }
   }
 }
 
 /* =========================================================
-   XXL DEVICES
+   TIMELINE REFLECTION ANIMATION
+========================================================= */
+
+@keyframes profileReflection {
+  0% {
+    left: -40%;
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.65;
+  }
+
+  45%,
+  55% {
+    opacity: 0.55;
+  }
+
+  75%,
+  100% {
+    left: 140%;
+
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   PROFILE BUTTON SHINE
+========================================================= */
+
+@keyframes profileButtonShine {
+  0% {
+    left: -120%;
+  }
+
+  45%,
+  100% {
+    left: 140%;
+  }
+}
+
+/* =========================================================
+   XXL
    ≤ 1400px
 ========================================================= */
 
@@ -191,41 +798,71 @@
   .profile {
     margin-left: 15px;
 
-    .profile-text h3 {
-      margin-left: 15px;
-    }
+    .profile-text {
+      h3 {
+        margin-left: 15px;
 
-    .profile-text p {
-      font-size: 17px;
-      line-height: 28px;
-      padding: 15px;
+        font-size: 26px;
+      }
+
+      p {
+        padding: 8px 15px;
+
+        font-size: 17px;
+
+        line-height: 28px;
+      }
     }
 
     .timeline {
-      padding: 35px 25px;
+      padding: 32px 22px;
+
+      .timeline-item {
+        padding: 35px 32px 48px;
+      }
 
       .timeline-text {
-        font-size: 17px;
+        font-size: 16px;
+
+        line-height: 27px;
       }
     }
   }
 }
 
 /* =========================================================
-   XL DEVICES
+   XL
    ≤ 1200px
 ========================================================= */
 
 @include xl {
   .profile {
-    .profile-text h3 {
-      margin-left: 15px;
+    .profile-text {
+      h3 {
+        margin-left: 15px;
+
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 16px;
+
+        line-height: 27px;
+      }
+    }
+
+    .timeline {
+      padding: 28px 18px;
+
+      .timeline-item {
+        padding: 32px 26px 43px;
+      }
     }
   }
 }
 
 /* =========================================================
-   LG DEVICES
+   LG
    ≤ 992px
 ========================================================= */
 
@@ -233,38 +870,102 @@
   .profile {
     .personal-info,
     .education,
-    .experience {
+    .course {
       flex: 0 0 100%;
+
       max-width: 100%;
+    }
+
+    .personal-info {
+      margin-top: 35px;
+    }
+
+    .education,
+    .course {
+      margin-top: 35px;
+    }
+
+    .profile-text {
+      p {
+        max-width: 100%;
+      }
     }
   }
 }
 
 /* =========================================================
-   MD DEVICES
+   MD
    ≤ 768px
 ========================================================= */
 
 @include md {
   .profile {
-    .profile-text h3 {
-      font-size: 22px;
-      text-align: center;
+    .profile-text {
+      h3 {
+        justify-content: center;
+
+        margin-left: 0;
+
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 15px;
+
+        line-height: 25px;
+      }
     }
 
-    .personal-info .info-item {
-      flex: 0 0 100%;
-      max-width: 100%;
+    .personal-info {
+      .info-item {
+        flex: 0 0 100%;
+
+        max-width: 100%;
+      }
+
+      .buttons {
+        .btn {
+          min-width: 140px;
+
+          min-height: 46px;
+
+          padding: 11px 21px;
+        }
+      }
     }
 
-    .timeline .timeline-item {
-      padding-left: 25px;
+    h3.title {
+      font-size: 21px;
+    }
+
+    .timeline {
+      padding: 24px 15px;
+
+      border-radius: 20px;
+
+      .timeline-item {
+        padding-left: 25px;
+
+        padding-bottom: 40px;
+      }
+
+      .timeline-title {
+        font-size: 17px;
+
+        line-height: 25px;
+      }
+
+      .timeline-text {
+        font-size: 14px;
+
+        line-height: 23px;
+      }
     }
   }
 }
 
 /* =========================================================
-   SM DEVICES
+   SM
    ≤ 576px
 ========================================================= */
 
@@ -272,28 +973,111 @@
   .profile {
     .profile-text {
       h3 {
+        justify-content: flex-start;
+
+        gap: 8px;
+
         font-size: 20px;
-        margin-left: 0;
+
+        line-height: 27px;
+
+        &::before {
+          width: 24px;
+        }
       }
 
       p {
         font-size: 14px;
+
+        line-height: 24px;
       }
+    }
+
+    .personal-info {
+      margin-top: 30px;
+
+      .info-item {
+        p {
+          padding: 10px 0;
+
+          font-size: 14px;
+
+          line-height: 22px;
+        }
+      }
+
+      .buttons {
+        margin-top: 25px;
+
+        gap: 12px;
+
+        .btn {
+          min-width: 140px;
+
+          min-height: 46px;
+
+          padding: 11px 21px;
+
+          margin-right: 0;
+        }
+      }
+    }
+
+    .education,
+    .course {
+      margin-top: 30px;
     }
 
     h3.title {
+      margin-bottom: 20px;
+
       font-size: 20px;
+
+      &::before {
+        width: 22px;
+      }
     }
 
     .timeline {
-      padding: 20px 15px;
+      padding: 20px 12px;
+
+      border-radius: 18px;
+
+      .timeline-item {
+        padding: 30px 18px 35px;
+
+        padding-left: 25px;
+
+        &::before {
+          left: 6px;
+        }
+      }
+
+      .circle-dot {
+        width: 13px;
+
+        height: 13px;
+      }
+
+      .timeline-date {
+        margin-top: -31px;
+
+        font-size: 12px;
+
+        line-height: 20px;
+      }
 
       .timeline-title {
+        margin-bottom: 9px;
+
         font-size: 16px;
+
+        line-height: 24px;
       }
 
       .timeline-text {
-        font-size: 14px;
+        font-size: 13px;
+
         line-height: 22px;
       }
     }
@@ -301,7 +1085,7 @@
 }
 
 /* =========================================================
-   XS DEVICES
+   XS
    ≤ 480px
 ========================================================= */
 
@@ -309,39 +1093,120 @@
   .profile {
     .profile-text {
       h3 {
+        justify-content: flex-start;
+
         font-size: 18px;
-        margin-left: 15px;
-        text-align: justify;
+
+        line-height: 25px;
+
+        margin-left: 10px;
       }
 
       p {
+        padding: 8px 15px;
+
         font-size: 13px;
+
         line-height: 22px;
-        padding: 20px;
+
+        text-align: justify;
       }
     }
 
     .personal-info {
-      .info-item p {
-        font-size: 14px;
+      .info-item {
+        p {
+          font-size: 13px;
+
+          line-height: 22px;
+        }
       }
 
-      .buttons .btn {
-        width: 100%;
-        margin-right: 0;
+      .buttons {
+        gap: 10px;
+
+        .btn {
+          width: 100%;
+
+          min-height: 44px;
+
+          margin-right: 0;
+
+          padding: 10px 18px;
+
+          font-size: 13px;
+        }
       }
+    }
+
+    .education,
+    .course {
+      margin-top: 25px;
+    }
+
+    h3.title {
+      margin-bottom: 17px;
+
+      font-size: 18px;
     }
 
     .timeline {
       padding: 15px 10px;
 
+      border-radius: 16px;
+
+      .timeline-item {
+        padding: 27px 14px 30px;
+
+        padding-left: 22px;
+      }
+
+      .circle-dot {
+        width: 12px;
+
+        height: 12px;
+      }
+
+      .timeline-date {
+        margin-top: -28px;
+
+        font-size: 11px;
+
+        line-height: 20px;
+      }
+
       .timeline-title {
         font-size: 15px;
+
+        line-height: 22px;
       }
 
       .timeline-text {
-        font-size: 13px;
+        font-size: 12px;
+
         line-height: 20px;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .profile {
+    .timeline {
+      &::before {
+        animation: none;
+      }
+    }
+
+    .buttons {
+      .btn {
+        &::before {
+          animation: none;
+        }
       }
     }
   }
