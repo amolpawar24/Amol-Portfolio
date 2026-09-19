@@ -11,6 +11,7 @@ export const profileData = {
     crafting clean, intuitive user interfaces. My background also
     includes Core Java, Hibernate, and enterprise-style backend
     development from earlier training.
+
     I'm currently expanding into AI and Python, exploring how machine
     learning and intelligent systems can be integrated into modern
     web applications. I enjoy writing efficient, maintainable code
@@ -79,42 +80,34 @@ export const profileData = {
     },
   ],
 
-  experience: [
-    {
+  course: [
+       {
       year: "2025 - Present",
-      title: "Learning AI & Python Development",
+      title: "Currently Learning Python & AI Development",
       description: `
-        Currently building foundational and applied skills in Python
-        and AI/ML, with a focus on integrating intelligent features
-        into full-stack web applications.
-      `,
-    },
-    {
-      year: "Dec 2024 - Nov 2025",
-      title: "Trainee Frontend Developer — Digialpha Pvt. Ltd.",
-      description: `
-        Built responsive web interfaces using HTML, CSS, JavaScript,
-        and React. Collaborated with the team to improve UI/UX and
-        optimize application performance.
-      `,
+      Currently learning Python programming and exploring AI and
+      machine learning concepts. Focusing on Python fundamentals,
+      data handling, AI development, and integrating intelligent
+      features with modern full-stack web applications.
+    `,
     },
     {
       year: "Jun 2024 - Dec 2024",
       title: "MERN Stack Development Course",
       description: `
-        Learned full-stack development using MongoDB, Express.js,
-        React, and Node.js. Built projects and worked extensively
-        with REST APIs.
-      `,
+      Learned full-stack development using MongoDB, Express.js,
+      React, and Node.js. Built projects and worked extensively
+      with REST APIs.
+    `,
     },
     {
       year: "Mar 2023 - Sep 2023",
       title: "Java Full Stack Training — QSpiders Training Institute",
       description: `
-        Completed training in Core Java, JDBC, Servlets, JSP,
-        Hibernate, and frontend technologies including HTML, CSS,
-        and JavaScript.
-      `,
+      Completed training in Core Java, JDBC, Servlets, JSP,
+      Hibernate, and frontend technologies including HTML, CSS,
+      and JavaScript.
+    `,
     },
   ],
 };
