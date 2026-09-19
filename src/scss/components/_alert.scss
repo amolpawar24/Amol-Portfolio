@@ -1,103 +1,371 @@
 /* =========================================================
-   MODERN ALERT (SweetAlert2 theming)
+   PREMIUM MODERN ALERT
+   SweetAlert2 — Glass + Glow + 3D Depth
 ========================================================= */
 
 .modern-alert {
-  border-radius: 24px !important;
+  position: relative !important;
 
-  padding: 28px !important;
+  width: 430px !important;
+  max-width: calc(100% - 30px) !important;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px !important;
 
-  background: linear-gradient(
-    145deg,
-    rgba(17, 24, 39, 0.96),
-    rgba(31, 41, 55, 0.96)
-  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 26px !important;
 
-  backdrop-filter: blur(18px);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 24, 39, 0.97),
+      rgba(31, 41, 55, 0.94)
+    ) !important;
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 
   box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(124, 58, 237, 0.18);
+    0 25px 70px rgba(0, 0, 0, 0.55),
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    0 0 45px rgba(124, 58, 237, 0.16);
 
-  animation: alertAnimation 0.35s ease;
+  overflow: hidden;
+
+  animation: modernAlertEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* =========================
+     TOP LIGHT REFLECTION
+  ========================= */
+
+  &::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+
+    width: 84%;
+    height: 1px;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+
+    opacity: 0.65;
+  }
+
+  /* =========================
+     AMBIENT GLOW
+  ========================= */
+
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -90px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(124, 58, 237, 0.16);
+
+    filter: blur(45px);
+
+    pointer-events: none;
+  }
 }
 
-@keyframes alertAnimation {
+
+/* =========================================================
+   ALERT ANIMATION
+========================================================= */
+
+@keyframes modernAlertEnter {
   from {
     opacity: 0;
-    transform: scale(0.9) translateY(10px);
+    transform: translateY(25px) scale(0.92);
+    filter: blur(4px);
   }
 
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
-/* ================= TITLE ================= */
+
+/* =========================================================
+   TITLE
+========================================================= */
 
 .modern-alert-title {
+  position: relative;
+
+  margin-bottom: 10px !important;
+
+  font-family: var(--font-space-grotesk), sans-serif !important;
+
   font-size: 24px !important;
   font-weight: 700 !important;
 
-  letter-spacing: 0.5px;
+  line-height: 1.3;
 
-  margin-bottom: 12px !important;
+  letter-spacing: 0.3px;
 
   color: #ffffff !important;
+
+  z-index: 2;
 }
 
-/* ================= TEXT ================= */
+
+/* =========================================================
+   MESSAGE TEXT
+========================================================= */
 
 .modern-alert-text {
+  position: relative;
+
+  margin: 0 !important;
+
+  font-family: var(--font-inter), sans-serif !important;
+
   font-size: 15px !important;
+
+  font-weight: 400;
+
   line-height: 1.7;
 
-  color: rgba(255, 255, 255, 0.78) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+
+  z-index: 2;
 }
 
-/* ================= BUTTON ================= */
+
+/* =========================================================
+   CONFIRM BUTTON
+========================================================= */
 
 .modern-alert-button {
-  border: none !important;
-  outline: none !important;
+  position: relative;
 
-  border-radius: 14px !important;
+  min-width: 120px;
+
+  margin-top: 10px !important;
 
   padding: 12px 28px !important;
 
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+
+  outline: none !important;
+
+  font-family: var(--font-space-grotesk), sans-serif !important;
+
   font-size: 14px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.5px;
+  font-weight: 650 !important;
 
-  background: linear-gradient(135deg, #7c3aed, #9333ea) !important;
+  letter-spacing: 0.4px;
 
-  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.35);
+  color: #ffffff !important;
 
-  transition: all 0.3s ease;
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #9333ea
+    ) !important;
+
+  box-shadow:
+    0 10px 25px rgba(124, 58, 237, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+
+  z-index: 5;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.45);
+    transform: translateY(-3px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+      0 16px 35px rgba(124, 58, 237, 0.42),
+      0 0 25px rgba(124, 58, 237, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.98);
   }
 }
 
-/* ================= STATUS COLORS ================= */
+
+/* =========================================================
+   SWEETALERT ICON BASE
+========================================================= */
+
+.swal2-icon {
+  position: relative;
+
+  border-width: 2px !important;
+
+  filter:
+    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+
+  &:hover {
+    transform: scale(1.06) rotate(2deg);
+
+    filter:
+      drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
+  }
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
 
 .swal2-success {
   color: #00ffb3 !important;
+
+  border-color: rgba(0, 255, 179, 0.35) !important;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 179, 0.14),
+    inset 0 0 20px rgba(0, 255, 179, 0.04);
 }
+
+
+/* =========================================================
+   ERROR
+========================================================= */
 
 .swal2-error {
   color: #ff4d6d !important;
+
+  border-color: rgba(255, 77, 109, 0.35) !important;
+
+  box-shadow:
+    0 0 25px rgba(255, 77, 109, 0.14),
+    inset 0 0 20px rgba(255, 77, 109, 0.04);
 }
+
+
+/* =========================================================
+   WARNING
+========================================================= */
 
 .swal2-warning {
   color: #ffc107 !important;
+
+  border-color: rgba(255, 193, 7, 0.35) !important;
+
+  box-shadow:
+    0 0 25px rgba(255, 193, 7, 0.14),
+    inset 0 0 20px rgba(255, 193, 7, 0.04);
 }
+
+
+/* =========================================================
+   INFO
+========================================================= */
 
 .swal2-info {
   color: #3b82f6 !important;
+
+  border-color: rgba(59, 130, 246, 0.35) !important;
+
+  box-shadow:
+    0 0 25px rgba(59, 130, 246, 0.14),
+    inset 0 0 20px rgba(59, 130, 246, 0.04);
+}
+
+
+/* =========================================================
+   SWEETALERT BACKDROP
+========================================================= */
+
+.swal2-container {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 576px) {
+  .modern-alert {
+    width: calc(100% - 30px) !important;
+
+    padding: 26px 20px !important;
+
+    border-radius: 22px !important;
+  }
+
+  .modern-alert-title {
+    font-size: 21px !important;
+  }
+
+  .modern-alert-text {
+    font-size: 14px !important;
+  }
+
+  .modern-alert-button {
+    min-width: 110px;
+
+    padding: 11px 24px !important;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .modern-alert {
+    padding: 24px 17px !important;
+  }
+
+  .modern-alert-title {
+    font-size: 19px !important;
+  }
+
+  .modern-alert-text {
+    font-size: 13px !important;
+    line-height: 1.6;
+  }
+
+  .modern-alert-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .modern-alert,
+  .modern-alert-button,
+  .swal2-icon {
+    animation: none !important;
+    transition: none !important;
+  }
 }
