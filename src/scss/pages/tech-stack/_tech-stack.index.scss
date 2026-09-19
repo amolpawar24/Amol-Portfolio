@@ -1,14 +1,137 @@
 @use "../../abstracts/breakpoints" as *;
+
 @use "components/tech-stack-cards";
 
 /* =========================================================
    TECH STACK SECTION
-   Base + Responsive Styles
+   Premium 3D Glass Depth
 ========================================================= */
 
 .techstack {
+  position: relative;
+  isolation: isolate;
+
   .container {
+    position: relative;
+    z-index: 2;
+
     padding-bottom: 40px;
+  }
+
+  /* =======================================================
+     AMBIENT SECTION GLOW
+  ======================================================= */
+
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    top: 8%;
+    right: 3%;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle,
+        color-mix(
+          in srgb,
+          var(--skin-color) 8%,
+          transparent
+        ),
+        transparent 70%
+      );
+
+    filter: blur(55px);
+
+    opacity: 0.6;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation:
+      techStackSectionGlow
+      9s
+      ease-in-out
+      infinite;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    left: 2%;
+    bottom: 5%;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle,
+        color-mix(
+          in srgb,
+          var(--skin-color) 6%,
+          transparent
+        ),
+        transparent 70%
+      );
+
+    filter: blur(55px);
+
+    opacity: 0.5;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation:
+      techStackSectionGlowTwo
+      11s
+      ease-in-out
+      infinite;
+  }
+}
+
+/* =========================================================
+   SECTION GLOW ANIMATIONS
+========================================================= */
+
+@keyframes techStackSectionGlow {
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-25px, 25px)
+      scale(1.12);
+  }
+}
+
+@keyframes techStackSectionGlowTwo {
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(25px, -20px)
+      scale(1.1);
   }
 }
 
@@ -23,6 +146,16 @@
       top: 10px;
       left: 20px;
     }
+
+    &::before {
+      width: 240px;
+      height: 240px;
+    }
+
+    &::after {
+      width: 200px;
+      height: 200px;
+    }
   }
 }
 
@@ -36,6 +169,33 @@
     .container .row .section-title h2 {
       top: 5px;
       left: 15px;
+    }
+
+    &::before {
+      width: 180px;
+      height: 180px;
+
+      opacity: 0.45;
+    }
+
+    &::after {
+      width: 160px;
+      height: 160px;
+
+      opacity: 0.35;
+    }
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .techstack {
+    &::before,
+    &::after {
+      animation: none;
     }
   }
 }
