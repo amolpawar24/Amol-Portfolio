@@ -45,6 +45,7 @@
 @use "./pages/home/home.index";             // Hero / home section
 @use "./pages//profile/profile.index";          // About, education, experience
 @use "./pages/certifications/certifications.index";   // Certifications grid and card styles
+@use "./pages/experience/_experience.index";   // experience 
 @use "./pages/tech-stack/tech-stack.index";        // Skills grid and progress bars
 @use "./pages/services/services.index";         // Services grid and hover effects
 @use "./pages/projects/projects.index";         // Portfolio grid and overlays
