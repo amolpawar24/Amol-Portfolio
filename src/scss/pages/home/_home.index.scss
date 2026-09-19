@@ -1,0 +1,222 @@
+@use "../../abstracts/breakpoints" as *;
+
+/* =========================================================
+   HOME SECTION
+   Base + Responsive Styles
+========================================================= */
+
+.home {
+  min-height: 100vh;
+  color: var(--text-black-900);
+
+  /* ===================== ROW ===================== */
+
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* ===================== LEFT CONTENT ===================== */
+
+  .home-info {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  /* ===================== GREETING ===================== */
+
+  h3.hello {
+    font-size: 28px;
+    margin: 15px 0;
+
+    span {
+      font-family: "Clicker Script", cursive;
+      font-size: 50px;
+      font-weight: 700;
+      color: var(--skin-color);
+      background: linear-gradient(45deg, var(--skin-color), #ff6ec4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  /* ===================== PROFESSION ===================== */
+
+  h3.my-profession {
+    font-size: 30px;
+    margin: 15px 0;
+  }
+
+  /* ===================== TYPING TEXT ===================== */
+
+  .typing {
+    color: var(--skin-color);
+  }
+
+  /* ===================== DESCRIPTION ===================== */
+
+  p {
+    margin-bottom: 70px;
+    font-size: 20px;
+    color: var(--text-black-700);
+  }
+
+  /* ===================== RIGHT IMAGE ===================== */
+
+  .home-img {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: center;
+    position: relative;
+
+    img {
+      max-width: 100%;
+      height: 400px;
+      border-radius: 5px;
+      animation: imgAnim 4s linear infinite;
+    }
+  }
+}
+
+/* =========================================================
+   XXL DEVICES
+   ≤ 1400px
+========================================================= */
+
+@include xxl {
+  .home {
+    .home-img {
+      img {
+        height: 420px;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   XL DEVICES
+   ≤ 1200px
+========================================================= */
+
+@include xl {
+  .home {
+  }
+}
+
+/* =========================================================
+   LG DEVICES
+   ≤ 992px
+========================================================= */
+
+@include lg {
+  .home {
+    .row {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .home-info,
+    .home-img {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .home-img {
+      margin-top: 40px;
+
+      img {
+        height: 350px;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   MD DEVICES
+   ≤ 768px
+========================================================= */
+
+@include md {
+  .home {
+    h3.hello {
+      font-size: 22px;
+
+      span {
+        font-size: 36px;
+      }
+    }
+
+    h3.my-profession {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/* =========================================================
+   SM DEVICES
+   ≤ 576px
+========================================================= */
+
+@include sm {
+  .home {
+    h3.hello {
+      font-size: 20px;
+
+      span {
+        font-size: 30px;
+      }
+    }
+
+    h3.my-profession {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .home-img {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   XS DEVICES
+   ≤ 480px
+========================================================= */
+
+@include xs {
+  .home {
+    h3.hello {
+      font-size: 18px;
+
+      span {
+        font-size: 26px;
+      }
+    }
+
+    h3.my-profession {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .btn {
+      text-align: center;
+    }
+  }
+}
