@@ -1,0 +1,41 @@
+@use "../../abstracts/breakpoints" as *;
+@use "components/tech-stack-cards";
+
+/* =========================================================
+   TECH STACK SECTION
+   Base + Responsive Styles
+========================================================= */
+
+.techstack {
+  .container {
+    padding-bottom: 40px;
+  }
+}
+
+/* =========================================================
+   XXL DEVICES
+   ≤ 1400px
+========================================================= */
+
+@include xxl {
+  .techstack {
+    .container .row .section-title h2 {
+      top: 10px;
+      left: 20px;
+    }
+  }
+}
+
+/* =========================================================
+   XS DEVICES
+   ≤ 480px
+========================================================= */
+
+@include xs {
+  .techstack {
+    .container .row .section-title h2 {
+      top: 5px;
+      left: 15px;
+    }
+  }
+}
