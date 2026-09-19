@@ -1,33 +1,322 @@
+/* =====================================================
+   PREMIUM MAGNETIC NEON CURSOR
+===================================================== */
 
-/* SINGLE NEON CURSOR */
 .neon-cursor {
+
   position: fixed;
+
   top: 0;
   left: 0;
 
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
+
   border-radius: 50%;
 
-  background: var(--skin-color);
-  box-shadow: 0 0 18px var(--skin-color);
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      color-mix(
+        in srgb,
+        var(--skin-color) 85%,
+        white
+      ) 28%,
+      var(--skin-color) 70%
+    );
 
   pointer-events: none;
-  z-index: 99999;
 
-  transform: translate(-50%, -50%);
+  z-index: 999999;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+
   will-change: transform;
 
-  transition: transform 0.02s linear;
+  transition:
+    transform 0.08s linear,
+    width 0.25s ease,
+    height 0.25s ease,
+    box-shadow 0.25s ease;
+
+  box-shadow:
+    0 0 6px var(--skin-color),
+    0 0 16px
+      color-mix(
+        in srgb,
+        var(--skin-color) 80%,
+        transparent
+      ),
+    0 0 32px
+      color-mix(
+        in srgb,
+        var(--skin-color) 35%,
+        transparent
+      );
+
+  isolation: isolate;
+
+
+  /* =================================================
+     SOFT OUTER HALO
+  ================================================= */
+
+  &::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 34px;
+    height: 34px;
+
+    transform:
+      translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 35%,
+        transparent
+      );
+
+    background:
+      color-mix(
+        in srgb,
+        var(--skin-color) 5%,
+        transparent
+      );
+
+    box-shadow:
+      0 0 18px
+        color-mix(
+          in srgb,
+          var(--skin-color) 20%,
+          transparent
+        );
+
+    opacity: 0.65;
+
+    animation:
+      cursorPulse 2s ease-in-out infinite;
+  }
+
+
+  /* =================================================
+     INNER LIGHT
+  ================================================= */
+
+  &::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 4px;
+    height: 4px;
+
+    transform:
+      translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+      0 0 7px #ffffff,
+      0 0 14px var(--skin-color);
+
+    z-index: 2;
+  }
 }
 
-//* Hide the custom cursor on touch devices */ 
+
+/* =====================================================
+   CURSOR PULSE
+===================================================== */
+
+@keyframes cursorPulse {
+
+  0%,
+  100% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.85);
+
+    opacity: 0.45;
+  }
+
+  50% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.15);
+
+    opacity: 0.8;
+  }
+}
+
+
+/* =====================================================
+   INTERACTIVE ELEMENT HOVER
+   Add .cursor-hover from your JS when hovering
+===================================================== */
+
+.neon-cursor.cursor-hover {
+
+  width: 20px;
+  height: 20px;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.15);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--skin-color) 85%,
+      white
+    );
+
+  box-shadow:
+    0 0 8px var(--skin-color),
+    0 0 22px var(--skin-color),
+    0 0 45px
+      color-mix(
+        in srgb,
+        var(--skin-color) 45%,
+        transparent
+      );
+}
+
+
+.neon-cursor.cursor-hover::before {
+
+  width: 48px;
+  height: 48px;
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--skin-color) 55%,
+      transparent
+    );
+
+  opacity: 0.9;
+
+  animation:
+    cursorHoverPulse 1.2s ease-in-out infinite;
+}
+
+
+@keyframes cursorHoverPulse {
+
+  0%,
+  100% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.9);
+  }
+
+  50% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.1);
+  }
+}
+
+
+/* =====================================================
+   CLICK EFFECT
+===================================================== */
+
+.neon-cursor.cursor-click {
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.65);
+
+  box-shadow:
+    0 0 10px var(--skin-color),
+    0 0 30px var(--skin-color),
+    0 0 55px
+      color-mix(
+        in srgb,
+        var(--skin-color) 55%,
+        transparent
+      );
+}
+
+
+/* =====================================================
+   HIDE DEFAULT CURSOR ON DESKTOP
+===================================================== */
+
+@media (pointer: fine) {
+
+  html,
+  body {
+
+    cursor: none !important;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+
+    cursor: none !important;
+  }
+}
+
+
+/* =====================================================
+   TOUCH DEVICES
+===================================================== */
+
 @media (pointer: coarse) {
+
   .neon-cursor {
+
     display: none !important;
   }
 
-  html, body {
+  html,
+  body {
+
     cursor: auto !important;
+  }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .neon-cursor,
+  .neon-cursor::before,
+  .neon-cursor::after {
+
+    animation: none !important;
+
+    transition: none !important;
   }
 }
