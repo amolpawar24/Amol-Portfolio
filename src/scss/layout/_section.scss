@@ -2,12 +2,11 @@
 
 /* =========================================================
    SECTION LAYOUT
-   Base + Responsive Styles
+   Smooth Scrolling + Bottom Glossy Neo Heading
 ========================================================= */
 
 .section {
   position: fixed;
-
   top: 0;
   left: 270px;
   right: 0;
@@ -25,19 +24,53 @@
 
   background: var(--bg-black-900);
 
-  transition: all 0.3s ease;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: none;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    color-mix(in srgb, var(--skin-color) 45%, transparent)
+    transparent;
 }
 
-/* ACTIVE SECTION */
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.section::-webkit-scrollbar-thumb {
+  background: color-mix(
+    in srgb,
+    var(--skin-color) 45%,
+    transparent
+  );
+
+  border-radius: 20px;
+}
+
+.section::-webkit-scrollbar-thumb:hover {
+  background: var(--skin-color);
+}
+
+/* =========================================================
+   ACTIVE SECTION
+========================================================= */
 
 .section.active {
   display: block;
   z-index: 2;
-
-  animation: slideSection 0.5s ease;
 }
 
-/* PREVIOUS SECTION */
+/* =========================================================
+   PREVIOUS SECTION
+========================================================= */
 
 .section.back-section {
   z-index: 1;
@@ -62,63 +95,140 @@
 ========================================================= */
 
 .section-title {
-  flex: 0 0 100%;
-  max-width: 100%;
+  position: relative;
+
+  width: fit-content;
 
   margin-bottom: 60px;
+  padding-bottom: 16px;
 }
+
+/* =========================================================
+   HEADING
+========================================================= */
 
 .section-title h2 {
   position: relative;
 
+  margin: 0;
+
+  font-family: var(--font-space-grotesk), sans-serif;
+
   font-size: 40px;
   font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: -0.5px;
 
   color: var(--text-black-900);
+
+  /* Very subtle premium depth */
+  text-shadow:
+    0 1px 0
+      color-mix(in srgb, #ffffff 35%, transparent),
+    0 0 14px
+      color-mix(in srgb, var(--skin-color) 7%, transparent);
 }
 
-/* UNDERLINE */
+/* =========================================================
+   BOTTOM BASE LINE
+========================================================= */
 
-.section-title h2::before,
-.section-title h2::after {
+.section-title::before {
   content: "";
 
   position: absolute;
+
   left: 0;
+  bottom: 0;
 
-  height: 4px;
+  width: 100%;
+  height: 3px;
 
-  background: var(--skin-color);
-}
+  border-radius: 10px;
 
-.section-title h2::before {
-  top: 100%;
-  width: 50px;
-}
-
-.section-title h2::after {
-  top: 100%;
-  width: 25px;
-  margin-top: 8px;
+  background: color-mix(
+    in srgb,
+    var(--skin-color) 18%,
+    transparent
+  );
 }
 
 /* =========================================================
-   ANIMATION
+   BOTTOM GLOSSY BEAM
 ========================================================= */
 
-@keyframes slideSection {
+.section-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 42px;
+  height: 3px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(
+      in srgb,
+      var(--skin-color) 45%,
+      transparent
+    ) 20%,
+    #ffffff 50%,
+    var(--skin-color) 75%,
+    transparent 100%
+  );
+
+  box-shadow:
+    0 0 6px
+      color-mix(in srgb, var(--skin-color) 65%, transparent),
+    0 0 14px
+      color-mix(in srgb, var(--skin-color) 25%, transparent);
+
+  animation: bottomBeam 2.2s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+}
+
+/* =========================================================
+   BOTTOM BEAM MOVEMENT
+========================================================= */
+
+@keyframes bottomBeam {
   0% {
-    transform: translateX(100%);
+    left: 0;
+    width: 35px;
+    opacity: 0.45;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    left: calc(100% - 35px);
+    width: 35px;
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0.85;
   }
 
   100% {
-    transform: translateX(0%);
+    left: 0;
+    width: 35px;
+    opacity: 0.45;
   }
 }
 
 /* =========================================================
-   XXL DEVICES
-   ≤ 1400px
+   XXL ≤ 1400px
 ========================================================= */
 
 @include xxl {
@@ -128,8 +238,7 @@
 }
 
 /* =========================================================
-   XL DEVICES
-   ≤ 1200px
+   XL ≤ 1200px
 ========================================================= */
 
 @include xl {
@@ -140,19 +249,26 @@
 }
 
 /* =========================================================
-   LG DEVICES
-   ≤ 992px
+   LG ≤ 992px
 ========================================================= */
 
 @include lg {
   .section {
     padding: 0 20px;
   }
+
+  .section .container {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
+  .section-title {
+    margin-bottom: 50px;
+  }
 }
 
 /* =========================================================
-   MD DEVICES
-   ≤ 768px
+   MD ≤ 768px
 ========================================================= */
 
 @include md {
@@ -160,14 +276,31 @@
     padding: 0 15px;
   }
 
+  .section .container {
+    padding-top: 45px;
+    padding-bottom: 55px;
+  }
+
+  .section-title {
+    margin-bottom: 45px;
+    padding-bottom: 14px;
+  }
+
   .section-title h2 {
     font-size: 32px;
+  }
+
+  .section-title::after {
+    height: 2px;
+  }
+
+  .section-title::before {
+    height: 2px;
   }
 }
 
 /* =========================================================
-   XS DEVICES
-   ≤ 480px
+   XS ≤ 480px
 ========================================================= */
 
 @include xs {
@@ -175,7 +308,37 @@
     padding: 0 10px;
   }
 
+  .section .container {
+    padding-top: 35px;
+    padding-bottom: 45px;
+  }
+
+  .section-title {
+    margin-bottom: 40px;
+    padding-bottom: 12px;
+  }
+
   .section-title h2 {
     font-size: 26px;
+    letter-spacing: 0;
+  }
+
+  .section-title::after {
+    height: 2px;
+  }
+
+  .section-title::before {
+    height: 2px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .section-title::after {
+    animation: none;
+    left: 0;
   }
 }
