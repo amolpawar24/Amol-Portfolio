@@ -76,7 +76,7 @@ export default function Main() {
         className={sectionClass("Home", "home")}
         id="Home"
       >
-        <Home />
+        <Home onNavigate={handleNavigate}/>
       </section>
 
       {/* ================= PROFILE ================= */}
