@@ -32,7 +32,7 @@
 @use "./components/alert";        // Alert popup styles
 @use "./components/paginations";  // Pagination controls and styles
 @use "./components/theme-switcher"; // Style switcher panel and color dots
-
+@use "./components/footer";
 // ── LAYOUT ─────────────────────────────────────────────────
 // Structural layout — page skeleton
 @use "./layout/container";       // Max-width wrapper and padding
