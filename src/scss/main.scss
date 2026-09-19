@@ -42,7 +42,7 @@
 
 // ── PAGES ──────────────────────────────────────────────────
 // Page-specific styles scoped to each section
-@use "./pages/home/home";             // Hero / home section
+@use "./pages/home/home.index";             // Hero / home section
 @use "./pages//profile/profile.index";          // About, education, experience
 @use "./pages/certifications/certifications.index";   // Certifications grid and card styles
 @use "./pages/tech-stack/tech-stack.index";        // Skills grid and progress bars
