@@ -7,6 +7,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 
 import Home from "@/features/Home/index.Home";
 import Profile from "@/features/Profile/index.Profile";
+import Experience from "@/features/Experience/index.Experience";
 import TechStack from "@/features/TechStack/index.TechStack";
 import Services from "@/features/Services/index.Services";
 import Projects from "@/features/Projects/index.Projects";
@@ -76,6 +77,14 @@ export default function Main() {
       {/* ================= PROFILE ================= */}
       <section className={sectionClass("Profile", "profile")} id="Profile">
         <Profile onNavigate={handleNavigate} />
+      </section>
+
+      {/* ================= EXPERIENCE ================= */}
+      <section
+        className={sectionClass("Experience", "experience")}
+        id="Experience"
+      >
+        <Experience />
       </section>
 
       {/* ================= CERTIFICATIONS ================== */}
