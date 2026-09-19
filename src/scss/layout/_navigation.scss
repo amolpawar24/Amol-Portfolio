@@ -1,15 +1,84 @@
+@use "../abstracts/breakpoints" as *;
+
+/* =========================================================
+   SECTION NAVIGATION / TRANSITION
+   Base + Responsive Styles
+========================================================= */
+
 .section {
   position: fixed;
   left: 270px;
   top: 0;
   right: 0;
   bottom: 0;
+
   overflow-y: auto;
+
   background: var(--bg-black-900);
+
   transition: 0.3s ease;
 }
 
 .section.active {
   animation: slideSection 1s ease;
   z-index: 2;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes slideSection {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* =========================================================
+   XL DEVICES
+   ≤ 1200px
+========================================================= */
+
+@include xl {
+  .section {
+    left: 0;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   LG DEVICES
+   ≤ 992px
+========================================================= */
+
+@include lg {
+  .section {
+    padding: 0 20px;
+  }
+}
+
+/* =========================================================
+   MD DEVICES
+   ≤ 768px
+========================================================= */
+
+@include md {
+  .section {
+    padding: 0 15px;
+  }
+}
+
+/* =========================================================
+   XS DEVICES
+   ≤ 480px
+========================================================= */
+
+@include xs {
+  .section {
+    padding: 0 10px;
+  }
 }
