@@ -24,17 +24,17 @@ export default function Home() {
           </h3>
 
           <p>
-            Frontend Developer with skills in web designing and development,
-            producing quality work.
+            Full Stack Developer building modern web applications with React,
+            Next.js, Node.js and Java.
           </p>
 
           <a
-            href="https://amolpawar24.carrd.co/"
+              href="https://amolpawar24.carrd.co/"
             className="btn"
-            target="_blank"
-          >
+              target="_blank"
+            >
             Connect
-          </a>
+            </a>
         </div>
 
         {/* IMAGE */}
