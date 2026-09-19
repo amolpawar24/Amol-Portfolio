@@ -1,8 +1,14 @@
+@use "../abstracts/breakpoints" as *;
 
-/* CONTAINER */
+/* =========================================================
+   CONTAINER
+   Base + Responsive Styles
+========================================================= */
+
 .container {
   max-width: 1100px;
   width: 100%;
+
   margin: auto;
 }
 
@@ -10,5 +16,17 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+
   transition: all 0.3s ease;
+}
+
+/* =========================================================
+   XXL DEVICES
+   ≤ 1400px
+========================================================= */
+
+@include xxl {
+  .container {
+    max-width: 1200px;
+  }
 }
