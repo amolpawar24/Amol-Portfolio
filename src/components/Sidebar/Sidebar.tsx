@@ -13,13 +13,11 @@ export default function Sidebar({
   open,
   setOpen,
 }: Props) {
-
   /* ================= NAVIGATION ================= */
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    section: string
+    section: string,
   ) => {
-
     e.preventDefault();
 
     // Navigate to section
@@ -50,20 +48,15 @@ export default function Sidebar({
           SIDEBAR
       ===================================================== */}
       <aside className={`sidebar ${open ? "open" : ""}`}>
-
         {/* ================= LOGO ================= */}
         <div className="logo">
-          <a
-            href="#Home"
-            onClick={(e) => handleNavigation(e, "Home")}
-          >
+          <a href="#Home" onClick={(e) => handleNavigation(e, "Home")}>
             <span>A</span>mol
           </a>
         </div>
 
         {/* ================= NAVIGATION ================= */}
         <ul className="nav">
-
           {/* HOME */}
           <li>
             <a
@@ -85,6 +78,18 @@ export default function Sidebar({
             >
               <i className="fa fa-user"></i>
               Profile
+            </a>
+          </li>
+
+          {/* EXPERIENCE */}
+          <li>
+            <a
+              href="#Experience"
+              className={activeSection === "Experience" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "Experience")}
+            >
+              <i className="fa fa-briefcase"></i>
+              Experience
             </a>
           </li>
 
@@ -131,7 +136,7 @@ export default function Sidebar({
               className={activeSection === "Projects" ? "active" : ""}
               onClick={(e) => handleNavigation(e, "Projects")}
             >
-              <i className="fa fa-briefcase"></i>
+              <i className="fa fa-folder-open"></i>
               Projects
             </a>
           </li>
@@ -147,7 +152,6 @@ export default function Sidebar({
               Connect
             </a>
           </li>
-
         </ul>
       </aside>
     </>
