@@ -1,0 +1,94 @@
+@use "../../abstracts/breakpoints" as *;
+@use "components/services-cards";
+
+/* =========================================================
+   SERVICES SECTION
+   Base + Responsive Styles
+========================================================= */
+
+.services {
+  .container {
+    padding-bottom: 40px;
+  }
+
+  .services-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 30px;
+  }
+}
+
+/* =========================================================
+   XL DEVICES
+   ≤ 1200px
+========================================================= */
+
+@include xl {
+  .services {
+    .services-item {
+      flex: 0 0 33.33%;
+      max-width: 33.33%;
+    }
+  }
+}
+
+/* =========================================================
+   LG DEVICES
+   ≤ 992px
+========================================================= */
+
+@include lg {
+  .services {
+    .services-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
+
+/* =========================================================
+   MD DEVICES
+   ≤ 768px
+========================================================= */
+
+@include md {
+  .services {
+    .services-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
+
+/* =========================================================
+   SM DEVICES
+   ≤ 576px
+========================================================= */
+
+@include sm {
+  .services {
+    .services-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+/* =========================================================
+   XS DEVICES
+   ≤ 480px
+========================================================= */
+
+@include xs {
+  .services {
+    .services-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .container .row .section-title h2 {
+      top: 5px;
+      left: 15px;
+    }
+  }
+}
