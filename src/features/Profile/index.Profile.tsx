@@ -3,7 +3,18 @@
 
 import { profileData } from "@/data/profileData";
 
-export default function Profile() {
+interface Props {
+  onNavigate: (section: string) => void;
+}
+
+export default function Profile({ onNavigate }: Props) {
+
+    const handleHireMe = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onNavigate("Connect");
+  };
+
+
   return (
     <div className="container">
       {/* ===================== TITLE ===================== */}
@@ -57,7 +68,9 @@ export default function Profile() {
                     Download CV
                   </a>
 
-                  <a href="#Connect" className="btn hire-me">
+                  <a href="#Connect" className="btn hire-me"
+                    onClick={handleHireMe}
+                  >
                     Hire Me
                   </a>
                 </div>
@@ -65,7 +78,7 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* ===================== EDUCATION + EXPERIENCE ===================== */}
+          {/* ===================== EDUCATION + COURSE ===================== */}
 
           <div className="row">
             {/* ===================== EDUCATION ===================== */}
@@ -81,12 +94,17 @@ export default function Profile() {
                         <div className="circle-dot"></div>
 
                         <h3 className="timeline-date">
-                          <i className="fa fa-calendar"></i> {item.year}
+                          <i className="fa fa-calendar"></i>{" "}
+                          {item.year}
                         </h3>
 
-                        <h4 className="timeline-title">{item.title}</h4>
+                        <h4 className="timeline-title">
+                          {item.title}
+                        </h4>
 
-                        <p className="timeline-text">{item.description}</p>
+                        <p className="timeline-text">
+                          {item.description}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -94,25 +112,30 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* ===================== EXPERIENCE ===================== */}
+            {/* ===================== COURSE ===================== */}
 
-            <div className="experience padd-15">
-              <h3 className="title">Experience</h3>
+            <div className="course padd-15">
+              <h3 className="title">Course</h3>
 
               <div className="row">
                 <div className="timeline-box padd-15">
                   <div className="timeline shadow-dark">
-                    {profileData.experience.map((item, index) => (
+                    {profileData.course.map((item, index) => (
                       <div key={index} className="timeline-item">
                         <div className="circle-dot"></div>
 
                         <h3 className="timeline-date">
-                          <i className="fa fa-calendar"></i> {item.year}
+                          <i className="fa fa-calendar"></i>{" "}
+                          {item.year}
                         </h3>
 
-                        <h4 className="timeline-title">{item.title}</h4>
+                        <h4 className="timeline-title">
+                          {item.title}
+                        </h4>
 
-                        <p className="timeline-text">{item.description}</p>
+                        <p className="timeline-text">
+                          {item.description}
+                        </p>
                       </div>
                     ))}
                   </div>
