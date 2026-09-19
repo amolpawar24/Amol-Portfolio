@@ -2,30 +2,140 @@
 
 /* =========================================================
    SIDEBAR
-   Base + Responsive Styles
+   Premium Glass / Depth Navigation
 ========================================================= */
 
 .sidebar {
-  width: 270px;
-  height: 100vh;
-
   position: fixed;
   top: 0;
   left: 0;
 
-  padding: 30px;
+  width: 270px;
+  height: 100vh;
 
-  background: var(--bg-black-100);
-  border-right: 1px solid var(--bg-black-50);
+  box-sizing: border-box;
+
+  padding: 30px 22px;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--bg-black-100) 94%,
+        var(--skin-color)
+      ),
+      var(--bg-black-100)
+    );
+
+  border-right:
+    1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 12%,
+        var(--bg-black-50)
+      );
+
+  box-shadow:
+    12px 0 40px rgba(0, 0, 0, 0.05),
+    inset -1px 0 0 rgba(255, 255, 255, 0.05);
 
   z-index: 1000;
 
-  transition: transform 0.3s ease;
-  transform: translateX(0);
+  overflow: hidden;
+
+  isolation: isolate;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+
+  /* =======================================================
+     TOP AMBIENT LIGHT
+  ======================================================= */
+
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    top: -180px;
+    left: -140px;
+
+    width: 380px;
+    height: 380px;
+
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle,
+        color-mix(
+          in srgb,
+          var(--skin-color) 13%,
+          transparent
+        ) 0%,
+        transparent 70%
+      );
+
+    filter: blur(55px);
+
+    pointer-events: none;
+
+    opacity: 0.8;
+
+    animation:
+      sidebarTopGlow
+      12s
+      ease-in-out
+      infinite;
+  }
+
+  /* =======================================================
+     BOTTOM AMBIENT LIGHT
+  ======================================================= */
+
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    right: -180px;
+    bottom: -190px;
+
+    width: 390px;
+    height: 390px;
+
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle,
+        color-mix(
+          in srgb,
+          var(--skin-color) 9%,
+          transparent
+        ) 0%,
+        transparent 70%
+      );
+
+    filter: blur(65px);
+
+    pointer-events: none;
+
+    opacity: 0.65;
+
+    animation:
+      sidebarBottomGlow
+      14s
+      ease-in-out
+      infinite;
+  }
 }
 
 /* =========================================================
@@ -34,67 +144,189 @@
 
 .sidebar .logo {
   position: absolute;
-  top: 50px;
+
+  top: 42px;
+
+  z-index: 5;
+
+  margin: 0;
 
   font-size: 30px;
+
   text-transform: capitalize;
 }
 
 .sidebar .logo a {
   position: relative;
 
-  padding: 15px 20px;
+  display: inline-flex;
+  align-items: center;
+
+  padding: 13px 18px;
+
+  font-family:
+    var(--font-space-grotesk),
+    sans-serif;
 
   font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 5px;
 
-  color: var(--text-black-900);
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-decoration: none;
+
+  color:
+    var(--text-black-900);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.35s ease,
+    text-shadow 0.35s ease;
+
+  &:hover {
+    transform:
+      translateY(-2px);
+
+    color:
+      var(--skin-color);
+
+    text-shadow:
+      0 5px 20px
+        color-mix(
+          in srgb,
+          var(--skin-color) 12%,
+          transparent
+        );
+  }
+
+  &:focus-visible {
+    outline:
+      2px solid
+        color-mix(
+          in srgb,
+          var(--skin-color) 65%,
+          transparent
+        );
+
+    outline-offset: 5px;
+
+    border-radius: 6px;
+  }
 }
 
-/* LOGO LETTER */
+/* =========================================================
+   LOGO SCRIPT LETTER
+========================================================= */
 
 .sidebar .logo a span {
+  position: relative;
+
+  font-family:
+    "Clicker Script",
+    cursive;
+
   font-size: 40px;
-  font-family: "Clicker Script", cursive;
+
+  color:
+    var(--skin-color);
+
+  transition:
+    text-shadow 0.35s ease,
+    transform 0.35s ease;
 }
 
-/* LEFT BOTTOM BORDER */
+.sidebar .logo a:hover span {
+  transform:
+    translateY(-1px);
+
+  text-shadow:
+    0 0 10px
+      color-mix(
+        in srgb,
+        var(--skin-color) 20%,
+        transparent
+      ),
+    0 0 24px
+      color-mix(
+        in srgb,
+        var(--skin-color) 22%,
+        transparent
+      );
+}
+
+/* =========================================================
+   LOGO LEFT-BOTTOM CORNER
+========================================================= */
 
 .sidebar .logo a::before {
   content: "";
 
   position: absolute;
 
-  width: 20px;
-  height: 20px;
+  left: -7px;
+  bottom: -4px;
 
-  left: -10px;
-  bottom: -5px;
+  width: 19px;
+  height: 19px;
 
-  border-left: 5px solid var(--skin-color);
-  border-bottom: 5px solid var(--skin-color);
+  border-left:
+    3px solid
+      var(--skin-color);
+
+  border-bottom:
+    3px solid
+      var(--skin-color);
+
+  opacity: 0.9;
+
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    opacity 0.35s ease;
 }
 
-/* RIGHT TOP BORDER */
+/* =========================================================
+   LOGO RIGHT-TOP CORNER
+========================================================= */
 
 .sidebar .logo a::after {
   content: "";
 
   position: absolute;
 
-  width: 20px;
-  height: 20px;
+  top: -1px;
+  right: -7px;
 
-  top: 0;
-  right: -10px;
+  width: 19px;
+  height: 19px;
 
-  border-top: 5px solid var(--skin-color);
-  border-right: 5px solid var(--skin-color);
+  border-top:
+    3px solid
+      var(--skin-color);
+
+  border-right:
+    3px solid
+      var(--skin-color);
+
+  opacity: 0.9;
+
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.sidebar .logo a:hover::before,
+.sidebar .logo a:hover::after {
+  width: 25px;
+  height: 25px;
+
+  opacity: 1;
 }
 
 /* =========================================================
-   NAVIGATION
+   NAVIGATION WRAPPER
 ========================================================= */
 
 .sidebar ul {
@@ -105,39 +337,461 @@
 }
 
 .sidebar .nav {
-  margin-top: 50px;
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  margin-top: 55px;
+
+  padding: 8px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--skin-color) 4%,
+        transparent
+      ),
+      color-mix(
+        in srgb,
+        var(--bg-black-50) 22%,
+        transparent
+      )
+    );
+
+  border:
+    1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 8%,
+        transparent
+      );
+
+  box-shadow:
+    inset 1px 1px 0
+      rgba(255, 255, 255, 0.08),
+    inset -1px -1px 0
+      rgba(0, 0, 0, 0.035),
+    0 15px 35px
+      rgba(0, 0, 0, 0.025);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
 }
+
+/* =========================================================
+   NAV ITEM
+========================================================= */
 
 .sidebar .nav li {
   display: block;
-  margin-bottom: 20px;
+
+  margin-bottom: 6px;
 }
 
+.sidebar .nav li:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   NAV LINK
+========================================================= */
+
 .sidebar .nav li a {
-  display: block;
+  position: relative;
 
-  padding: 5px 15px;
+  display: flex;
+  align-items: center;
 
-  font-size: 16px;
+  min-height: 48px;
+
+  box-sizing: border-box;
+
+  padding: 7px 12px;
+
+  border:
+    1px solid transparent;
+
+  border-radius: 13px;
+
+  font-family:
+    var(--font-space-grotesk),
+    sans-serif;
+
+  font-size: 15px;
+
   font-weight: 600;
+
+  letter-spacing: 0.1px;
 
   text-decoration: none;
 
-  color: var(--text-black-900);
+  color:
+    var(--text-black-900);
 
-  border-bottom: 1px solid var(--bg-black-50);
+  background:
+    transparent;
+
+  overflow: hidden;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+
+  /* =======================================================
+     ACTIVE INDICATOR
+  ======================================================= */
+
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    left: -1px;
+    top: 50%;
+
+    width: 3px;
+    height: 0;
+
+    border-radius: 0 6px 6px 0;
+
+    background:
+      var(--skin-color);
+
+    box-shadow:
+      0 0 8px
+        color-mix(
+          in srgb,
+          var(--skin-color) 65%,
+          transparent
+        ),
+      0 0 18px
+        color-mix(
+          in srgb,
+          var(--skin-color) 35%,
+          transparent
+        );
+
+    transform:
+      translateY(-50%);
+
+    transition:
+      height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* =======================================================
+     INNER SHINE
+  ======================================================= */
+
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    transform:
+      skewX(-25deg);
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+      );
+
+    pointer-events: none;
+
+    transition:
+      left 0.7s ease;
+  }
+
+  /* =======================================================
+     HOVER
+  ======================================================= */
+
+  &:hover {
+    color:
+      var(--skin-color);
+
+    background:
+      linear-gradient(
+        100deg,
+        color-mix(
+          in srgb,
+          var(--skin-color) 10%,
+          transparent
+        ),
+        color-mix(
+          in srgb,
+          var(--skin-color) 3%,
+          transparent
+        )
+      );
+
+    border-color:
+      color-mix(
+        in srgb,
+        var(--skin-color) 16%,
+        transparent
+      );
+
+    transform:
+      translateX(4px);
+
+    box-shadow:
+      0 8px 22px
+        rgba(0, 0, 0, 0.04),
+      inset 1px 1px 0
+        rgba(255, 255, 255, 0.06);
+
+    &::after {
+      left: 140%;
+    }
+  }
+
+  /* =======================================================
+     FOCUS
+  ======================================================= */
+
+  &:focus-visible {
+    outline:
+      2px solid
+        color-mix(
+          in srgb,
+          var(--skin-color) 65%,
+          transparent
+        );
+
+    outline-offset: 3px;
+
+    color:
+      var(--skin-color);
+  }
 }
 
-/* ACTIVE LINK */
-
-.sidebar .nav li a.active {
-  color: var(--skin-color);
-}
-
-/* ICON SPACING */
+/* =========================================================
+   NAV ICON
+========================================================= */
 
 .sidebar .nav li a i {
-  margin-right: 15px;
+  position: relative;
+
+  z-index: 2;
+
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 12px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+
+  color:
+    var(--text-black-900);
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--bg-black-50) 72%,
+        transparent
+      ),
+      color-mix(
+        in srgb,
+        var(--bg-black-100) 25%,
+        transparent
+      )
+    );
+
+  border:
+    1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 5%,
+        transparent
+      );
+
+  box-shadow:
+    inset 1px 1px 3px
+      rgba(255, 255, 255, 0.08),
+    inset -1px -1px 3px
+      rgba(0, 0, 0, 0.035);
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================================
+   ICON HOVER
+========================================================= */
+
+.sidebar .nav li a:hover i {
+  color: #fff;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--skin-color),
+      color-mix(
+        in srgb,
+        var(--skin-color) 78%,
+        #000
+      )
+    );
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--skin-color) 50%,
+      transparent
+    );
+
+  transform:
+    scale(1.07)
+    rotate(-2deg);
+
+  box-shadow:
+    0 7px 18px
+      color-mix(
+        in srgb,
+        var(--skin-color) 25%,
+        transparent
+      ),
+    inset 1px 1px 2px
+      rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   ACTIVE LINK
+========================================================= */
+
+.sidebar .nav li a.active {
+  color:
+    var(--skin-color);
+
+  background:
+    linear-gradient(
+      100deg,
+      color-mix(
+        in srgb,
+        var(--skin-color) 13%,
+        transparent
+      ),
+      color-mix(
+        in srgb,
+        var(--skin-color) 5%,
+        transparent
+      )
+    );
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--skin-color) 22%,
+      transparent
+    );
+
+  box-shadow:
+    0 8px 24px
+      color-mix(
+        in srgb,
+        var(--skin-color) 8%,
+        transparent
+      ),
+    inset 1px 1px 0
+      rgba(255, 255, 255, 0.08);
+
+  &::after {
+    left: 140%;
+  }
+}
+
+/* =========================================================
+   ACTIVE LINE
+========================================================= */
+
+.sidebar .nav li a.active::before {
+  height: 27px;
+}
+
+/* =========================================================
+   ACTIVE ICON
+========================================================= */
+
+.sidebar .nav li a.active i {
+  color: #fff;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--skin-color),
+      color-mix(
+        in srgb,
+        var(--skin-color) 78%,
+        #000
+      )
+    );
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--skin-color) 50%,
+      transparent
+    );
+
+  box-shadow:
+    0 7px 18px
+      color-mix(
+        in srgb,
+        var(--skin-color) 30%,
+        transparent
+      ),
+    inset 1px 1px 2px
+      rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   NAV TEXT
+========================================================= */
+
+.sidebar .nav li a span {
+  position: relative;
+
+  z-index: 2;
+
+  top: 1px;
+
+  white-space: nowrap;
 }
 
 /* =========================================================
@@ -150,19 +804,101 @@
   top: 20px;
   left: 20px;
 
-  width: 45px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
 
   display: none;
+
   align-items: center;
   justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 0;
 
   cursor: pointer;
 
   z-index: 2000;
 
-  border: 1px solid var(--bg-black-50);
-  background: var(--bg-black-100);
+  border:
+    1px solid
+      color-mix(
+        in srgb,
+        var(--skin-color) 30%,
+        var(--bg-black-50)
+      );
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--bg-black-100) 92%,
+        var(--skin-color)
+      ),
+      color-mix(
+        in srgb,
+        var(--bg-black-100) 82%,
+        transparent
+      )
+    );
+
+  backdrop-filter:
+    blur(16px);
+
+  -webkit-backdrop-filter:
+    blur(16px);
+
+  box-shadow:
+    0 8px 25px
+      rgba(0, 0, 0, 0.08),
+    inset 1px 1px 0
+      rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform:
+      translateY(-2px);
+
+    border-color:
+      var(--skin-color);
+
+    background:
+      color-mix(
+        in srgb,
+        var(--skin-color) 9%,
+        var(--bg-black-100)
+      );
+
+    box-shadow:
+      0 12px 30px
+        color-mix(
+          in srgb,
+          var(--skin-color) 13%,
+          transparent
+        ),
+      inset 1px 1px 0
+        rgba(255, 255, 255, 0.1);
+  }
+
+  &:focus-visible {
+    outline:
+      2px solid
+        color-mix(
+          in srgb,
+          var(--skin-color) 70%,
+          transparent
+        );
+
+    outline-offset: 3px;
+  }
 }
 
 /* =========================================================
@@ -174,10 +910,25 @@
 
   display: inline-block;
 
-  width: 18px;
+  width: 19px;
   height: 2px;
 
-  background: var(--skin-color);
+  border-radius: 5px;
+
+  background:
+    var(--skin-color);
+
+  box-shadow:
+    0 0 8px
+      color-mix(
+        in srgb,
+        var(--skin-color) 25%,
+        transparent
+      );
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .nav-toggler span::before,
@@ -185,12 +936,28 @@
   content: "";
 
   position: absolute;
+
   left: 0;
 
-  width: 18px;
+  width: 19px;
   height: 2px;
 
-  background: var(--skin-color);
+  border-radius: 5px;
+
+  background:
+    var(--skin-color);
+
+  box-shadow:
+    0 0 8px
+      color-mix(
+        in srgb,
+        var(--skin-color) 25%,
+        transparent
+      );
+
+  transition:
+    top 0.3s ease,
+    transform 0.3s ease;
 }
 
 .nav-toggler span::before {
@@ -202,34 +969,52 @@
 }
 
 /* =========================================================
-   ACTIVE TOGGLER
+   OPEN TOGGLER
 ========================================================= */
 
 .nav-toggler.open span {
-  background: transparent;
+  background:
+    transparent;
+
+  box-shadow:
+    none;
 }
 
 .nav-toggler.open span::before {
   top: 0;
-  transform: rotate(45deg);
+
+  transform:
+    rotate(45deg);
 }
 
 .nav-toggler.open span::after {
   top: 0;
-  transform: rotate(-45deg);
+
+  transform:
+    rotate(-45deg);
 }
 
 /* =========================================================
-   XL DEVICES
+   MOBILE SIDEBAR
    ≤ 1200px
 ========================================================= */
 
 @include xl {
   .sidebar {
-    transform: translateX(-100%);
+    transform:
+      translateX(-100%);
+
+    box-shadow:
+      18px 0 50px
+        rgba(0, 0, 0, 0.12);
 
     &.open {
-      transform: translateX(0);
+      transform:
+        translateX(0);
+
+      box-shadow:
+        20px 0 60px
+          rgba(0, 0, 0, 0.17);
     }
   }
 
@@ -249,8 +1034,23 @@
       top: 40px;
     }
 
+    .nav {
+      margin-top: 50px;
+    }
+
     .nav li a {
-      font-size: 15px;
+      min-height: 46px;
+
+      font-size: 14px;
+    }
+
+    .nav li a i {
+      width: 32px;
+      height: 32px;
+
+      margin-right: 11px;
+
+      font-size: 13px;
     }
   }
 }
@@ -263,6 +1063,7 @@
 @include md {
   .sidebar {
     width: 240px;
+
     padding: 20px;
 
     .logo a {
@@ -272,11 +1073,20 @@
         font-size: 34px;
       }
     }
+
+    .nav {
+      margin-top: 45px;
+
+      padding: 7px;
+    }
   }
 
   .nav-toggler {
     top: 15px;
     left: 15px;
+
+    width: 43px;
+    height: 43px;
   }
 }
 
@@ -288,10 +1098,40 @@
 @include sm {
   .sidebar {
     width: 220px;
+
     padding: 15px;
 
     .logo {
       top: 35px;
+    }
+
+    .nav {
+      margin-top: 42px;
+    }
+
+    .nav li {
+      margin-bottom: 5px;
+    }
+
+    .nav li a {
+      min-height: 44px;
+
+      padding: 7px 10px;
+
+      border-radius: 11px;
+
+      font-size: 13px;
+    }
+
+    .nav li a i {
+      width: 30px;
+      height: 30px;
+
+      margin-right: 9px;
+
+      border-radius: 8px;
+
+      font-size: 12px;
     }
   }
 }
@@ -304,10 +1144,18 @@
 @include xs {
   .sidebar {
     width: 200px;
+
     padding: 12px;
 
+    .logo {
+      top: 32px;
+    }
+
     .logo a {
-      font-size: 22px;
+      padding: 10px 13px;
+
+      font-size: 21px;
+
       letter-spacing: 2px;
 
       span {
@@ -315,14 +1163,132 @@
       }
     }
 
+    .logo a::before,
+    .logo a::after {
+      width: 14px;
+      height: 14px;
+
+      border-width: 2px;
+    }
+
+    .nav {
+      margin-top: 38px;
+
+      padding: 6px;
+    }
+
+    .nav li {
+      margin-bottom: 4px;
+    }
+
     .nav li a {
-      font-size: 14px;
-      padding: 5px 10px;
+      min-height: 41px;
+
+      padding: 6px 8px;
+
+      font-size: 12px;
+    }
+
+    .nav li a i {
+      width: 27px;
+      height: 27px;
+
+      margin-right: 8px;
+
+      font-size: 11px;
+    }
+
+    .nav li a.active::before {
+      height: 21px;
     }
   }
 
   .nav-toggler {
     width: 40px;
-    height: 38px;
+    height: 40px;
+
+    top: 12px;
+    left: 12px;
+
+    border-radius: 10px;
+  }
+
+  .nav-toggler span,
+  .nav-toggler span::before,
+  .nav-toggler span::after {
+    width: 17px;
+  }
+}
+
+/* =========================================================
+   SIDEBAR GLOW ANIMATIONS
+========================================================= */
+
+@keyframes sidebarTopGlow {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity: 0.7;
+  }
+
+  50% {
+    transform:
+      translate3d(25px, 20px, 0)
+      scale(1.08);
+
+    opacity: 1;
+  }
+}
+
+@keyframes sidebarBottomGlow {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(-25px, -20px, 0)
+      scale(1.1);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar::before,
+  .sidebar::after {
+    animation: none;
+  }
+
+  .sidebar,
+  .sidebar .logo a,
+  .sidebar .logo a::before,
+  .sidebar .logo a::after,
+  .sidebar .logo a span,
+  .sidebar .nav li a,
+  .sidebar .nav li a::before,
+  .sidebar .nav li a::after,
+  .sidebar .nav li a i,
+  .nav-toggler,
+  .nav-toggler span,
+  .nav-toggler span::before,
+  .nav-toggler span::after {
+    transition: none;
+  }
+
+  .sidebar .nav li a:hover {
+    transform: none;
+  }
+
+  .nav-toggler:hover {
+    transform: none;
   }
 }
