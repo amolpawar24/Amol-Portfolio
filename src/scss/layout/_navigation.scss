@@ -2,41 +2,117 @@
 
 /* =========================================================
    SECTION NAVIGATION / TRANSITION
-   Base + Responsive Styles
+   Smooth + Stable Version
 ========================================================= */
 
 .section {
   position: fixed;
+
   left: 270px;
   top: 0;
   right: 0;
   bottom: 0;
 
   overflow-y: auto;
+  overflow-x: hidden;
 
   background: var(--bg-black-900);
 
-  transition: 0.3s ease;
+  transition:
+    left 0.3s ease,
+    width 0.3s ease,
+    padding 0.3s ease;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+
+  /* Better browser rendering */
+  -webkit-overflow-scrolling: touch;
+
+  /* Keep scrolling layer clean */
+  will-change: scroll-position;
 }
 
+
+/* =========================================================
+   ACTIVE SECTION
+========================================================= */
+
 .section.active {
-  animation: slideSection 1s ease;
+  animation: slideSection 0.65s cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  );
+
   z-index: 2;
 }
 
+
 /* =========================================================
-   ANIMATION
+   SECTION ENTRANCE
 ========================================================= */
 
 @keyframes slideSection {
+
   0% {
-    transform: translateX(100%);
+    transform: translate3d(45px, 0, 0);
+
+    opacity: 0;
   }
 
   100% {
-    transform: translateX(0%);
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
   }
 }
+
+
+/* =========================================================
+   PREMIUM SCROLLBAR
+   Lightweight — No Filters / No Animations
+========================================================= */
+
+.section {
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    color-mix(
+      in srgb,
+      var(--skin-color) 45%,
+      var(--bg-black-50)
+    )
+    transparent;
+}
+
+
+.section::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.section::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background: color-mix(
+    in srgb,
+    var(--skin-color) 45%,
+    var(--bg-black-50)
+  );
+}
+
+
+.section::-webkit-scrollbar-thumb:hover {
+  background: var(--skin-color);
+}
+
 
 /* =========================================================
    XL DEVICES
@@ -44,11 +120,15 @@
 ========================================================= */
 
 @include xl {
+
   .section {
     left: 0;
+
     width: 100%;
   }
+
 }
+
 
 /* =========================================================
    LG DEVICES
@@ -56,10 +136,13 @@
 ========================================================= */
 
 @include lg {
+
   .section {
     padding: 0 20px;
   }
+
 }
+
 
 /* =========================================================
    MD DEVICES
@@ -67,10 +150,13 @@
 ========================================================= */
 
 @include md {
+
   .section {
     padding: 0 15px;
   }
+
 }
+
 
 /* =========================================================
    XS DEVICES
@@ -78,7 +164,27 @@
 ========================================================= */
 
 @include xs {
+
   .section {
     padding: 0 10px;
   }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .section {
+    scroll-behavior: auto;
+    transition: none;
+  }
+
+  .section.active {
+    animation: none;
+  }
+
 }
