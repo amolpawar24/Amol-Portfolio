@@ -53,33 +53,6 @@
      AMBIENT LIGHT
      ======================================================= */
 
-  &::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 2px;
-
-    border-radius: inherit;
-
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--skin-color),
-      transparent
-    );
-
-    opacity: 0.8;
-
-    animation: controlLightSweep 4s linear infinite;
-
-    pointer-events: none;
-  }
-
   &::after {
     content: "";
 
@@ -2015,16 +1988,6 @@ html.section-bg-particles {
 /* ---------------------------------------------------------
    SWITCHER
    --------------------------------------------------------- */
-
-@keyframes controlLightSweep {
-  0% {
-    transform: translateX(-120%);
-  }
-
-  100% {
-    transform: translateX(120%);
-  }
-}
 
 @keyframes controlAmbient {
   0%,
