@@ -1,99 +1,491 @@
 "use client";
 
-import { useState } from "react";
-
-import ProjectCards from "@/features/Projects/components/ProjectCards";
-import Pagination from "@/components/Pagination/Pagination";
+import { useMemo, useState } from "react";
 
 import projectsData from "@/data/projectsData";
 
-type Props = {
+import ProjectFilters from "@/features/Projects/components/ProjectFilters";
+import ProjectGrid from "@/features/Projects/components/ProjectGrid";
+
+import type { ProjectType } from "@/types/projectTypes";
+
+interface Props {
   onBack: () => void;
+}
+
+/* =========================================================
+   PROJECT FILTERS
+========================================================= */
+
+const categories = [
+  "All",
+  "Frontend",
+  "Full Stack",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "Java",
+] as const;
+
+type ProjectCategory = (typeof categories)[number];
+
+/* =========================================================
+   TECHNOLOGY ALIASES
+========================================================= */
+
+const technologyAliases: Record<
+  Exclude<ProjectCategory, "All" | "Frontend" | "Full Stack">,
+  string[]
+> = {
+  HTML: [
+    "html",
+    "html5",
+    "fa-html5",
+  ],
+
+  CSS: [
+    "css",
+    "css3",
+    "fa-css3",
+    "fa-css3-alt",
+  ],
+
+  JavaScript: [
+    "javascript",
+    "js",
+    "ecmascript",
+    "fa-js",
+  ],
+
+  React: [
+    "react",
+    "reactjs",
+    "react.js",
+    "fa-react",
+  ],
+
+  "Next.js": [
+    "next",
+    "nextjs",
+    "next.js",
+  ],
+
+  "Node.js": [
+    "node",
+    "nodejs",
+    "node.js",
+    "fa-node",
+    "fa-node-js",
+  ],
+
+  "Express.js": [
+    "express",
+    "expressjs",
+    "express.js",
+  ],
+
+  MongoDB: [
+    "mongodb",
+    "mongo",
+    "mongo db",
+  ],
+
+  Java: [
+    "java",
+    "core java",
+    "spring",
+    "spring boot",
+  ],
 };
 
-const ITEMS_PER_PAGE = 6;
+/* =========================================================
+   BACKEND TECHNOLOGIES
+========================================================= */
 
-export default function AllProjects({ onBack }: Props) {
-  const [currentPage, setCurrentPage] = useState(1);
+const backendTechnologies = [
+  "node",
+  "nodejs",
+  "node.js",
+  "express",
+  "expressjs",
+  "express.js",
+  "mongodb",
+  "mongo",
+  "mongo db",
+  "java",
+  "spring",
+  "spring boot",
+];
 
-  // ================= TOTAL RECORDS =================
+/* =========================================================
+   NORMALIZE PROJECT CONTENT
+========================================================= */
 
-  const totalRecords = projectsData.length;
+const getProjectContent = (
+  project: ProjectType
+): string => {
+  return [
+    project.title,
+    project.description,
+    ...project.tech,
+  ]
+    .join(" ")
+    .toLowerCase()
+    .replace(/[-_/.]/g, " ");
+};
 
-  // ================= TOTAL PAGES =================
+/* =========================================================
+   CHECK TECHNOLOGY
+========================================================= */
 
-  const totalPages = Math.ceil(
-    totalRecords / ITEMS_PER_PAGE
+const projectUsesTechnology = (
+  project: ProjectType,
+  category: Exclude<
+    ProjectCategory,
+    "All" | "Frontend" | "Full Stack"
+  >
+): boolean => {
+  const content = getProjectContent(project);
+
+  const aliases = technologyAliases[category];
+
+  return aliases.some((alias) => {
+    const normalizedAlias = alias
+      .toLowerCase()
+      .replace(/[-_/.]/g, " ");
+
+    return content.includes(normalizedAlias);
+  });
+};
+
+/* =========================================================
+   CHECK FULL STACK
+========================================================= */
+
+const isFullStackProject = (
+  project: ProjectType
+): boolean => {
+  const content = getProjectContent(project);
+
+  return backendTechnologies.some((technology) => {
+    const normalizedTechnology = technology
+      .toLowerCase()
+      .replace(/[-_/.]/g, " ");
+
+    return content.includes(normalizedTechnology);
+  });
+};
+
+/* =========================================================
+   CHECK FRONTEND
+========================================================= */
+
+const isFrontendProject = (
+  project: ProjectType
+): boolean => {
+  return !isFullStackProject(project);
+};
+
+/* =========================================================
+   MATCH PROJECT WITH FILTER
+========================================================= */
+
+const projectMatchesCategory = (
+  project: ProjectType,
+  category: ProjectCategory
+): boolean => {
+  /* -------------------------------------------------------
+     ALL
+  ------------------------------------------------------- */
+
+  if (category === "All") {
+    return true;
+  }
+
+  /* -------------------------------------------------------
+     FRONTEND
+  ------------------------------------------------------- */
+
+  if (category === "Frontend") {
+    return isFrontendProject(project);
+  }
+
+  /* -------------------------------------------------------
+     FULL STACK
+  ------------------------------------------------------- */
+
+  if (category === "Full Stack") {
+    return isFullStackProject(project);
+  }
+
+  /* -------------------------------------------------------
+     TECHNOLOGY
+  ------------------------------------------------------- */
+
+  return projectUsesTechnology(
+    project,
+    category
   );
+};
 
-  // ================= START INDEX =================
+/* =========================================================
+   ALL PROJECTS
+========================================================= */
 
-  const startIndex =
-    (currentPage - 1) * ITEMS_PER_PAGE;
+export default function AllProjects({
+  onBack,
+}: Props) {
+  const [activeCategory, setActiveCategory] =
+    useState<ProjectCategory>("All");
 
-  // ================= CURRENT PROJECTS =================
+  /* =======================================================
+     PROJECT COUNTS
+  ======================================================= */
 
-  const currentProjects = projectsData.slice(
-    startIndex,
-    startIndex + ITEMS_PER_PAGE
-  );
+  const projectCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
 
-  // ================= PAGE CHANGE =================
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-
-    // Scroll back to projects section
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    categories.forEach((category) => {
+      counts[category] = projectsData.filter(
+        (project) =>
+          projectMatchesCategory(
+            project,
+            category
+          )
+      ).length;
     });
+
+    return counts;
+  }, []);
+
+  /* =======================================================
+     FILTERED PROJECTS
+  ======================================================= */
+
+  const filteredProjects = useMemo(() => {
+    return projectsData.filter((project) =>
+      projectMatchesCategory(
+        project,
+        activeCategory
+      )
+    );
+  }, [activeCategory]);
+
+  /* =======================================================
+     ACTIVE CATEGORY LABEL
+  ======================================================= */
+
+  const activeCategoryLabel =
+    activeCategory === "All"
+      ? "All Technologies"
+      : activeCategory;
+
+  /* =======================================================
+     HANDLE FILTER CHANGE
+  ======================================================= */
+
+  const handleCategoryChange = (
+    category: string
+  ) => {
+    if (
+      categories.includes(
+        category as ProjectCategory
+      )
+    ) {
+      setActiveCategory(
+        category as ProjectCategory
+      );
+    }
   };
 
   return (
     <div className="container">
 
-      {/* ================= SECTION TITLE ================= */}
+      {/* ===================================================
+          BACK BUTTON
+      =================================================== */}
+
+      <div className="row">
+        <div className="projects-back padd-15">
+
+          <button
+            type="button"
+            onClick={onBack}
+            className="projects-back__button"
+            aria-label="Back to featured projects"
+          >
+            <span className="projects-back__icon">
+              <i
+                className="fas fa-arrow-left"
+                aria-hidden="true"
+              />
+            </span>
+
+            <span>
+              Back to Projects
+            </span>
+
+          </button>
+
+        </div>
+      </div>
+
+
+      {/* ===================================================
+          SECTION TITLE
+      =================================================== */}
+
       <div className="row">
         <div className="section-title">
-          <h2>All Projects</h2>
+          <h2>
+            All Projects
+          </h2>
         </div>
       </div>
 
-      {/* ================= HEADING ================= */}
+
+      {/* ===================================================
+          PROJECT ARCHIVE HEADING
+      =================================================== */}
+
       <div className="row">
         <div className="projects-heading padd-15">
-          <h2>My Complete Projects :</h2>
+
+          <div className="projects-heading-content">
+
+            <div className="projects-heading-meta">
+
+              <span className="projects-heading-line" />
+
+              <span className="projects-heading-label">
+                PROJECT ARCHIVE
+              </span>
+
+            </div>
+
+            <h2>
+              Explore My Projects
+            </h2>
+
+            <p>
+              A collection of projects, experiments,
+              and development work built throughout
+              my learning journey.
+            </p>
+
+          </div>
+
         </div>
       </div>
 
-      {/* ================= PROJECT ITEMS ================= */}
+
+      {/* ===================================================
+          PROJECT FILTERS
+      =================================================== */}
+
       <div className="row">
-        {currentProjects.map((project) => (
-          <ProjectCards
-            key={project.id}
-            project={project}
+        <div className="padd-15">
+
+          <ProjectFilters
+            categories={[
+              ...categories,
+            ]}
+            activeCategory={
+              activeCategory
+            }
+            onCategoryChange={
+              handleCategoryChange
+            }
+            projectCounts={
+              projectCounts
+            }
           />
-        ))}
+
+        </div>
       </div>
 
-      {/* ================= PAGINATION ================= */}
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        totalRecords={totalRecords}
-        onPageChange={handlePageChange}
-      />
 
-      {/* ================= MAIN MENU BUTTON ================= */}
-      <div className="projects-all">
-        <button
-          type="button"
-          className="view-all"
-          onClick={onBack}
-        >
-          Main Menu
-        </button>
+      {/* ===================================================
+          PROJECT RESULTS HEADER
+      =================================================== */}
+
+      <div className="row">
+        <div className="projects-count padd-15">
+
+          <div className="projects-count__content">
+
+            <span className="projects-count__indicator">
+              <span />
+            </span>
+
+            <span>
+              Showing{" "}
+              <strong>
+                {filteredProjects.length}
+              </strong>{" "}
+              {filteredProjects.length === 1
+                ? "Project"
+                : "Projects"}
+            </span>
+
+          </div>
+
+
+          {/* ===============================================
+              ACTIVE FILTER
+          =============================================== */}
+
+          <span
+            className="projects-count__category"
+            aria-label={`Active filter: ${activeCategoryLabel}`}
+          >
+
+            <span
+              className="projects-count__category-icon"
+              aria-hidden="true"
+            >
+              <i
+                className={
+                  activeCategory === "All"
+                    ? "fas fa-layer-group"
+                    : activeCategory ===
+                      "Frontend"
+                    ? "fas fa-laptop-code"
+                    : activeCategory ===
+                      "Full Stack"
+                    ? "fas fa-code"
+                    : "fas fa-filter"
+                }
+              />
+            </span>
+
+            <span>
+              {activeCategoryLabel}
+            </span>
+
+          </span>
+
+        </div>
+      </div>
+
+
+      {/* ===================================================
+          PROJECT GRID
+      =================================================== */}
+
+      <div className="row">
+
+        <ProjectGrid
+          projects={
+            filteredProjects
+          }
+        />
+
       </div>
 
     </div>
