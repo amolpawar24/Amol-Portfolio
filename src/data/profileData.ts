@@ -30,7 +30,7 @@ export const profileData = {
     },
     {
       label: "Website",
-      value: "amol2404.netlify.app",
+      value: "amolpawar24.vercel.app",
     },
     {
       label: "Email",
@@ -82,7 +82,7 @@ export const profileData = {
 
   course: [
        {
-      year: "2025 - Present",
+      year: "2026 - Present",
       title: "Currently Learning Python & AI Development",
       description: `
       Currently learning Python programming and exploring AI and
