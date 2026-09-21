@@ -91,7 +91,7 @@ export default function Sidebar({
               <i className="fa fa-briefcase"></i>
               Experience
             </a>
-          </li> */}
+          </li>
 
           {/* CERTIFICATIONS */}
           <li>
