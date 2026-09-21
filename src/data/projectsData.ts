@@ -1,10 +1,17 @@
-const projectsData = [
+import { ProjectType } from "@/types/projectTypes";
+
+const projectsData: ProjectType[] = [
+  // =========================================================
+  // 01. BPL OFFICIAL
+  // =========================================================
+
   {
     id: 1,
     image: "/assets/images/projects/BPL-OFFICIAL.png",
     title: "BPL OFFICIAL",
     description:
       "Official website for the Bhalawani Premier League featuring player registration, team showcases, tournament schedules, announcements, real-time updates, secure online registrations, and modern fan engagement experiences.",
+
     tech: [
       "fab fa-react", // Next.js
       "fas fa-code", // TypeScript
@@ -21,9 +28,33 @@ const projectsData = [
       "fas fa-rocket", // Vercel Deployment
       "fas fa-mobile-screen", // Responsive Design
     ],
+
+    categories: [
+      "Next.js",
+      "TypeScript",
+      "SCSS",
+      "Redux Toolkit",
+      "React Hook Form",
+      "Formik",
+      "Yup",
+      "Zod",
+      "Socket.io",
+      "Framer Motion",
+      "Sonner",
+      "Sharp",
+      "Razorpay",
+      "Vercel",
+      "Responsive Design",
+      "Full Stack",
+    ],
+
     liveDemo: "https://bpl-official.vercel.app/",
     code: "https://github.com/AMOL-DEV-24/bpl-frontend",
   },
+
+  // =========================================================
+  // 02. BPL HUB
+  // =========================================================
 
   {
     id: 2,
@@ -31,6 +62,7 @@ const projectsData = [
     title: "BPL HUB",
     description:
       "Enterprise-grade cricket tournament management platform built for administrators to manage players, teams, registrations, auctions, schedules, dashboards, statistics, and complete tournament operations from a centralized admin panel.",
+
     tech: [
       "fab fa-react", // Next.js
       "fas fa-code", // TypeScript
@@ -46,15 +78,42 @@ const projectsData = [
       "fas fa-check-circle", // Formik + Yup
       "fas fa-cloud", // Cloudflare Deployment
     ],
+
+    categories: [
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "TypeScript",
+      "SCSS",
+      "Redux Toolkit",
+      "RTK Query",
+      "Axios",
+      "Recharts",
+      "JavaScript",
+      "JWT Auth",
+      "Socket.io",
+      "DayJS",
+      "Formik",
+      "Yup",
+      "Cloudflare",
+      "Full Stack",
+    ],
+
     liveDemo: "https://bpl-hub-2026.bpl-official-in.workers.dev/",
     code: "https://github.com/AMOL-DEV-24/BPL-HUB",
   },
+
+  // =========================================================
+  // 03. PORTFOLIO 5
+  // =========================================================
+
   {
     id: 3,
-    image: "/assets/images/projects/Portfolio 5.png",
+    image: "/assets/images/projects/Portfolio-5.png",
     title: "Portfolio 5",
     description:
       "Portfolio 5 is a personal portfolio Next.js website with modern design and animations.",
+
     tech: [
       "fab fa-react",
       "fas fa-wand-magic-sparkles",
@@ -63,9 +122,22 @@ const projectsData = [
       "fas fa-code",
       "fas fa-palette",
     ],
-    liveDemo: "https://amolpawar24.netlify.app/",
+
+    categories: [
+      "Next.js",
+      "React",
+      "Responsive Design",
+      "Animation",
+      "UI Design",
+    ],
+
+    liveDemo: "https://amolpawar24.vercel.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 04. GYM APP
+  // =========================================================
 
   {
     id: 4,
@@ -73,10 +145,18 @@ const projectsData = [
     title: "GYM APP",
     description:
       "Modern fitness web app with workout categories, exercise details, and responsive UI.",
+
     tech: ["fab fa-css3-alt", "fab fa-react", "fas fa-bolt"],
+
+    categories: ["React"],
+
     liveDemo: "https://gym-app-three-rho.vercel.app/",
     code: "https://gym24-webapp.netlify.app/",
   },
+
+  // =========================================================
+  // 05. BIKE APP
+  // =========================================================
 
   {
     id: 5,
@@ -84,6 +164,7 @@ const projectsData = [
     title: "BIKE APP",
     description:
       "Bike booking and rental platform with smooth UI and responsive layouts.",
+
     tech: [
       "fab fa-html5",
       "fab fa-css3-alt",
@@ -91,9 +172,16 @@ const projectsData = [
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
     ],
+
+    categories: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+
     liveDemo: "https://bike24-website.netlify.app/",
     code: "https://github.com/24Amol/BIKE-WEBAPP24",
   },
+
+  // =========================================================
+  // 06. PEPSI APP
+  // =========================================================
 
   {
     id: 6,
@@ -101,6 +189,7 @@ const projectsData = [
     title: "PEPSI APP",
     description:
       "Creative Pepsi inspired landing page with animations and modern design.",
+
     tech: [
       "fab fa-html5",
       "fab fa-css3-alt",
@@ -108,9 +197,16 @@ const projectsData = [
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
     ],
+
+    categories: ["HTML", "CSS", "JavaScript", "Responsive Design", "Animation"],
+
     liveDemo: "https://pespsi24-website.netlify.app/",
     code: "https://github.com/2404AMOL/PEPSI-WEBAPP",
   },
+
+  // =========================================================
+  // 07. HMBOX 2023
+  // =========================================================
 
   {
     id: 7,
@@ -118,6 +214,7 @@ const projectsData = [
     title: "HMBOX 2023",
     description:
       "Tiffin service web app for ordering home-cooked meals online.",
+
     tech: [
       "fab fa-php",
       "fas fa-database",
@@ -127,15 +224,32 @@ const projectsData = [
       "fas fa-mobile-screen",
       "fas fa-wand-magic-sparkles",
     ],
+
+    categories: [
+      "PHP",
+      "MySQL",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Full Stack",
+    ],
+
     liveDemo: "https://hmbox2023.great-site.net/?i=1",
     code: "#",
   },
+
+  // =========================================================
+  // 08. PORTFOLIO 1
+  // =========================================================
+
   {
     id: 8,
     image: "/assets/images/projects/portfolio 1.jpg",
     title: "Portfolio 1",
     description:
       "Portfolio 1 is a personal portfolio React website with modern design and animations.",
+
     tech: [
       "fab fa-react",
       "fas fa-wand-magic-sparkles",
@@ -144,60 +258,105 @@ const projectsData = [
       "fas fa-code",
       "fas fa-palette",
     ],
+
+    categories: ["React", "Responsive Design", "Animation", "UI Design"],
+
     liveDemo: "https://amol-portfolio1.netlify.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 09. PORTFOLIO 2
+  // =========================================================
+
   {
     id: 9,
     image: "/assets/images/projects/Portfolio 2.png",
     title: "Portfolio 2",
     description:
-      "Portfolio 2 is a personal portfolio static website with modern  Neophormism design and animations.",
+      "Portfolio 2 is a personal portfolio static website with modern Neophormism design and animations.",
+
     tech: [
-      "fab fa-react",
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
       "fas fa-bolt",
       "fas fa-code",
       "fas fa-palette",
     ],
+
+    categories: ["JavaScript", "Responsive Design", "Animation", "UI Design"],
+
     liveDemo: "https://amol-portfolio2.netlify.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 10. PORTFOLIO 3
+  // =========================================================
+
   {
     id: 10,
     image: "/assets/images/projects/Portfolio 3.png",
     title: "Portfolio 3",
     description:
       "Portfolio 3 is a personal portfolio static website with modern design and animations.",
+
     tech: [
-      "fab fa-react",
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
       "fas fa-bolt",
       "fas fa-code",
       "fas fa-palette",
     ],
+
+    categories: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive Design",
+      "Animation",
+      "UI Design",
+    ],
+
     liveDemo: "https://amol-portfolio3.netlify.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 11. PORTFOLIO 4
+  // =========================================================
+
   {
     id: 11,
     image: "/assets/images/projects/Portfolio 4.png",
     title: "Portfolio 4",
     description:
       "Portfolio 4 is a personal portfolio static website with modern design and animations.",
+
     tech: [
-      "fab fa-react",
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
       "fas fa-bolt",
       "fas fa-code",
       "fas fa-palette",
     ],
+
+    categories: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive Design",
+      "Animation",
+      "UI Design",
+    ],
+
     liveDemo: "https://amol-portfolio4.netlify.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 12. GYMSO WEBAPP
+  // =========================================================
 
   {
     id: 12,
@@ -205,119 +364,213 @@ const projectsData = [
     title: "GYMSO WEBAPP",
     description:
       "Responsive gym landing page with flexbox layouts and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fas fa-mobile-screen"],
+
+    categories: ["HTML", "CSS", "Responsive Design"],
+
     liveDemo: "https://gymso-website.netlify.app/",
     code: "https://github.com/2404AMOL/GYMSO-WEBAPP",
   },
+
+  // =========================================================
+  // 13. NEWSIFY
+  // =========================================================
+
   {
     id: 13,
     image: "/assets/images/projects/Newsify.png",
     title: "NEWSIFY",
-    description:
-      "This news application builded using React to find news.",
+    description: "This news application builded using React to find news.",
+
     tech: [
       "fab fa-html5",
       "fab fa-css3-alt",
       "fas fa-mobile-screen",
       "fab fa-react",
     ],
+
+    categories: ["HTML", "CSS", "React", "Responsive Design"],
+
     liveDemo: "https://newsify-webpp.netlify.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 14. MOVIESPOT
+  // =========================================================
+
   {
     id: 14,
     image: "/assets/images/projects/Moviespot.png",
     title: "MOVIESPOT",
     description:
-      "This Moviespot webapp desgined for find infromation about popular ,latest, treanding movies collection",
+      "This Moviespot webapp desgined for find infromation about popular, latest, treanding movies collection.",
+
     tech: [
       "fab fa-html5",
       "fab fa-css3-alt",
       "fas fa-mobile-screen",
       "fab fa-react",
     ],
+
+    categories: ["HTML", "CSS", "React", "Responsive Design"],
+
     liveDemo: "https://moviespot24.netlify.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 15. TODO APP
+  // =========================================================
+
   {
     id: 15,
     image: "/assets/images/projects/Todo React App.png",
     title: "TODO APP",
     description:
-      "It React Project to help to understand the how the CRUD is works",
+      "It React Project to help to understand the how the CRUD is works.",
+
     tech: [
-      "fab fa-html5",
-      "fab fa-css3-alt",
       "fas fa-mobile-screen",
       "fab fa-react",
     ],
+
+    categories: ["React", "CRUD"],
+
     liveDemo: "https://todo24-react.netlify.app/",
     code: "#",
   },
+
+  // =========================================================
+  // 16. CUDA 1
+  // =========================================================
 
   {
     id: 16,
     image: "/assets/images/projects/Cuda.png",
     title: "CUDA 1",
     description: "Responsive business website hosted using GitHub Pages.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+
     liveDemo: "https://cuda-website.netlify.app/",
     code: "https://github.com/2404AMOL/CUDA",
   },
+
+  // =========================================================
+  // 17. CALCULATOR
+  // =========================================================
+
   {
     id: 17,
     image: "/assets/images/projects/Calculator.png",
     title: "Calculator",
-    description: "It is javascript project made with Neophormism design",
+    description: "It is javascript project made with Neophormism design.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "UI Design"],
+
     liveDemo: "https://victorious-red-hhkheze5.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 18. DIGITAL CLOCK
+  // =========================================================
+
   {
     id: 18,
     image: "/assets/images/projects/Digital Clock.png",
     title: "Digital Clock",
-    description: "Digital Clokc unique css design",
+    description: "Digital Clokc unique css design.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "UI Design"],
+
     liveDemo: "https://eastern-black-o1cojojk.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 19. GENERATE QR CODE
+  // =========================================================
+
   {
     id: 19,
     image: "/assets/images/projects/Generate QR.png",
     title: "Generate QR Code",
-    description: "Genarate QR made by with JS",
+    description: "Genarate QR made by with JS.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript"],
+
     liveDemo: "https://satisfactory-blue-brwi1wxj.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 21. BULB USING JAVASCRIPT
+  // =========================================================
+
   {
     id: 21,
     image: "/assets/images/projects/Bulb Javascript.png",
     title: "Bulb Using Javscript",
-    description: "Bulb using Javascript Action turing On and Off",
+    description: "Bulb using Javascript Action turing On and Off.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript"],
+
     liveDemo: "https://usual-sapphire-4r5szl9f.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 22. GLOWING CUBE
+  // =========================================================
+
   {
     id: 22,
     image: "/assets/images/projects/Glowing Cube.png",
     title: "Glowing Cube",
-    description: "It is Glowing sqaure Cube with attractive CSS design",
+    description: "It is Glowing sqaure Cube with attractive CSS design.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt"],
+
+    categories: ["HTML", "CSS"],
+
     liveDemo: "https://supporting-teal-bpqyz7mr.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 23. WHEELS LANDING PAGE
+  // =========================================================
+
   {
     id: 23,
     image: "/assets/images/projects/Wheels Landing Page.png",
     title: "Wheels Landing Page",
-    description: "It Landing Page made with css without responsive",
+    description: "It Landing Page made with css without responsive.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt"],
+
+    categories: ["HTML", "CSS"],
+
     liveDemo: "https://consistent-salmon-bhn00ext.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 24. APJ TRIBUTE PAGE
+  // =========================================================
 
   {
     id: 24,
@@ -325,91 +578,176 @@ const projectsData = [
     title: "APJ TRIBUTE PAGE",
     description:
       "Tribute page for Dr. APJ Abdul Kalam with elegant UI and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Animation"],
+
     liveDemo: "https://great-scarlet-wnxksgtw.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 25. SPOTIFY CLONE
+  // =========================================================
+
   {
     id: 25,
     image: "/assets/images/projects/Spotify Clone.png",
     title: "SPOTIFY CLONE",
     description: "Spotify clone with elegant UI and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Animation"],
+
     liveDemo: "https://full-turquoise-2hwvvsqo.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 26. NEOPHORMISM PROFILE CARD
+  // =========================================================
+
   {
     id: 26,
     image: "/assets/images/projects/Neophormism  Profile Card.png",
     title: "Neophormism Profile Card",
     description: "Neophormism profile card with elegant UI and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Animation", "UI Design"],
+
     liveDemo: "https://main-yellow-fp4h8vov.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 27. TRANSPARENT PROFILE CARD
+  // =========================================================
+
   {
     id: 27,
     image: "/assets/images/projects/Transparent Profile Card.png",
     title: "TRANSPARENT PROFILE CARD",
     description: "Transparent profile card with elegant UI and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Animation", "UI Design"],
+
     liveDemo: "https://minimum-rose-zs4hparz.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 28. INDIAN HISTORICAL PLACES
+  // =========================================================
+
   {
     id: 28,
     image: "/assets/images/projects/Incredible India.png",
     title: "INDIAN HISTORICAL PLACES",
     description:
       "Incredible India landing page with elegant UI and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Animation"],
+
     liveDemo: "https://xenogeneic-amber-rtbwgspe.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 29. INDIAN BEAUTIFUL PLACES
+  // =========================================================
+
   {
     id: 29,
     image: "/assets/images/projects/Indian Beautiful Places.png",
     title: "INDIAN BEAUTIFUL PLACES",
     description:
       "Indian Beautiful Places landing page with elegant UI and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Animation"],
+
     liveDemo: "https://vocal-amaranth-kwklx009.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 30. INDIAN CUISINE
+  // =========================================================
+
   {
     id: 30,
     image: "/assets/images/projects/Indian Cuisine.png",
     title: "INDIAN CUISINE",
     description: "Indian Cuisine landing page with elegant UI and animations.",
+
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    categories: ["HTML", "CSS", "JavaScript", "Animation"],
+
     liveDemo: "https://instant-sapphire-q6vuushi.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 31. IPL 2023 SCHEDULE
+  // =========================================================
+
   {
     id: 31,
     image: "/assets/images/projects/IPL 2023 Schedule.png",
     title: "IPL 2023 SCHEDULE",
     description:
       "IPL 2023 Schedule landing page with elegant UI and animations.",
-    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    tech: ["fab fa-html5", "fab fa-css3-alt"],
+
+    categories: ["HTML", "CSS", "Animation"],
+
     liveDemo: "https://tight-tan-reobzydc.edgeone.dev/",
     code: "#",
   },
+
+  // =========================================================
+  // 32. BULB CSS
+  // =========================================================
+
   {
     id: 32,
     image: "/assets/images/projects/Bulb Css.png",
     title: "BULB CSS",
     description: "Interactive bulb UI created using HTML and CSS.",
-    tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
+
+    tech: ["fab fa-html5", "fab fa-css3-alt"],
+
+    categories: ["HTML", "CSS"],
+
     liveDemo: "https://bulb-css.tiiny.site/",
     code: "#",
   },
+
+  // =========================================================
+  // 33. INDIAN RESTAURENT
+  // =========================================================
+
   {
     id: 33,
     image: "/assets/images/projects/indian-restro-html.png",
     title: "Indian Restaurent",
-    description: "It is Fully static html page without CSS and JS",
+    description: "It is Fully static html page without CSS and JS.",
+
     tech: ["fab fa-html5"],
+
+    categories: ["HTML"],
+
     liveDemo: "https://crimson-seal.staticdomains.app",
     code: "https://github.com/amolpawar24/HTML5/tree/main/PROJECTS/PROJECT%204",
   },
