@@ -1,6 +1,6 @@
 "use client";
 
-import { Experience } from "@/types/experience";
+import { Experience } from "@/types/experienceTypes";
 
 interface ExperienceCardProps {
   experience: Experience;
