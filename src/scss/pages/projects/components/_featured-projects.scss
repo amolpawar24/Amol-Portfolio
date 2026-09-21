@@ -1,0 +1,526 @@
+/* =========================================================
+   PROJECTS — FEATURED PROJECTS
+========================================================= */
+
+@use "../../../abstracts/breakpoints" as *;
+
+
+/* =========================================================
+   FEATURED PROJECTS WRAPPER
+========================================================= */
+
+.featured-projects-wrapper {
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FEATURED PROJECT GRID
+========================================================= */
+
+.featured-projects {
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.projects-empty {
+  width: 100%;
+
+  padding: 50px 15px;
+
+  text-align: center;
+
+  color:
+    var(--text-black-700);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PROJECT REVEAL
+========================================================= */
+
+.featured-projects > .projects-item {
+  animation:
+    featuredProjectReveal
+    0.45s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+
+  animation-delay:
+    calc(
+      min(
+        var(--project-index, 0),
+        5
+      ) * 0.05s
+    );
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.featured-projects-wrapper
+  > .pagination {
+  width: 100%;
+
+  margin-top: 24px;
+  margin-bottom: 10px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGINATION WRAPPER
+========================================================= */
+
+.pagination {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE INFO
+========================================================= */
+
+.pagination-info {
+  color:
+    var(--text-black-700);
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+  strong {
+    color:
+      var(--text-black-900);
+
+    font-weight: 800;
+  }
+}
+
+
+/* =========================================================
+   PAGINATION CONTROLS
+========================================================= */
+
+.pagination-controls {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+========================================================= */
+
+.pagination-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 48px;
+
+  height: 34px;
+
+  padding: 0 12px;
+
+  border:
+    1px solid
+    var(--border-color);
+
+  border-radius: 8px;
+
+  background:
+    var(--bg-black-100);
+
+  color:
+    var(--text-black-700);
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+
+
+  &:hover:not(:disabled) {
+    transform:
+      translateY(-1px);
+
+    border-color:
+      var(--skin-color);
+
+    background:
+      color-mix(
+        in srgb,
+        var(--skin-color) 7%,
+        var(--bg-black-100)
+      );
+
+    color:
+      var(--skin-color);
+  }
+
+
+  &:active:not(:disabled) {
+    transform:
+      translateY(0);
+  }
+
+
+  &:disabled {
+    opacity: 0.4;
+
+    cursor: not-allowed;
+  }
+
+
+  &:focus-visible {
+    outline:
+      2px solid
+      var(--skin-color);
+
+    outline-offset:
+      3px;
+  }
+}
+
+
+/* =========================================================
+   PAGE NUMBERS
+========================================================= */
+
+.pagination-numbers {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+
+/* =========================================================
+   PAGE NUMBER
+========================================================= */
+
+.pagination-number {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+
+  height: 34px;
+
+  padding: 0;
+
+  border:
+    1px solid
+    var(--border-color);
+
+  border-radius: 8px;
+
+  background:
+    var(--bg-black-100);
+
+  color:
+    var(--text-black-700);
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+
+
+  &:hover {
+    transform:
+      translateY(-1px);
+
+    border-color:
+      color-mix(
+        in srgb,
+        var(--skin-color) 55%,
+        var(--border-color)
+      );
+
+    color:
+      var(--skin-color);
+  }
+
+
+  &.active {
+    border-color:
+      var(--skin-color);
+
+    background:
+      var(--skin-color);
+
+    color:
+      #ffffff;
+
+    box-shadow:
+      0 6px 16px
+      color-mix(
+        in srgb,
+        var(--skin-color) 15%,
+        transparent
+      );
+  }
+
+
+  &:focus-visible {
+    outline:
+      2px solid
+      var(--skin-color);
+
+    outline-offset:
+      3px;
+  }
+}
+
+
+/* =========================================================
+   TOTAL RECORDS
+========================================================= */
+
+.pagination-total {
+  color:
+    var(--text-black-700);
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+
+  strong {
+    color:
+      var(--text-black-900);
+
+    font-weight: 800;
+  }
+}
+
+
+/* =========================================================
+   PROJECT REVEAL ANIMATION
+========================================================= */
+
+@keyframes featuredProjectReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(16px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   LG
+========================================================= */
+
+@include lg {
+
+  .featured-projects-wrapper
+    > .pagination {
+    margin-top: 20px;
+  }
+
+
+  .pagination {
+    gap: 14px;
+  }
+}
+
+
+/* =========================================================
+   MD
+========================================================= */
+
+@include md {
+
+  .featured-projects-wrapper
+    > .pagination {
+    margin-top: 18px;
+  }
+
+
+  .pagination {
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+}
+
+
+/* =========================================================
+   SM
+========================================================= */
+
+@include sm {
+
+  .featured-projects-wrapper
+    > .pagination {
+    margin-top: 16px;
+  }
+
+
+  .pagination {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+
+  .pagination-controls {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  .pagination-total {
+    order: 3;
+  }
+}
+
+
+/* =========================================================
+   XS
+========================================================= */
+
+@include xs {
+
+  .featured-projects-wrapper
+    > .pagination {
+    margin-top: 14px;
+  }
+
+
+  .pagination {
+    gap: 8px;
+  }
+
+
+  .pagination-controls {
+    gap: 4px;
+  }
+
+
+  .pagination-button {
+    min-width: 43px;
+
+    height: 32px;
+
+    padding: 0 9px;
+
+    font-size: 8px;
+  }
+
+
+  .pagination-numbers {
+    gap: 4px;
+  }
+
+
+  .pagination-number {
+    width: 32px;
+
+    height: 32px;
+
+    font-size: 8px;
+  }
+
+
+  .pagination-info,
+  .pagination-total {
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .featured-projects
+    > .projects-item {
+    animation: none;
+  }
+
+
+  .pagination-button,
+  .pagination-number {
+    transition: none;
+  }
+}
