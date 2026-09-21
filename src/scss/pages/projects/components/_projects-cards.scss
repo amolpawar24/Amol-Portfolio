@@ -1,1355 +1,1231 @@
 @use "../../../abstracts/breakpoints" as *;
 
 /* =========================================================
-   PROJECTS CARD COMPONENT
-   Premium 3D Showcase Card
-   Glass Depth + Spotlight + Floating Elements
+   PROJECT ITEM
 ========================================================= */
 
+.projects-item {
+  width: 33.3333%;
+  padding: 15px;
+
+  perspective: 1600px;
+}
+
+.projects-item--featured {
+  width: 50%;
+}
+
+.projects-item--grid {
+  width: 33.3333%;
+}
 
 /* =========================================================
-   CARD
+   PROJECT CARD
 ========================================================= */
 
-.projects-item-inner {
+.project-card {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
 
-  cursor: pointer;
+  width: 100%;
 
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--skin-color) 55%,
-      transparent
-    );
+  perspective: 1600px;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   DEPTH LAYERS
+========================================================= */
+
+.project-card__depth {
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
 
   border-radius: 20px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.09),
-      rgba(255, 255, 255, 0.025)
-    );
+  pointer-events: none;
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+}
+
+.project-card__depth--one {
+  top: 7px;
+  bottom: -7px;
+
+  background: var(--bg-black-100);
+
+  opacity: 0.85;
+
+  transform:
+    translateZ(-12px)
+    translateY(5px);
+}
+
+.project-card__depth--two {
+  top: 13px;
+  bottom: -13px;
+
+  background: var(--bg-black-100);
+
+  opacity: 0.5;
+
+  transform:
+    translateZ(-25px)
+    translateY(10px);
+}
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.project-card__main {
+  position: relative;
+
+  z-index: 3;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+
+  background: var(--bg-black-50);
 
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.08),
-    inset 1px 1px 0
-      rgba(255, 255, 255, 0.14),
-    inset -1px -1px 0
-      rgba(0, 0, 0, 0.04);
+    0 15px 35px rgba(0, 0, 0, 0.07),
+    0 3px 10px rgba(0, 0, 0, 0.04);
 
   transform: translateZ(0);
 
   transition:
-    transform 0.5s
-      cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s ease,
-    border-color 0.5s ease;
-
-  /* =======================================================
-     MOVING GLASS REFLECTION
-  ======================================================= */
-
-  &::before {
-    content: "";
-
-    position: absolute;
-
-    z-index: 15;
-
-    top: -150%;
-    left: -40%;
-
-    width: 25%;
-    height: 400%;
-
-    transform: rotate(25deg);
-
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.04),
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.04),
-        transparent
-      );
-
-    pointer-events: none;
-
-    animation:
-      projectCardReflection
-      10s
-      ease-in-out
-      infinite;
-  }
-
-  /* =======================================================
-     AMBIENT GLOW
-  ======================================================= */
-
-  &::after {
-    content: "";
-
-    position: absolute;
-
-    z-index: -1;
-
-    inset: 12px;
-
-    border-radius: 18px;
-
-    background:
-      radial-gradient(
-        circle at 50% 0%,
-        color-mix(
-          in srgb,
-          var(--skin-color) 20%,
-          transparent
-        ),
-        transparent 65%
-      );
-
-    opacity: 0.35;
-
-    filter: blur(25px);
-
-    pointer-events: none;
-
-    transition:
-      opacity 0.5s ease,
-      transform 0.5s ease;
-  }
-
-  /* =======================================================
-     HOVER
-  ======================================================= */
-
-  &:hover {
-    transform:
-      translateY(-10px)
-      scale(1.01);
-
-    border-color:
-      color-mix(
-        in srgb,
-        var(--skin-color) 90%,
-        transparent
-      );
-
-    box-shadow:
-      0 25px 55px rgba(0, 0, 0, 0.13),
-      0 0 35px
-        color-mix(
-          in srgb,
-          var(--skin-color) 14%,
-          transparent
-        ),
-      inset 1px 1px 0
-        rgba(255, 255, 255, 0.18);
-
-    &::after {
-      opacity: 0.7;
-
-      transform: scale(1.08);
-    }
-
-    .projects-img {
-      transform: translateY(-2px);
-    }
-
-    .projects-img img {
-      transform:
-        scale(1.08)
-        translateY(-3px);
-    }
-
-    .projects-img::after {
-      opacity: 1;
-    }
-
-    .overlay {
-      bottom: 0;
-    }
-  }
+    border-color 0.35s ease,
+    box-shadow 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
-/* =========================================================
-   PROJECT IMAGE
-========================================================= */
-
-.projects-img {
-  position: relative;
-
-  z-index: 2;
-
-  width: 100%;
-  height: 220px;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 35%,
-      color-mix(
-        in srgb,
-        var(--skin-color) 10%,
-        transparent
-      ),
-      transparent 65%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.08),
-      rgba(255, 255, 255, 0.02)
-    );
-
-  transition:
-    transform 0.5s
-      cubic-bezier(0.22, 1, 0.36, 1);
-
-  /* =======================================================
-     IMAGE SPOTLIGHT
-  ======================================================= */
-
-  &::before {
-    content: "";
-
-    position: absolute;
-
-    z-index: 1;
-
-    inset: 0;
-
-    background:
-      radial-gradient(
-        circle at 50% 45%,
-        rgba(255, 255, 255, 0.1),
-        transparent 58%
-      );
-
-    pointer-events: none;
-  }
-
-  /* =======================================================
-     IMAGE BOTTOM FADE
-  ======================================================= */
-
-  &::after {
-    content: "";
-
-    position: absolute;
-
-    z-index: 3;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 45%;
-
-    opacity: 0.65;
-
-    background:
-      linear-gradient(
-        to top,
-        color-mix(
-          in srgb,
-          var(--skin-color) 9%,
-          transparent
-        ),
-        transparent
-      );
-
-    pointer-events: none;
-
-    transition:
-      opacity 0.4s ease;
-  }
-
-  /* =======================================================
-     IMAGE
-  ======================================================= */
-
-  img {
-    position: relative;
-
-    z-index: 2;
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: contain;
-
-    filter:
-      drop-shadow(
-        0 18px 20px
-        rgba(0, 0, 0, 0.14)
-      );
-
-    transition:
-      transform 0.6s
-        cubic-bezier(0.22, 1, 0.36, 1),
-      filter 0.5s ease;
-  }
+.project-card:hover {
+  transform: translateY(-8px);
 }
 
+.project-card:hover .project-card__main {
+  border-color: var(--skin-color);
 
-/* =========================================================
-   IMAGE HOVER DEPTH
-========================================================= */
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.13),
+    0 8px 22px rgba(0, 0, 0, 0.07);
 
-.projects-item-inner:hover {
-  .projects-img img {
-    filter:
-      drop-shadow(
-        0 25px 30px
-        rgba(0, 0, 0, 0.2)
-      );
-  }
+  transform: translateZ(14px);
 }
 
+.project-card:hover
+  .project-card__depth--one {
+  transform:
+    translateZ(-12px)
+    translateY(8px)
+    scale(0.985);
+}
+
+.project-card:hover
+  .project-card__depth--two {
+  transform:
+    translateZ(-25px)
+    translateY(14px)
+    scale(0.96);
+}
 
 /* =========================================================
-   OVERLAY
-   Premium Bottom Glass Layer
+   HEADER
 ========================================================= */
 
-.overlay {
-  position: absolute;
+.project-card__header {
+  min-height: 50px;
 
-  z-index: 20;
-
-  left: 0;
-  bottom: -100%;
-
-  width: 100%;
-  height: 100%;
-
-  box-sizing: border-box;
-
-  padding: 20px;
+  padding: 13px 16px;
 
   display: flex;
-
-  flex-direction: column;
-
-  justify-content: flex-end;
-
-  color: #fff;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(5, 5, 5, 0.97) 0%,
-      rgba(5, 5, 5, 0.86) 42%,
-      rgba(5, 5, 5, 0.35) 78%,
-      transparent 100%
-    );
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-
-  transition:
-    bottom 0.45s
-      cubic-bezier(0.22, 1, 0.36, 1);
-
-  /* =======================================================
-     PROJECT TITLE
-  ======================================================= */
-
-  h1 {
-    position: relative;
-
-    margin: 0 0 8px;
-
-    padding-left: 12px;
-
-    font-family:
-      var(--font-space-grotesk),
-      sans-serif;
-
-    font-size: 22px;
-
-    line-height: 1.2;
-
-    font-weight: 700;
-
-    letter-spacing: -0.5px;
-
-    color: #fff;
-
-    &::before {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      top: 2px;
-
-      width: 3px;
-      height: calc(100% - 4px);
-
-      border-radius: 10px;
-
-      background: var(--skin-color);
-
-      box-shadow:
-        0 0 12px
-          color-mix(
-            in srgb,
-            var(--skin-color) 70%,
-            transparent
-          );
-    }
-  }
-
-  /* =======================================================
-     DESCRIPTION
-  ======================================================= */
-
-  p {
-    margin: 0 0 11px;
-
-    font-family:
-      var(--font-inter),
-      sans-serif;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-    font-weight: 400;
-
-    color:
-      rgba(255, 255, 255, 0.82);
-
-    text-align: left;
-  }
-}
-
-
-/* =========================================================
-   OVERLAY HOVER TYPOGRAPHY
-========================================================= */
-
-.projects-item-inner:hover {
-  .overlay {
-    h1 {
-      color: var(--skin-color);
-
-      transform: translateX(3px);
-
-      transition:
-        color 0.3s ease,
-        transform 0.3s ease;
-    }
-
-    p {
-      color:
-        rgba(255, 255, 255, 0.94);
-
-      transition:
-        color 0.3s ease;
-    }
-  }
-}
-
-
-/* =========================================================
-   TECH ICONS
-   Floating Glass Badges
-========================================================= */
-
-.tech-icons {
-  position: relative;
-
-  z-index: 30;
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 8px;
-
-  margin: 0;
-
-  span {
-    position: relative;
-
-    width: 35px;
-    height: 35px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    border-radius: 11px;
-
-    color: var(--skin-color);
-
-    background:
-      linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.13),
-        rgba(255, 255, 255, 0.035)
-      );
-
-    border:
-      1px solid
-        color-mix(
-          in srgb,
-          var(--skin-color) 55%,
-          transparent
-        );
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    box-shadow:
-      0 7px 15px
-        rgba(0, 0, 0, 0.18),
-      inset 1px 1px 0
-        rgba(255, 255, 255, 0.14);
-
-    transition:
-      transform 0.35s
-        cubic-bezier(0.22, 1, 0.36, 1),
-      background 0.35s ease,
-      color 0.35s ease,
-      box-shadow 0.35s ease,
-      border-color 0.35s ease;
-
-    /* =====================================================
-       ICON HIGHLIGHT
-    ===================================================== */
-
-    &::before {
-      content: "";
-
-      position: absolute;
-
-      top: 5px;
-      left: 7px;
-
-      width: 5px;
-      height: 3px;
-
-      border-radius: 50%;
-
-      background:
-        rgba(255, 255, 255, 0.28);
-
-      filter: blur(1px);
-
-      pointer-events: none;
-    }
-
-    i {
-      position: relative;
-
-      z-index: 2;
-
-      font-size: 16px;
-
-      transition:
-        transform 0.3s ease;
-    }
-
-    &:hover {
-      transform:
-        translateY(-5px)
-        rotate(3deg);
-
-      color: #fff;
-
-      background:
-        var(--skin-color);
-
-      border-color:
-        var(--skin-color);
-
-      box-shadow:
-        0 10px 22px
-          color-mix(
-            in srgb,
-            var(--skin-color) 35%,
-            transparent
-          );
-
-      i {
-        transform: scale(1.1);
-      }
-    }
-  }
-}
-
-
-/* =========================================================
-   STAGGERED ICON MOVEMENT
-========================================================= */
-
-.projects-item-inner:hover {
-  .tech-icons {
-    span:nth-child(1) {
-      transform: translateY(-2px);
-    }
-
-    span:nth-child(2) {
-      transform: translateY(-4px);
-    }
-
-    span:nth-child(3) {
-      transform: translateY(-2px);
-    }
-
-    span:nth-child(4) {
-      transform: translateY(-5px);
-    }
-
-    span:nth-child(5) {
-      transform: translateY(-3px);
-    }
-  }
-}
-
-
-/* =========================================================
-   PROJECT BUTTONS
-   Premium Dual CTA Design
-========================================================= */
-
-.projects-buttons {
-  position: relative;
-
-  z-index: 30;
-
-  display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
-  width: 100%;
-
-  gap: 10px;
-
-  margin-top: 12px;
-
-  a {
-    position: relative;
-
-    z-index: 31;
-
-    flex: 1;
-
-    width: 100%;
-    height: 44px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    box-sizing: border-box;
-
-    visibility: visible;
-
-    opacity: 1;
-
-    pointer-events: auto;
-  }
+  border-bottom: 1px solid var(--border-color);
 }
 
-
 /* =========================================================
-   COMMON BUTTON
+   PROJECT IDENTITY
 ========================================================= */
 
-.button-1,
-.button-2 {
-  position: relative;
+.project-card__identity {
+  display: flex;
+  align-items: center;
 
-  z-index: 32;
+  gap: 8px;
+}
 
-  width: 100%;
-  height: 44px;
+.project-card__number {
+  min-width: 28px;
+  height: 28px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
+  border: 1px solid var(--border-color);
+  border-radius: 7px;
+
+  background: var(--bg-black-100);
+
+  color: var(--skin-color);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+.project-card__identity-line {
+  width: 20px;
+  height: 1px;
+
+  background: var(--skin-color);
+}
+
+.project-card__identity-label {
+  color: var(--text-black-700);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.project-card__status {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--text-black-700);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+}
+
+.project-card__status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--skin-color);
+
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.025);
+}
+
+/* =========================================================
+   PROJECT MEDIA
+========================================================= */
+
+.project-card__media {
+  padding: 12px 12px 0;
+}
+
+.project-card__media-frame {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1.55 / 1;
+
   overflow: hidden;
 
-  border-radius: 12px;
+  border-radius: 14px;
 
-  font-family:
-    var(--font-space-grotesk),
-    sans-serif;
+  background: var(--bg-black-100);
 
-  font-size: 13px;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
 
-  line-height: 1;
+.project-card__image {
+  object-fit: cover;
 
-  font-weight: 650;
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
 
-  letter-spacing: 0.2px;
+.project-card:hover
+  .project-card__image {
+  transform: scale(1.05);
+
+  filter: saturate(1.08);
+}
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.project-card__image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.12) 0%,
+      transparent 45%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   IMAGE SHINE
+========================================================= */
+
+.project-card__image-shine {
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  z-index: 3;
+
+  width: 45%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.18),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left 0.85s ease;
+
+  pointer-events: none;
+}
+
+.project-card:hover
+  .project-card__image-shine {
+  left: 135%;
+}
+
+/* =========================================================
+   IMAGE LABEL
+========================================================= */
+
+.project-card__image-label {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  z-index: 4;
+
+  padding: 6px 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  color: #ffffff;
+
+  backdrop-filter: blur(10px);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+/* =========================================================
+   IMAGE ACTION
+========================================================= */
+
+.project-card__image-action {
+  position: absolute;
+
+  right: 12px;
+  bottom: 12px;
+
+  z-index: 5;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  color: #ffffff;
+
+  backdrop-filter: blur(10px);
 
   text-decoration: none;
 
-  cursor: pointer;
-
-  visibility: visible;
-
-  opacity: 1;
-
-  pointer-events: auto;
+  font-size: 12px;
 
   transition:
-    transform 0.35s
-      cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease,
-    background 0.35s ease,
-    color 0.35s ease;
-
-  /* =======================================================
-     BUTTON SHINE
-  ======================================================= */
-
-  &::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 70%;
-    height: 100%;
-
-    transform: skewX(-25deg);
-
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.25),
-        transparent
-      );
-
-    transition:
-      left 0.65s ease;
-
-    pointer-events: none;
-  }
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
+.project-card__image-action:hover {
+  background: var(--skin-color);
 
-/* =========================================================
-   LIVE DEMO
-   Filled Premium CTA
-========================================================= */
+  border-color: var(--skin-color);
 
-.button-1 {
-  color: #fff;
-
-  border:
-    1px solid
-      color-mix(
-        in srgb,
-        var(--skin-color) 85%,
-        white
-      );
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--skin-color),
-      color-mix(
-        in srgb,
-        var(--skin-color) 72%,
-        black
-      )
-    );
-
-  box-shadow:
-    0 7px 18px
-      color-mix(
-        in srgb,
-        var(--skin-color) 22%,
-        transparent
-      ),
-    inset 1px 1px 0
-      rgba(255, 255, 255, 0.22);
-
-  &:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-      0 12px 25px
-        color-mix(
-          in srgb,
-          var(--skin-color) 35%,
-          transparent
-        ),
-      0 0 18px
-        color-mix(
-          in srgb,
-          var(--skin-color) 20%,
-          transparent
-        ),
-      inset 1px 1px 0
-        rgba(255, 255, 255, 0.28);
-
-    &::before {
-      left: 140%;
-    }
-  }
-
-  &:active {
-    transform:
-      translateY(-1px)
-      scale(0.98);
-  }
+  transform:
+    translateY(-3px)
+    scale(1.06);
 }
 
+.project-card__image-action--disabled {
+  opacity: 0.45;
 
-/* =========================================================
-   CODE
-   Glass / Outline CTA
-========================================================= */
-
-.button-2 {
-  color: var(--skin-color);
-
-  border:
-    1px solid
-      color-mix(
-        in srgb,
-        var(--skin-color) 65%,
-        transparent
-      );
-
-  background:
-    linear-gradient(
-      145deg,
-      color-mix(
-        in srgb,
-        var(--skin-color) 12%,
-        transparent
-      ),
-      rgba(255, 255, 255, 0.035)
-    );
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  box-shadow:
-    inset 1px 1px 0
-      rgba(255, 255, 255, 0.12),
-    0 6px 16px
-      rgba(0, 0, 0, 0.12);
-
-  &:hover {
-    transform: translateY(-3px);
-
-    color: #fff;
-
-    border-color:
-      var(--skin-color);
-
-    background:
-      linear-gradient(
-        135deg,
-        color-mix(
-          in srgb,
-          var(--skin-color) 25%,
-          transparent
-        ),
-        color-mix(
-          in srgb,
-          var(--skin-color) 12%,
-          transparent
-        )
-      );
-
-    box-shadow:
-      0 10px 22px
-        color-mix(
-          in srgb,
-          var(--skin-color) 22%,
-          transparent
-        ),
-      0 0 16px
-        color-mix(
-          in srgb,
-          var(--skin-color) 14%,
-          transparent
-        ),
-      inset 1px 1px 0
-        rgba(255, 255, 255, 0.16);
-
-    &::before {
-      left: 140%;
-    }
-  }
-
-  &:active {
-    transform:
-      translateY(-1px)
-      scale(0.98);
-  }
+  pointer-events: none;
 }
 
-
 /* =========================================================
-   BUTTON TEXT
+   BODY
 ========================================================= */
 
-.button-1 span,
-.button-2 span {
-  position: relative;
+.project-card__body {
+  padding: 16px 16px 15px;
+}
 
-  z-index: 2;
+/* =========================================================
+   CATEGORY
+========================================================= */
 
-  display: inline-flex;
+.project-card__category {
+  display: flex;
+  align-items: center;
 
+  gap: 7px;
+
+  margin-bottom: 9px;
+
+  color: var(--text-black-700);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.75px;
+
+  text-transform: uppercase;
+}
+
+.project-card__category-line {
+  width: 17px;
+  height: 1px;
+
+  background: var(--skin-color);
+}
+
+.project-card__category-dot {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: var(--skin-color);
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.project-card__title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.project-card__title {
+  margin: 0;
+
+  color: var(--text-black-900);
+
+  font-size: 21px;
+  font-weight: 850;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.55px;
+}
+
+.project-card__title-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 7px;
+  flex-shrink: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  color: var(--skin-color);
+
+  font-size: 10px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.35s ease,
+    border-color 0.3s ease;
 }
 
+.project-card:hover
+  .project-card__title-icon {
+  background: var(--skin-color);
+
+  border-color: var(--skin-color);
+
+  color: #ffffff;
+
+  transform:
+    translate(2px, -2px)
+    rotate(5deg);
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.project-card__description {
+  display: -webkit-box;
+
+  margin: 9px 0 15px;
+
+  overflow: hidden;
+
+  color: var(--text-black-700);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* =========================================================
+   TECHNOLOGY WRAPPER
+========================================================= */
+
+.project-card__tech-wrapper {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.project-card__tech-label {
+  flex-shrink: 0;
+
+  color: var(--text-black-700);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+.project-card__tech {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  overflow: hidden;
+}
+
+.project-card__tech-item {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 7px;
+
+  background: var(--bg-black-50);
+
+  color: var(--text-black-700);
+
+  font-size: 10px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-card__tech-item:hover {
+  background: var(--skin-color);
+
+  border-color: var(--skin-color);
+
+  color: #ffffff;
+
+  transform: translateY(-3px);
+}
+
+.project-card__tech-more {
+  min-width: 27px;
+  height: 27px;
+
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 7px;
+
+  color: var(--text-black-700);
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.project-card__footer {
+  margin-top: 1px;
+}
+
+.project-card__footer-line {
+  width: 100%;
+  height: 1px;
+
+  margin-bottom: 13px;
+
+  background: var(--border-color);
+}
+
+/* =========================================================
+   BUTTON CONTAINER
+========================================================= */
+
+.project-card__links {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 9px;
+}
+
+/* =========================================================
+   PROJECT BUTTON
+========================================================= */
+
+.project-card__link {
+  position: relative;
+
+  width: 132px;
+  height: 56px;
+
+  flex: 0 0 132px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 6px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  background: var(--bg-black-50);
+
+  color: var(--text-black-900);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+.project-card__link::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -110%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left 0.7s ease;
+
+  pointer-events: none;
+}
+
+.project-card__link:hover::before {
+  left: 135%;
+}
 
 /* =========================================================
    BUTTON ICON
 ========================================================= */
 
-.button-1 i,
-.button-2 i {
-  position: relative;
+.project-card__link-icon {
+  width: 40px;
+  height: 40px;
 
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size: 13px;
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: var(--bg-black-100);
+
+  color: var(--skin-color);
+
+  font-size: 12px;
 
   transition:
-    transform 0.3s ease;
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
 }
-
-.button-1:hover i {
-  transform: translateX(3px);
-}
-
-.button-2:hover i {
-  transform: translateX(2px);
-}
-
 
 /* =========================================================
-   CARD REFLECTION ANIMATION
+   BUTTON TEXT
 ========================================================= */
 
-@keyframes projectCardReflection {
-  0% {
-    left: -45%;
-    opacity: 0;
-  }
+.project-card__link-text {
+  min-width: 0;
 
-  12% {
-    opacity: 0.7;
-  }
+  display: flex;
+  flex-direction: column;
 
-  45%,
-  55% {
-    opacity: 0.75;
-  }
+  gap: 4px;
 
-  78%,
-  100% {
-    left: 145%;
-    opacity: 0;
-  }
+  text-align: left;
 }
 
+.project-card__link-text strong {
+  font-size: 10px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+.project-card__link-text small {
+  color: var(--text-black-700);
+
+  font-size: 7px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease;
+}
 
 /* =========================================================
-   XXL DEVICES
-   ≤ 1400px
+   BUTTON ARROW
+========================================================= */
+
+.project-card__link-arrow {
+  width: 18px;
+  height: 18px;
+
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-size: 7px;
+
+  opacity: 0.65;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.project-card__link:hover
+  .project-card__link-arrow {
+  opacity: 1;
+
+  transform:
+    translate(2px, -2px);
+}
+
+/* =========================================================
+   LIVE DEMO
+========================================================= */
+
+.project-card__link--demo {
+  border-color: var(--skin-color);
+
+  background: var(--skin-color);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+.project-card__link--demo
+  .project-card__link-icon {
+  background: rgba(255, 255, 255, 0.18);
+
+  color: #ffffff;
+}
+
+.project-card__link--demo
+  .project-card__link-text
+  small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.project-card__link--demo:hover {
+  border-color: var(--skin-color);
+
+  background: var(--skin-color);
+
+  transform:
+    translateY(-4px)
+    scale(1.02);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.17);
+}
+
+.project-card__link--demo:hover
+  .project-card__link-icon {
+  background: #ffffff;
+
+  color: var(--skin-color);
+
+  transform:
+    rotate(7deg)
+    scale(1.05);
+}
+
+/* =========================================================
+   GITHUB
+========================================================= */
+
+.project-card__link--github {
+  background: var(--bg-black-50);
+
+  color: var(--text-black-900);
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.04);
+}
+
+.project-card__link--github
+  .project-card__link-icon {
+  background: var(--bg-black-100);
+
+  color: var(--skin-color);
+}
+
+.project-card__link--github:hover {
+  border-color: var(--skin-color);
+
+  background: var(--bg-black-50);
+
+  color: var(--skin-color);
+
+  transform:
+    translateY(-4px)
+    scale(1.02);
+
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.1);
+}
+
+.project-card__link--github:hover
+  .project-card__link-icon {
+  background: var(--skin-color);
+
+  color: #ffffff;
+
+  transform:
+    rotate(-7deg)
+    scale(1.05);
+}
+
+.project-card__link--github:hover
+  .project-card__link-text
+  small {
+  color: var(--skin-color);
+}
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.project-card__link--disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+
+  pointer-events: none;
+
+  box-shadow: none;
+}
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.project-card__glow {
+  position: absolute;
+
+  left: 18%;
+  right: 18%;
+  bottom: -18px;
+
+  z-index: 0;
+
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: var(--skin-color);
+
+  opacity: 0;
+
+  filter: blur(28px);
+
+  transition:
+    opacity 0.45s ease;
+}
+
+.project-card:hover
+  .project-card__glow {
+  opacity: 0.14;
+}
+
+/* =========================================================
+   XXL — 1400px
 ========================================================= */
 
 @include xxl {
-  .projects-item-inner {
-    border-radius: 22px;
+  .projects-item--featured {
+    width: 50%;
   }
 
-  .projects-img {
-    height: 260px;
-  }
-
-  .overlay {
-    padding: 21px;
-
-    h1 {
-      font-size: 23px;
-    }
-
-    p {
-      font-size: 14px;
-
-      line-height: 1.55;
-    }
-  }
-
-  .tech-icons {
-    span {
-      width: 36px;
-      height: 36px;
-
-      i {
-        font-size: 17px;
-      }
-    }
-  }
-
-  .button-1,
-  .button-2 {
-    height: 42px;
-
-    font-size: 15px;
+  .projects-item--grid {
+    width: 33.3333%;
   }
 }
 
-
 /* =========================================================
-   XL DEVICES
-   ≤ 1200px
+   XL — 1200px
 ========================================================= */
 
 @include xl {
-  .projects-img {
-    height: 240px;
+  .projects-item {
+    padding: 12px;
   }
 
-  .overlay {
-    padding: 18px;
-
-    h1 {
-      font-size: 21px;
-    }
-
-    p {
-      font-size: 13px;
-
-      line-height: 1.5;
-    }
+  .project-card__body {
+    padding: 14px;
   }
 
-  .tech-icons {
-    span {
-      width: 34px;
-      height: 34px;
-    }
+  .project-card__title {
+    font-size: 19px;
   }
 
-  .button-1,
-  .button-2 {
-    font-size: 14px;
+  .project-card__link {
+    width: 122px;
+
+    flex-basis: 122px;
   }
 }
 
-
 /* =========================================================
-   LG DEVICES
-   ≤ 992px
+   LG — 992px
 ========================================================= */
 
 @include lg {
-  .projects-item-inner {
-    border-radius: 17px;
+  .projects-item--featured,
+  .projects-item--grid {
+    width: 50%;
   }
 
-  .projects-img {
-    height: 220px;
+  .project-card__title {
+    font-size: 19px;
   }
 
-  .overlay {
-    padding: 15px;
-
-    h1 {
-      font-size: 20px;
-    }
-
-    p {
-      font-size: 12px;
-
-      line-height: 1.5;
-    }
-  }
-
-  .tech-icons {
-    gap: 6px;
-
-    span {
-      width: 32px;
-      height: 32px;
-
-      border-radius: 10px;
-
-      i {
-        font-size: 15px;
-      }
-    }
-  }
-
-  .projects-buttons {
+  .project-card__links {
     gap: 8px;
   }
 
-  .button-1,
-  .button-2 {
-    height: 40px;
+  .project-card__link {
+    width: 116px;
 
-    padding: 8px 15px;
+    flex-basis: 116px;
 
-    font-size: 13px;
+    height: 55px;
+  }
+
+  .project-card__link-arrow {
+    display: none;
   }
 }
 
-
 /* =========================================================
-   MD DEVICES
-   ≤ 768px
+   MD — 768px
 ========================================================= */
 
 @include md {
-  .projects-img {
-    height: 250px;
+  .projects-item--featured,
+  .projects-item--grid {
+    width: 50%;
   }
 
-  .overlay {
-    padding: 15px;
-
-    h1 {
-      font-size: 19px;
-    }
-
-    p {
-      font-size: 13px;
-
-      line-height: 1.5;
-    }
+  .project-card__title {
+    font-size: 18px;
   }
 
-  .tech-icons {
-    span {
-      width: 33px;
-      height: 33px;
-    }
+  .project-card__description {
+    font-size: 10.5px;
   }
 
-  .projects-buttons {
-    flex-direction: column;
+  .project-card__link {
+    width: 112px;
 
-    align-items: stretch;
+    flex-basis: 112px;
 
-    gap: 9px;
-
-    a {
-      width: 100%;
-    }
+    height: 54px;
   }
 
-  .button-1,
-  .button-2 {
-    width: 100%;
+  .project-card__link-icon {
+    width: 37px;
+    height: 37px;
+  }
 
-    height: 42px;
-
-    text-align: center;
+  .project-card__link-text strong {
+    font-size: 9px;
   }
 }
 
-
 /* =========================================================
-   SM DEVICES
-   ≤ 576px
+   SM — 576px
 ========================================================= */
 
 @include sm {
-  .projects-item-inner {
-    border-radius: 14px;
+  .projects-item--featured,
+  .projects-item--grid {
+    width: 100%;
   }
 
-  .projects-img {
-    height: 220px;
+  .project-card__title {
+    font-size: 20px;
   }
 
-  .overlay {
-    padding: 13px;
+  .project-card__link {
+    width: 132px;
 
-    h1 {
-      font-size: 18px;
+    flex-basis: 132px;
 
-      margin-bottom: 7px;
-    }
-
-    p {
-      font-size: 12px;
-
-      line-height: 1.4;
-
-      margin-bottom: 8px;
-    }
+    height: 58px;
   }
 
-  .tech-icons {
-    gap: 5px;
-
-    span {
-      width: 30px;
-      height: 30px;
-
-      border-radius: 9px;
-
-      i {
-        font-size: 14px;
-      }
-    }
+  .project-card__link-icon {
+    width: 41px;
+    height: 41px;
   }
 
-  .projects-buttons {
-    gap: 8px;
-
-    margin-top: 9px;
+  .project-card__link-text strong {
+    font-size: 10px;
   }
 
-  .button-1,
-  .button-2 {
-    height: 42px;
-
-    font-size: 13px;
-
-    border-radius: 11px;
+  .project-card__link-arrow {
+    display: flex;
   }
 }
 
-
 /* =========================================================
-   XS DEVICES
-   ≤ 480px
+   XS — 420px
 ========================================================= */
 
 @include xs {
-  .projects-item-inner {
-    border-width: 1px;
-
-    border-radius: 12px;
+  .projects-item {
+    padding: 9px;
   }
 
-  .projects-img {
-    height: 200px;
+  .project-card__header {
+    padding: 11px 12px;
   }
 
-  .overlay {
-    padding: 11px;
-
-    h1 {
-      font-size: 16px;
-
-      margin-bottom: 6px;
-    }
-
-    p {
-      font-size: 11px;
-
-      line-height: 1.4;
-
-      margin-bottom: 7px;
-    }
+  .project-card__identity-label {
+    font-size: 8px;
   }
 
-  .tech-icons {
-    gap: 4px;
-
-    span {
-      width: 28px;
-      height: 28px;
-
-      border-radius: 8px;
-
-      i {
-        font-size: 13px;
-      }
-    }
+  .project-card__media {
+    padding: 10px 10px 0;
   }
 
-  .projects-buttons {
+  .project-card__body {
+    padding: 13px 12px 12px;
+  }
+
+  .project-card__title {
+    font-size: 18px;
+  }
+
+  .project-card__description {
+    font-size: 10.5px;
+  }
+
+  .project-card__tech-wrapper {
     gap: 7px;
-
-    margin-top: 8px;
   }
 
-  .button-1,
-  .button-2 {
-    height: 39px;
-
-    font-size: 12px;
-
-    padding: 8px 10px;
-
-    border-radius: 10px;
+  .project-card__tech-label {
+    display: none;
   }
 
-  .button-1 i,
-  .button-2 i {
-    font-size: 12px;
+  .project-card__link {
+    width: 112px;
+
+    flex-basis: 112px;
+
+    height: 55px;
+  }
+
+  .project-card__link-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .project-card__link-text strong {
+    font-size: 9px;
+  }
+
+  .project-card__link-text small {
+    font-size: 7px;
+  }
+
+  .project-card__link-arrow {
+    display: none;
   }
 }
-
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .projects-item-inner {
+  .project-card,
+  .project-card__main,
+  .project-card__depth,
+  .project-card__image,
+  .project-card__image-shine,
+  .project-card__image-action,
+  .project-card__title-icon,
+  .project-card__tech-item,
+  .project-card__link,
+  .project-card__link-icon,
+  .project-card__link-arrow,
+  .project-card__link::before,
+  .project-card__glow {
     transition: none;
-
-    &::before {
-      animation: none;
-    }
-
-    &:hover {
-      transform: none;
-    }
   }
 
-  .projects-img,
-  .projects-img img,
-  .overlay,
-  .tech-icons span,
-  .tech-icons span i,
-  .button-1,
-  .button-2 {
-    transition: none;
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-card:hover
+    .project-card__main {
+    transform: none;
   }
 }
