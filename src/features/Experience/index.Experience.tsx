@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { experiences } from "@/data/experiencesData";
-import { ExperienceType } from "@/types/experience";
+import { ExperienceType } from "@/types/experienceTypes";
 
 import ExperienceCard from "./components/ExperienceCard";
 import ExperienceFilters from "./components/ExperienceFilters";
