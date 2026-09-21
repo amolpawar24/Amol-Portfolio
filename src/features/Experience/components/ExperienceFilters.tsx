@@ -1,6 +1,6 @@
 "use client";
 
-import { ExperienceType } from "@/types/experience";
+import { ExperienceType } from "@/types/experienceTypes";
 
 interface ExperienceFiltersProps {
   activeFilter: ExperienceType | "all";
