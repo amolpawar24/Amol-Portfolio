@@ -10,11 +10,11 @@ interface ProjectCardsProps {
   index?: number;
 }
 
-export default function ProjectCards({
-  project,
-  featured = false,
-  index = 0,
-}: ProjectCardsProps) {
+export default function ProjectCards(props: ProjectCardsProps) {
+
+  // Props Destructuring and Default Values
+  const {project, featured = false, index = 0} = props;
+
   const hasLiveDemo =
     Boolean(project.liveDemo) &&
     project.liveDemo !== "#";
