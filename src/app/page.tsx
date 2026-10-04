@@ -85,7 +85,7 @@ export default function Main() {
         id="Experience"
       >
         <Experience />
-      </section>
+      </section> */}
 
       {/* ================= CERTIFICATIONS ================== */}
       <section
