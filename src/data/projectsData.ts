@@ -40,6 +40,8 @@ const projectsData: ProjectType[] = [
       "Render",
       "Netlify",
       "Responsive Design",
+      "Frontend",
+      "Backend",
       "Full Stack",
       "Real-Time",
     ],
@@ -92,7 +94,7 @@ const projectsData: ProjectType[] = [
       "Razorpay",
       "Vercel",
       "Responsive Design",
-      "Full Stack",
+      "Frontend",
     ],
 
     liveDemo: "https://bpl-official.vercel.app/",
@@ -143,7 +145,9 @@ const projectsData: ProjectType[] = [
       "Formik",
       "Yup",
       "Cloudflare",
+      "Backend",
       "Full Stack",
+
     ],
 
     liveDemo: "https://bpl-hub-2026.bpl-official-in.workers.dev/",
@@ -173,6 +177,8 @@ const projectsData: ProjectType[] = [
     categories: [
       "Next.js",
       "React",
+      "TypeScript",
+      "Frontend",
       "Responsive Design",
       "Animation",
       "UI Design",
@@ -213,14 +219,13 @@ const projectsData: ProjectType[] = [
       "Bike booking and rental platform with smooth UI and responsive layouts.",
 
     tech: [
-      "fab fa-html5",
-      "fab fa-css3-alt",
-      "fab fa-js",
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
+      "fas fa-css3-alt",
+      "fas fa-js"
     ],
 
-    categories: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    categories: ["React", "CSS", "JavaScript", "Responsive Design"],
 
     liveDemo: "https://bike24-website.netlify.app/",
     code: "https://github.com/amolpawar24/Bike-Rental",
@@ -279,6 +284,9 @@ const projectsData: ProjectType[] = [
       "HTML",
       "CSS",
       "JavaScript",
+      "Responsive Design",
+      "Frontend",
+      "Backend",
       "Full Stack",
     ],
 
