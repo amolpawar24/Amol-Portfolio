@@ -20,16 +20,25 @@ interface Props {
 const categories = [
   "All",
   "Frontend",
+  "Backend",
   "Full Stack",
   "HTML",
   "CSS",
   "JavaScript",
+  "Bootstrap",
   "React",
+  "TypeScript",
+  "ReduxToolkit",
+  "TailwindCSS",
+  "Scss",
   "Next.js",
   "Node.js",
   "Express.js",
   "MongoDB",
   "Java",
+  "MySQL",
+  "Python",
+  "FastAPI",
 ] as const;
 
 type ProjectCategory = (typeof categories)[number];
@@ -39,7 +48,7 @@ type ProjectCategory = (typeof categories)[number];
 ========================================================= */
 
 const technologyAliases: Record<
-  Exclude<ProjectCategory, "All" | "Frontend" | "Full Stack">,
+  Exclude<ProjectCategory, "All" | "Frontend" | "Backend" | "Full Stack">,
   string[]
 > = {
   HTML: [
@@ -62,11 +71,41 @@ const technologyAliases: Record<
     "fa-js",
   ],
 
+  Bootstrap: [
+    "bootstrap",
+    "fa-bootstrap",
+  ],
+
   React: [
     "react",
     "reactjs",
     "react.js",
     "fa-react",
+  ],
+
+  TypeScript: [
+    "typescript",
+    "ts",
+    "fa-typescript",
+  ],
+
+  ReduxToolkit: [
+    "redux",
+    "redux-toolkit",
+    "fa-redux",
+  ],
+
+  "TailwindCSS": [
+    "tailwind",
+    "tailwindcss",
+    "tailwind css",
+    "fa-tailwind",
+  ],
+
+  Scss: [
+    "scss",
+    "sass",
+    "fa-sass",
   ],
 
   "Next.js": [
@@ -101,6 +140,22 @@ const technologyAliases: Record<
     "spring",
     "spring boot",
   ],
+
+  MySQL: [
+    "mysql",
+    "my sql",
+  ],
+
+  Python: [
+    "python",
+    "python3",
+    "python 3",
+  ],
+
+  FastAPI: [
+    "fastapi",
+    "fast api",
+  ],
 };
 
 /* =========================================================
@@ -118,8 +173,17 @@ const backendTechnologies = [
   "mongo",
   "mongo db",
   "java",
+  "core java",
+  "J2ee",
   "spring",
   "spring boot",
+  "mysql",
+  "my sql",
+  "python",
+  "python3",
+  "python 3",
+  "fastapi",
+  "fast api",
 ];
 
 /* =========================================================
@@ -147,7 +211,7 @@ const projectUsesTechnology = (
   project: ProjectType,
   category: Exclude<
     ProjectCategory,
-    "All" | "Frontend" | "Full Stack"
+    "All" | "Frontend" | "Backend" | "Full Stack"
   >
 ): boolean => {
   const content = getProjectContent(project);
@@ -192,6 +256,16 @@ const isFrontendProject = (
 };
 
 /* =========================================================
+   CHECK BACKEND
+========================================================= */
+
+const isBackendProject = (
+  project: ProjectType
+): boolean => {
+  return isFullStackProject(project);
+};
+
+/* =========================================================
    MATCH PROJECT WITH FILTER
 ========================================================= */
 
@@ -214,6 +288,13 @@ const projectMatchesCategory = (
   if (category === "Frontend") {
     return isFrontendProject(project);
   }
+  /* -------------------------------------------------------
+     BACKEND
+  ------------------------------------------------------- */
+
+  if (category === "Backend") {
+    return isBackendProject(project);
+  }
 
   /* -------------------------------------------------------
      FULL STACK
@@ -222,6 +303,7 @@ const projectMatchesCategory = (
   if (category === "Full Stack") {
     return isFullStackProject(project);
   }
+
 
   /* -------------------------------------------------------
      TECHNOLOGY
