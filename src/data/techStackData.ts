@@ -1,5 +1,5 @@
-export const techStackData = [
 
+export const techStackData = [
   {
     icon: "fas fa-database",
     title: "SQL",
@@ -16,6 +16,18 @@ export const techStackData = [
     icon: "fas fa-server",
     title: "J2EE",
     description: "Enterprise-level Java applications.",
+  },
+
+  {
+    icon: "fas fa-cogs",
+    title: "Spring Boot",
+    description: "Building robust and scalable backend services.",
+  },
+
+  {
+    icon: "fas fa-database",
+      title: "MySQL",
+    description: "Database design, queries, and optimization.",
   },
 
   {
@@ -90,11 +102,34 @@ export const techStackData = [
     description: "Server-side rendering and performance.",
   },
 
-  
   {
     icon: "fas fa-plug",
     title: "API Integration",
     description: "Connecting frontend with backend services.",
+  },
+
+  {
+    icon: "fas fa-mobile-alt",
+    title: "Component Based Architecture",
+    description: "Building reusable and modular components.",
+  },
+
+  {
+    icon: "fas fa-mobile-alt",
+    title: "Responsive Design",
+    description: "Creating layouts that adapt to different screen sizes.",
+  },
+
+  {
+    icon: "fab fa-react",
+    title: "React Native",
+    description: "Framework for building cross-platform mobile applications.",
+  },
+
+  {
+    icon: "fas fa-mobile-alt",
+    title: "Expo Go",
+    description: "Development and testing platform for React Native applications.",
   },
 
   {
@@ -115,13 +150,25 @@ export const techStackData = [
     description: "NoSQL database management.",
   },
 
+  {
+    icon: "fab fa-python",
+    title: "Python",
+    description: "High-level programming language for application development and backend programming.",
+  },
+
+  {
+    icon: "fas fa-bolt",
+    title: "FastAPI",
+    description: "Modern Python framework for building fast and scalable APIs.",
+  },
+
   //* AI Tools Vibe Coding
   {
     icon: "fas fa-robot",
     title: "Vibe Coding",
     description: "AI-powered code generation and assistance.",
   },
-  
+
   {
     icon: "fas fa-robot",
     title: "ChatGPT",
@@ -144,7 +191,5 @@ export const techStackData = [
     icon: "fas fa-robot",
     title: "Tabnine",
     description: "AI code completion tool for faster coding.",
-  }
-
-
+  },
 ];
