@@ -36,9 +36,34 @@ const technologyConfig: Record<
     icon: "fab fa-js",
   },
 
+  Bootstrap: {
+    name: "Bootstrap",
+    icon: "fab fa-bootstrap",
+  },
+
   React: {
     name: "React",
     icon: "fab fa-react",
+  },
+
+  Typescript: {
+    name: "TypeScript",
+    icon: "fas fa-code",
+  },
+
+  ReduxToolkit: {
+    name: "Redux Toolkit",
+    icon: "fas fa-sync-alt",
+  },
+
+  TailwindCSS: {
+    name: "Tailwind CSS",
+    icon: "fas fa-wind",
+  },
+
+  scss: {
+    name: "SCSS",
+    icon: "fas fa-palette",
   },
 
   "Next.js": {
@@ -66,18 +91,42 @@ const technologyConfig: Record<
     icon: "fab fa-java",
   },
 
+  MySQL: {
+    name: "MySQL",
+    icon: "fas fa-database",
+  },
+
+  Python: {
+    name: "Python",
+    icon: "fab fa-python",
+  },
+
+  FastAPI: {
+    name: "FastAPI",
+    icon: "fas fa-bolt",
+  },
+
+  Frontend: {
+    name: "Frontend",
+    icon: "fas fa-laptop-code",
+  },
+
+  Backend: {
+    name: "Backend",
+    icon: "fas fa-server",
+  },
+
   "Full Stack": {
     name: "Full Stack",
     icon: "fas fa-code",
   },
 };
 
-export default function ProjectFilters({
-  categories,
-  activeCategory,
-  onCategoryChange,
-  projectCounts = {},
-}: ProjectFiltersProps) {
+export default function ProjectFilters(props: ProjectFiltersProps) {
+
+  // Destructure props for easier access
+  const {categories, activeCategory, onCategoryChange, projectCounts ={}} = props;
+
   return (
     <div
       className="project-filters"
