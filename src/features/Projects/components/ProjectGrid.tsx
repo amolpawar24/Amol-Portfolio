@@ -8,9 +8,11 @@ interface ProjectGridProps {
   projects: ProjectType[];
 }
 
-export default function ProjectGrid({
-  projects,
-}: ProjectGridProps) {
+export default function ProjectGrid(props: ProjectGridProps) {
+
+  //Props Destructuring and Default Values
+  const {projects = []} = props;
+
   /* =========================================================
      EMPTY STATE
   ========================================================= */
