@@ -97,8 +97,8 @@ const projectsData: ProjectType[] = [
       "Frontend",
     ],
 
-    liveDemo: "https://bpl-official.vercel.app/",
-    code: "https://github.com/AMOL-DEV-24/bpl-frontend",
+    liveDemo: "https://bpl-official2026.netlify.app",
+    code: "https://github.com/amolpawar24/BPL-Official",
   },
 
   // =========================================================
