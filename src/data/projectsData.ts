@@ -150,8 +150,8 @@ const projectsData: ProjectType[] = [
 
     ],
 
-    liveDemo: "https://bpl-hub-2026.bpl-official-in.workers.dev/",
-    code: "https://github.com/AMOL-DEV-24/BPL-HUB",
+    liveDemo: "https://bpl-hub.netlify.app/",
+    code: "https://github.com/amolpawar24/BPL-Hub",
   },
 
   // =========================================================
