@@ -2,11 +2,49 @@ import { ProjectType } from "@/types/projectTypes";
 
 const projectsData: ProjectType[] = [
   // =========================================================
-  // 01. PULSE
+  // 01. PROJECT FLOW
+  // =========================================================
+  {
+    id: 1,
+    image: "/assets/images/projects/Project-Flow.png",
+    title: "PROJECT FLOW",
+    description:
+      "A responsive project management dashboard that helps users organize projects, create and manage tasks, track task progress, and quickly find work. The current scope includes dashboard summary cards, project listings, task creation, editing and deletion, task status management, search and priority/status filters, and responsive layouts. Planned to expand with additional project management features over time.",
+
+    tech: [
+      "fab fa-react", // React
+      "fas fa-code", // TypeScript
+      "fas fa-wind", // Tailwind CSS
+      "fas fa-bolt", // Vite
+      "fas fa-route", // React Router
+      "fas fa-icons", // Lucide React
+      "fas fa-mobile-screen", // Responsive Design
+    ],
+
+    categories: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "React Router",
+      "Lucide React",
+      "Frontend",
+      "Project Management",
+      "Dashboard",
+      "Task Management",
+      "Responsive Design",
+    ],
+
+    liveDemo: "https://project-flow-web.netlify.app/",
+    code: "https://github.com/amolpawar24/ProjectFlow",
+  },
+
+  // =========================================================
+  // 02. PULSE
   // =========================================================
 
   {
-    id: 1,
+    id: 2,
     image: "/assets/images/projects/Pulse-Messaging.png",
     title: "PULSE",
     description:
@@ -51,11 +89,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 02. BPL OFFICIAL
+  // 03. BPL OFFICIAL
   // =========================================================
 
   {
-    id: 2,
+    id: 3,
     image: "/assets/images/projects/BPL-OFFICIAL.png",
     title: "BPL OFFICIAL - WEBAPP",
     description:
@@ -102,11 +140,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 03. BPL HUB
+  // 04. BPL HUB
   // =========================================================
 
   {
-    id: 3,
+    id: 4,
     image: "/assets/images/projects/BPL-HUB.png",
     title: "BPL HUB - ADMIN PANEL",
     description:
@@ -147,7 +185,6 @@ const projectsData: ProjectType[] = [
       "Cloudflare",
       "Backend",
       "Full Stack",
-
     ],
 
     liveDemo: "https://bpl-hub.netlify.app/",
@@ -155,11 +192,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 04. PORTFOLIO 5
+  // 05. PORTFOLIO 5
   // =========================================================
 
   {
-    id: 4,
+    id: 5,
     image: "/assets/images/projects/Portfolio-5.png",
     title: "PORTFOLIO - 5",
     description:
@@ -189,11 +226,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 05. GYM APP
+  // 06. GYM APP
   // =========================================================
 
   {
-    id: 5,
+    id: 6,
     image: "/assets/images/projects/Gym App.png",
     title: "GYM WEBAPP",
     description:
@@ -208,11 +245,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 06. BIKE APP
+  // 07. BIKE APP
   // =========================================================
 
   {
-    id: 6,
+    id: 7,
     image: "/assets/images/projects/Bike App.png",
     title: "BIKE RENTAL - WEBSITE",
     description:
@@ -222,7 +259,7 @@ const projectsData: ProjectType[] = [
       "fas fa-wand-magic-sparkles",
       "fas fa-mobile-screen",
       "fas fa-css3-alt",
-      "fas fa-js"
+      "fas fa-js",
     ],
 
     categories: ["React", "CSS", "JavaScript", "Responsive Design"],
@@ -232,11 +269,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 07. PEPSI APP
+  // 08. PEPSI APP
   // =========================================================
 
   {
-    id: 7,
+    id: 8,
     image: "/assets/images/projects/Pepsi.png",
     title: "PEPSI CLONE WEBSITE",
     description:
@@ -250,18 +287,24 @@ const projectsData: ProjectType[] = [
       "fas fa-mobile-screen",
     ],
 
-    categories: ["HTML", "CSS", "JavaScript", "Responsive Design", "Animation"],
+    categories: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive Design",
+      "Animation",
+    ],
 
     liveDemo: "https://pespsi24-website.netlify.app/",
     code: "https://github.com/amolpawar24/Pepsi-Website-Clone",
   },
 
   // =========================================================
-  // 08. HMBOX 2023
+  // 09. HMBOX 2023
   // =========================================================
 
   {
-    id: 8,
+    id: 9,
     image: "/assets/images/projects/HmBox2023.png",
     title: "HMBOX 2023 WEBAPP",
     description:
@@ -295,11 +338,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 09. PORTFOLIO 1
+  // 10. PORTFOLIO 1
   // =========================================================
 
   {
-    id: 9,
+    id: 10,
     image: "/assets/images/projects/portfolio 1.jpg",
     title: "Portfolio 1 WEBSITE",
     description:
@@ -321,11 +364,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 10. PORTFOLIO 2
+  // 11. PORTFOLIO 2
   // =========================================================
 
   {
-    id: 10,
+    id: 11,
     image: "/assets/images/projects/Portfolio 2.png",
     title: "Portfolio 2 WEBSITE",
     description:
@@ -339,18 +382,23 @@ const projectsData: ProjectType[] = [
       "fas fa-palette",
     ],
 
-    categories: ["JavaScript", "Responsive Design", "Animation", "UI Design"],
+    categories: [
+      "JavaScript",
+      "Responsive Design",
+      "Animation",
+      "UI Design",
+    ],
 
     liveDemo: "https://amol-portfolio2.netlify.app/",
     code: "#",
   },
 
   // =========================================================
-  // 11. PORTFOLIO 3
+  // 12. PORTFOLIO 3
   // =========================================================
 
   {
-    id: 11,
+    id: 12,
     image: "/assets/images/projects/Portfolio 3.png",
     title: "Portfolio 3 WEBSITE",
     description:
@@ -378,11 +426,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 12. PORTFOLIO 4
+  // 13. PORTFOLIO 4
   // =========================================================
 
   {
-    id: 12,
+    id: 13,
     image: "/assets/images/projects/Portfolio 4.png",
     title: "Portfolio 4 WEBSITE",
     description:
@@ -410,11 +458,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 13. GYMSO WEBAPP
+  // 14. GYMSO WEBAPP
   // =========================================================
 
   {
-    id: 13,
+    id: 14,
     image: "/assets/images/projects/Gymso-WebApp.png",
     title: "GYMSO WEBSITE",
     description:
@@ -429,11 +477,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 14. NEWSIFY
+  // 15. NEWSIFY
   // =========================================================
 
   {
-    id: 14,
+    id: 15,
     image: "/assets/images/projects/Newsify.png",
     title: "NEWSIFY WEBSITE",
     description: "This news application builded using React to find news.",
@@ -452,11 +500,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 15. MOVIESPOT
+  // 16. MOVIESPOT
   // =========================================================
 
   {
-    id: 15,
+    id: 16,
     image: "/assets/images/projects/Moviespot.png",
     title: "MOVIESPOT WEBSITE",
     description:
@@ -476,20 +524,17 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 16. TODO APP
+  // 17. TODO APP
   // =========================================================
 
   {
-    id: 16,
+    id: 17,
     image: "/assets/images/projects/Todo React App.png",
     title: "TODO APP",
     description:
       "It React Project to help to understand the how the CRUD is works.",
 
-    tech: [
-      "fas fa-mobile-screen",
-      "fab fa-react",
-    ],
+    tech: ["fas fa-mobile-screen", "fab fa-react"],
 
     categories: ["React", "CRUD"],
 
@@ -498,11 +543,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 17. CUDA 1
+  // 18. CUDA 1
   // =========================================================
 
   {
-    id: 17,
+    id: 18,
     image: "/assets/images/projects/Cuda.png",
     title: "CUDA 1 WEBSITE",
     description: "Responsive business website hosted using GitHub Pages.",
@@ -516,11 +561,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 18. CALCULATOR
+  // 19. CALCULATOR
   // =========================================================
 
   {
-    id: 18,
+    id: 19,
     image: "/assets/images/projects/Calculator.png",
     title: "Calculator APP",
     description: "It is javascript project made with Neophormism design.",
@@ -534,11 +579,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 19. DIGITAL CLOCK
+  // 20. DIGITAL CLOCK
   // =========================================================
 
   {
-    id: 19,
+    id: 20,
     image: "/assets/images/projects/Digital Clock.png",
     title: "Digital Clock APP",
     description: "Digital Clock unique css design.",
@@ -552,11 +597,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 20. GENERATE QR CODE
+  // 21. GENERATE QR CODE
   // =========================================================
 
   {
-    id: 20,
+    id: 21,
     image: "/assets/images/projects/Generate QR.png",
     title: "Generate QR Code APP",
     description: "Genarate QR made by with JS.",
@@ -570,11 +615,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 21. BULB USING JAVASCRIPT
+  // 22. BULB USING JAVASCRIPT
   // =========================================================
 
   {
-    id: 21,
+    id: 22,
     image: "/assets/images/projects/Bulb Javascript.png",
     title: "Bulb Using Javscript Action",
     description: "Bulb using Javascript Action turing On and Off.",
@@ -588,11 +633,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 22. GLOWING CUBE
+  // 23. GLOWING CUBE
   // =========================================================
 
   {
-    id: 22,
+    id: 23,
     image: "/assets/images/projects/Glowing Cube.png",
     title: "Glowing Cube",
     description: "It is Glowing sqaure Cube with attractive CSS design.",
@@ -606,11 +651,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 23. WHEELS LANDING PAGE
+  // 24. WHEELS LANDING PAGE
   // =========================================================
 
   {
-    id: 23,
+    id: 24,
     image: "/assets/images/projects/Wheels Landing Page.png",
     title: "WHEELS LANDING PAGE",
     description: "It Landing Page made with css without responsive.",
@@ -624,11 +669,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 24. APJ TRIBUTE PAGE
+  // 25. APJ TRIBUTE PAGE
   // =========================================================
 
   {
-    id: 24,
+    id: 25,
     image: "/assets/images/projects/APJ Tribute Page.png",
     title: "APJ TRIBUTE PAGE",
     description:
@@ -643,11 +688,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 25. SPOTIFY CLONE
+  // 26. SPOTIFY CLONE
   // =========================================================
 
   {
-    id: 25,
+    id: 26,
     image: "/assets/images/projects/Spotify Clone.png",
     title: "SPOTIFY CLONE",
     description: "Spotify clone with elegant UI and animations.",
@@ -657,15 +702,15 @@ const projectsData: ProjectType[] = [
     categories: ["HTML", "CSS", "JavaScript", "Animation"],
 
     liveDemo: "https://full-turquoise-2hwvvsqo.edgeone.dev/",
-    code: "#"
+    code: "#",
   },
 
   // =========================================================
-  // 26. NEOPHORMISM PROFILE CARD
+  // 27. NEOPHORMISM PROFILE CARD
   // =========================================================
 
   {
-    id: 26,
+    id: 27,
     image: "/assets/images/projects/Neophormism  Profile Card.png",
     title: "Neophormism Profile Card",
     description: "Neophormism profile card with elegant UI and animations.",
@@ -679,11 +724,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 27. TRANSPARENT PROFILE CARD
+  // 28. TRANSPARENT PROFILE CARD
   // =========================================================
 
   {
-    id: 27,
+    id: 28,
     image: "/assets/images/projects/Transparent Profile Card.png",
     title: "TRANSPARENT PROFILE CARD",
     description: "Transparent profile card with elegant UI and animations.",
@@ -697,11 +742,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 28. INDIAN HISTORICAL PLACES
+  // 29. INDIAN HISTORICAL PLACES
   // =========================================================
 
   {
-    id: 28,
+    id: 29,
     image: "/assets/images/projects/Incredible India.png",
     title: "INDIAN HISTORICAL PLACES",
     description:
@@ -716,11 +761,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 29. INDIAN BEAUTIFUL PLACES
+  // 30. INDIAN BEAUTIFUL PLACES
   // =========================================================
 
   {
-    id: 29,
+    id: 30,
     image: "/assets/images/projects/Indian Beautiful Places.png",
     title: "INDIAN BEAUTIFUL PLACES",
     description:
@@ -735,14 +780,15 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 30. INDIAN CUISINE
+  // 31. INDIAN CUISINE
   // =========================================================
 
   {
-    id: 30,
+    id: 31,
     image: "/assets/images/projects/Indian Cuisine.png",
     title: "INDIAN CUISINE",
-    description: "Indian Cuisine landing page with elegant UI and animations.",
+    description:
+      "Indian Cuisine landing page with elegant UI and animations.",
 
     tech: ["fab fa-html5", "fab fa-css3-alt", "fab fa-js"],
 
@@ -753,11 +799,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 31. IPL 2023 SCHEDULE
+  // 32. IPL 2023 SCHEDULE
   // =========================================================
 
   {
-    id: 31,
+    id: 32,
     image: "/assets/images/projects/IPL 2023 Schedule.png",
     title: "IPL 2023 SCHEDULE",
     description:
@@ -772,11 +818,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 32. BULB CSS
+  // 33. BULB CSS
   // =========================================================
 
   {
-    id: 32,
+    id: 33,
     image: "/assets/images/projects/Bulb Css.png",
     title: "BULB CSS",
     description: "Interactive bulb UI created using HTML and CSS.",
@@ -790,11 +836,11 @@ const projectsData: ProjectType[] = [
   },
 
   // =========================================================
-  // 33. INDIAN RESTAURENT
+  // 34. INDIAN RESTAURENT
   // =========================================================
 
   {
-    id: 33,
+    id: 34,
     image: "/assets/images/projects/indian-restro-html.png",
     title: "Indian Restaurent",
     description: "It is Fully static html page without CSS and JS.",
