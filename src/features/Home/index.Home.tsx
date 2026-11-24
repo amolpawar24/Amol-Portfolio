@@ -64,7 +64,7 @@ export default function Home({ onNavigate }: Props) {
             </a>
 
             <a
-              href="https://amolpawar24.carrd.co/"
+              href="https://amolpawar.carrd.co/"
               className="btn"
               target="_blank"
               rel="noopener noreferrer"
